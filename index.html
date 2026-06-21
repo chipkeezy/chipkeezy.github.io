@@ -1,55 +1,171 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My Art Portfolio</title>
-  <style>
-    body {
-      font-family: Arial;
-      margin: 0;
-      background: #111;
-      color: white;
-      text-align: center;
-    }
-    header {
-      padding: 60px;
-      background: #222;
-    }
-    h1 {
-      font-size: 40px;
-    }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 10px;
-      padding: 20px;
-    }
-    .gallery img {
-      width: 100%;
-      border-radius: 10px;
-    }
-    footer {
-      padding: 20px;
-      background: #222;
-      margin-top: 30px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KaliCulture</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  background: #0b0b0f;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+}
+
+/* HERO SECTION */
+.hero {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: radial-gradient(circle at top, #1a1a2e, #0b0b0f);
+}
+
+.hero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 60px;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+.hero p {
+  opacity: 0.7;
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+/* BUTTON */
+.btn {
+  margin-top: 20px;
+  padding: 12px 25px;
+  border: 1px solid #fff;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn:hover {
+  background: white;
+  color: black;
+}
+
+/* GALLERY */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  padding: 60px;
+}
+
+.art {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.art img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease;
+}
+
+.art:hover img {
+  transform: scale(1.1);
+}
+
+/* OVERLAY */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  font-size: 14px;
+}
+
+/* ABOUT */
+.about {
+  padding: 80px 20px;
+  text-align: center;
+  background: #111;
+}
+
+.about h2 {
+  font-family: "Playfair Display";
+  font-size: 40px;
+}
+
+/* CONTACT */
+.contact {
+  text-align: center;
+  padding: 60px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  opacity: 0.5;
+  font-size: 14px;
+}
+</style>
 </head>
 
 <body>
 
-<header>
-  <h1>My Art Portfolio</h1>
-  <p>Paintings • Digital Art • Creative Works</p>
-</header>
+<!-- HERO -->
+<div class="hero">
+  <h1>Your Art Name</h1>
+  <p>Painter • Visual Artist • Creator of Illusions</p>
+  <button class="btn" onclick="document.getElementById('gallery').scrollIntoView({behavior:'smooth'})">
+    View Gallery
+  </button>
+</div>
 
-<section class="gallery">
-  <img src="https://via.placeholder.com/400" />
-  <img src="https://via.placeholder.com/400" />
-  <img src="https://via.placeholder.com/400" />
-</section>
+<!-- GALLERY -->
+<div class="gallery" id="gallery">
+
+  <div class="art">
+    <img src="https://via.placeholder.com/500" />
+    <div class="overlay">Artwork Title 1</div>
+  </div>
+
+  <div class="art">
+    <img src="https://via.placeholder.com/500" />
+    <div class="overlay">Artwork Title 2</div>
+  </div>
+
+  <div class="art">
+    <img src="https://via.placeholder.com/500" />
+    <div class="overlay">Artwork Title 3</div>
+  </div>
+
+</div>
+
+<!-- ABOUT -->
+<div class="about">
+  <h2>About Me</h2>
+  <p>
+    I create cinematic paintings and visual illusions that blend emotion,
+    light, and storytelling into every piece.
+  </p>
+</div>
+
+<!-- CONTACT -->
+<div class="contact">
+  <h2>Contact / Commissions</h2>
+  <p>WhatsApp: +255 XXX XXX XXX</p>
+  <p>Instagram: @yourhandle</p>
+</div>
 
 <footer>
-  <p>Contact: yournumber / Instagram</p>
+  © 2026 My Art Portfolio
 </footer>
 
 </body>
