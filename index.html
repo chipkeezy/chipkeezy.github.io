@@ -267,6 +267,29 @@ color:#c6a56a;
 }
 
 }
+  .status{
+display:inline-block;
+padding:6px 12px;
+border-radius:20px;
+font-size:0.8rem;
+font-weight:600;
+margin-bottom:15px;
+}
+
+.available{
+background:#16351f;
+color:#7dff9b;
+}
+
+.reserved{
+background:#3d3210;
+color:#ffd86b;
+}
+
+.sold{
+background:#3a1515;
+color:#ff8f8f;
+}
 </style>
 </head>
 <body>
@@ -384,6 +407,9 @@ onclick="openArtwork(this.src)">
 <p class="medium">
 Oil on Canvas • 60 × 80 cm
 </p>
+  <div class="status available">
+Available
+</div>
 
 <p class="price">
 TZS 850,000
@@ -409,15 +435,22 @@ onclick="openArtwork(this.src)">
 <p class="medium">
 Oil on Canvas • 60 × 80 cm
 </p>
+  <div class="status sold">
+Sold
+</div>
 
 <p class="price">
 TZS 850,000
 </p>
 
-<a class="buy-btn"
-href="https://wa.me/255YOURNUMBER?text=Hello%20I%20am%20interested%20in%20The%20Old%20Fisherman">
-Acquire Artwork
-</a>
+<div style="
+padding:12px 24px;
+border:1px solid #555;
+color:#777;
+display:inline-block;
+">
+Collected
+</div>
 
 </div>
 </div>
