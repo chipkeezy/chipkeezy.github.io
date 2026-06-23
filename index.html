@@ -100,21 +100,22 @@ margin-bottom:70px;
 /* GALLERY */
 
 .gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:35px;
+  column-count:3;
+  column-gap:25px;
 }
 
 .art-card{
-background:#111;
-overflow:hidden;
+  break-inside:avoid;
+  margin-bottom:25px;
+  background:#111;
+  overflow:hidden;
+  border-radius:8px;
 }
 
 .art-card img{
-width:100%;
-height:450px;
-object-fit:cover;
-transition:.6s;
+  width:100%;
+  height:auto;
+  display:block;
 }
 
 .art-card:hover img{
@@ -226,6 +227,46 @@ opacity:.8;
 .nav-links a:hover{
 color:#c6a56a;
 }
+  @media (max-width:768px){
+
+.hero h1{
+    font-size:2.8rem;
+}
+
+.hero p{
+    font-size:1rem;
+}
+
+.section{
+    padding:60px 20px;
+}
+
+.navbar{
+    padding:15px 20px;
+}
+
+.logo{
+    font-size:1.4rem;
+}
+
+.nav-links{
+    gap:15px;
+    font-size:0.9rem;
+}
+
+.gallery{
+    column-count:1;
+}
+
+.art-info{
+    padding:18px;
+}
+
+.section-title{
+    font-size:2.2rem;
+}
+
+}
 </style>
 </head>
 <body>
@@ -279,11 +320,10 @@ justify-content:center;
 
 <img src="artist.jpeg"
 style="
-width:300px;
-height:300px;
+width:min(300px,80vw);
+height:min(300px,80vw);
 object-fit:cover;
 border-radius:50%;
-border:2px solid #c6a56a;
 ">
 
 <div style="
@@ -333,7 +373,9 @@ Available Works
 <div class="gallery">
 
 <div class="art-card">
-<img src="The Feet That Carried a Continent.jpeg">
+
+<img src="The Feet That Carried a Continent.jpeg"
+onclick="openArtwork(this.src)">
 
 <div class="art-info">
 
@@ -347,27 +389,18 @@ Oil on Canvas • 60 × 80 cm
 TZS 850,000
 </p>
 
-<p style="color:#79d279;margin-bottom:15px;">
-● Available
-</p>
-
-<a
-class="buy-btn"
-href="https://wa.me/255YOURNUMBER?text=Hello%20I%20am%20interested%20in%20The%20Old%20Fisherman"
-target="_blank">
+<a class="buy-btn"
+href="https://wa.me/255YOURNUMBER?text=Hello%20I%20am%20interested%20in%20The%20Old%20Fisherman">
 Acquire Artwork
 </a>
 
 </div>
 </div>
 
-</div>
-
-</section>
-  <div class="gallery">
-
 <div class="art-card">
-<img src="The Last Ember 1.jpeg">
+
+<img src="The Last Ember 1.jpeg"
+onclick="openArtwork(this.src)">
 
 <div class="art-info">
 
@@ -381,20 +414,12 @@ Oil on Canvas • 60 × 80 cm
 TZS 850,000
 </p>
 
-<p style="color:#79d279;margin-bottom:15px;">
-● Available
-</p>
-
-<a
-class="buy-btn"
-href="https://wa.me/255YOURNUMBER?text=Hello%20I%20am%20interested%20in%20The%20Old%20Fisherman"
-target="_blank">
+<a class="buy-btn"
+href="https://wa.me/255YOURNUMBER?text=Hello%20I%20am%20interested%20in%20The%20Old%20Fisherman">
 Acquire Artwork
 </a>
 
 </div>
-</div>
-
 </div>
 
 </section>
@@ -416,6 +441,42 @@ Mwanza, Tanzania
 </div>
 
 </footer>
+<div id="lightbox"
+style="
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.95);
+z-index:9999;
+justify-content:center;
+align-items:center;
+">
 
+<img id="lightbox-img"
+style="
+max-width:95%;
+max-height:95%;
+">
+
+</div>
+
+<script>
+
+const lightbox=document.getElementById('lightbox');
+const lightboxImg=document.getElementById('lightbox-img');
+
+function openArtwork(src){
+  lightbox.style.display='flex';
+  lightboxImg.src=src;
+}
+
+lightbox.onclick=function(){
+  lightbox.style.display='none';
+}
+
+</script>
 </body>
 </html>
