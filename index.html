@@ -193,10 +193,55 @@ font-size:2.2rem;
 }
 
 }
+.navbar{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 10%;
+background:rgba(10,10,10,.85);
+backdrop-filter:blur(10px);
+z-index:999;
+}
 
+.logo{
+font-family:'Cormorant Garamond',serif;
+font-size:1.8rem;
+color:#c6a56a;
+}
+
+.nav-links{
+display:flex;
+gap:30px;
+}
+
+.nav-links a{
+color:white;
+opacity:.8;
+}
+
+.nav-links a:hover{
+color:#c6a56a;
+}
 </style>
 </head>
 <body>
+  <nav class="navbar">
+
+<div class="logo">
+McDonald Simon
+</div>
+
+<div class="nav-links">
+<a href="#gallery">Gallery</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</div>
+
+</nav>
 
 <section class="hero">
 
@@ -216,7 +261,7 @@ Enter Gallery
 
 </section>
 
-<section class="section">
+<section class="section" id="about">
 
 <h2 class="section-title">
 About the Artist
@@ -282,106 +327,54 @@ Featured Collection
 </h2>
 
 <p class="section-sub">
-Selected works available for acquisition
+Available Works
 </p>
 
 <div class="gallery">
 
 <div class="art-card">
-
-<img src="images/artwork1.jpg">
+<img src="fisherman.jpg">
 
 <div class="art-info">
 
-<h3 class="art-title">Old Fisherman</h3>
+<h3 class="art-title">The Old Fisherman</h3>
 
 <p class="medium">
-Oil on Canvas • 2026
+Oil on Canvas • 60 × 80 cm
 </p>
 
 <p class="price">
 TZS 850,000
 </p>
 
+<p style="color:#79d279;margin-bottom:15px;">
+● Available
+</p>
+
 <a
 class="buy-btn"
-href="https://wa.me/255700000000?text=Hello%20I%20am%20interested%20in%20Old%20Fisherman"
+href="https://wa.me/255YOURNUMBER?text=Hello%20I%20am%20interested%20in%20The%20Old%20Fisherman"
 target="_blank">
 Acquire Artwork
 </a>
 
 </div>
-
-</div>
-
-<div class="art-card">
-
-<img src="images/artwork2.jpg">
-
-<div class="art-info">
-
-<h3 class="art-title">Evening Journey</h3>
-
-<p class="medium">
-Oil on Canvas • 2026
-</p>
-
-<p class="price">
-TZS 950,000
-</p>
-
-<a
-class="buy-btn"
-href="https://wa.me/255700000000?text=Hello%20I%20am%20interested%20in%20Evening%20Journey"
-target="_blank">
-Acquire Artwork
-</a>
-
-</div>
-
-</div>
-
-<div class="art-card">
-
-<img src="images/artwork3.jpg">
-
-<div class="art-info">
-
-<h3 class="art-title">Village Light</h3>
-
-<p class="medium">
-Oil on Canvas • 2026
-</p>
-
-<p class="price">
-TZS 780,000
-</p>
-
-<a
-class="buy-btn"
-href="https://wa.me/255700000000?text=Hello%20I%20am%20interested%20in%20Village%20Light"
-target="_blank">
-Acquire Artwork
-</a>
-
-</div>
-
 </div>
 
 </div>
 
 </section>
 
-<footer>
+<footer id="contact">
 
 <h2>Contact</h2>
 
 <div class="contact">
-WhatsApp: +255 XXX XXX XXX
+WhatsApp: +255 692 973 059
 </div>
 
 <div class="contact">
-Instagram: @yourname
+Instagram: @_chipkeezy | @mc_ndokeji
 </div>
 
 <div class="contact">
