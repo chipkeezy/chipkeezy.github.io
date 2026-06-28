@@ -1,395 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>McDonald Simon | Artist</title>
+<title>McDonald Simon | Original Oil Paintings</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-<style>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-body{
-background:#0a0a0a;
-color:#f5f5f5;
-font-family:'Inter',sans-serif;
-overflow-x:hidden;
-}
+<link rel="stylesheet" href="style.css">
 
-h1,h2,h3{
-font-family:'Cormorant Garamond',serif;
-font-weight:400;
-}
-
-a{
-text-decoration:none;
-color:inherit;
-}
-
-/* HERO */
-
-.hero{
-height:100vh;
-background:
-linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.65)),
-url('hero.jpg');
-background-size:cover;
-background-position:center;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:20px;
-}
-
-.hero-content{
-max-width:900px;
-}
-
-.hero h1{
-font-size:5rem;
-letter-spacing:4px;
-}
-
-.hero p{
-margin-top:20px;
-font-size:1.2rem;
-opacity:.8;
-}
-
-.enter-btn{
-display:inline-block;
-margin-top:40px;
-padding:14px 34px;
-border:1px solid #c6a56a;
-color:#c6a56a;
-transition:.3s;
-}
-
-.enter-btn:hover{
-background:#c6a56a;
-color:#111;
-}
-
-/* SECTION */
-
-.section{
-padding:120px 10%;
-}
-
-.section-title{
-font-size:3rem;
-margin-bottom:20px;
-text-align:center;
-}
-
-.section-sub{
-text-align:center;
-opacity:.7;
-margin-bottom:70px;
-}
-
-/* GALLERY */
-
-.gallery{
-  column-count:3;
-  column-gap:25px;
-}
-
-.art-card{
-  break-inside:avoid;
-  margin-bottom:25px;
-  background:#111;
-  overflow:hidden;
-  border-radius:8px;
-}
-
-.art-card img{
-  width:100%;
-  height:auto;
-  display:block;
-}
-
-.art-card:hover img{
-transform:scale(1.05);
-}
-
-.art-info{
-padding:25px;
-}
-
-.art-title{
-font-size:2rem;
-margin-bottom:10px;
-}
-
-.medium{
-opacity:.6;
-font-size:.9rem;
-margin-bottom:15px;
-}
-
-.price{
-color:#c6a56a;
-margin-bottom:20px;
-}
-
-.buy-btn{
-display:inline-block;
-padding:12px 24px;
-border:1px solid #c6a56a;
-color:#c6a56a;
-}
-
-.buy-btn:hover{
-background:#c6a56a;
-color:black;
-}
-
-/* ARTIST STATEMENT */
-
-.statement{
-max-width:900px;
-margin:auto;
-text-align:center;
-font-size:1.15rem;
-line-height:1.9;
-opacity:.85;
-}
-
-/* FOOTER */
-
-footer{
-padding:80px 10%;
-text-align:center;
-border-top:1px solid #222;
-}
-
-footer h2{
-font-size:2.5rem;
-margin-bottom:20px;
-}
-
-.contact{
-margin-top:15px;
-opacity:.8;
-}
-
-@media(max-width:768px){
-
-.hero h1{
-font-size:3rem;
-}
-
-.section-title{
-font-size:2.2rem;
-}
-
-}
-.navbar{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 10%;
-background:rgba(10,10,10,.85);
-backdrop-filter:blur(10px);
-z-index:999;
-}
-
-.logo{
-font-family:'Cormorant Garamond',serif;
-font-size:1.8rem;
-color:#c6a56a;
-}
-
-.nav-links{
-display:flex;
-gap:30px;
-}
-
-.nav-links a{
-color:white;
-opacity:.8;
-}
-
-.nav-links a:hover{
-color:#c6a56a;
-}
-  @media (max-width:768px){
-
-.hero h1{
-    font-size:2.8rem;
-}
-
-.hero p{
-    font-size:1rem;
-}
-
-.section{
-    padding:60px 20px;
-}
-
-.navbar{
-    padding:15px 20px;
-}
-
-.logo{
-    font-size:1.4rem;
-}
-
-.nav-links{
-    gap:15px;
-    font-size:0.9rem;
-}
-
-.gallery{
-    column-count:1;
-}
-
-.art-info{
-    padding:18px;
-}
-
-.section-title{
-    font-size:2.2rem;
-}
-
-}
-  .status{
-display:inline-block;
-padding:6px 12px;
-border-radius:20px;
-font-size:0.8rem;
-font-weight:600;
-margin-bottom:15px;
-}
-
-.available{
-background:#16351f;
-color:#7dff9b;
-}
-
-.reserved{
-background:#3d3210;
-color:#ffd86b;
-}
-
-.sold{
-background:#3a1515;
-color:#ff8f8f;
-}
-  .contact a{
-color:#c6a56a;
-text-decoration:none;
-}
-
-.contact a:hover{
-opacity:0.8;
-}
-</style>
 </head>
+
 <body>
-  <nav class="navbar">
+
+<header class="navbar">
 
 <div class="logo">
-McDonald Simon
+
+<h2>McDonald Simon</h2>
+
+<p>Original Oil Paintings</p>
+
 </div>
 
-<div class="nav-links">
+<nav>
+
+<a href="#">Home</a>
+
 <a href="#gallery">Gallery</a>
+
 <a href="#about">About</a>
+
 <a href="#contact">Contact</a>
-</div>
 
 </nav>
 
+</header>
+
 <section class="hero">
+
+<div class="overlay"></div>
 
 <div class="hero-content">
 
-<h1>McDonald Simon</h1>
+<h1>
+Stories Preserved<br>
+Through Light.
+</h1>
 
 <p>
-Painter • Impressionist • Storyteller
-</p>
 
-<a href="#gallery" class="enter-btn">
-Enter Gallery
-</a>
-  <a
-class="buy-btn"
-href="https://wa.me/255692973059?text=Hello%20McDonald,%20I%20would%20like%20to%20commission%20an%20original%20painting.%20Could%20we%20discuss%20the%20concept,%20size,%20and%20timeline?"
-target="_blank">
-Request a Commission
-</a>
-
-</div>
-
-</section>
-
-<section class="section" id="about">
-
-<h2 class="section-title">
-About the Artist
-</h2>
-
-<div style="
-max-width:1000px;
-margin:auto;
-display:flex;
-flex-wrap:wrap;
-gap:40px;
-align-items:center;
-justify-content:center;
-">
-
-<img src="artist.jpeg"
-style="
-width:min(300px,80vw);
-height:min(300px,80vw);
-object-fit:cover;
-border-radius:50%;
-">
-
-<div style="
-max-width:500px;
-text-align:left;
-">
-
-<h3 style="
-font-family:'Cormorant Garamond',serif;
-font-size:2rem;
-margin-bottom:20px;
-">
-McDonald Simon
-</h3>
-
-<p style="
-line-height:1.9;
-opacity:.85;
-">
-
-I am a Tanzanian visual artist specializing in oil painting,
-blending impressionism with realism to create emotionally
-rich narratives. My work explores memory, light,
-culture, and everyday human experiences.
-
-Each painting is an attempt to transform ordinary moments
-into timeless stories through color, atmosphere, and brushwork.
+Original oil paintings inspired by memory,
+culture and atmosphere.
 
 </p>
+
+<div class="hero-buttons">
+
+<a href="#gallery" class="btn">
+Explore Collection
+</a>
+
+<a href="https://wa.me/255692973059?text=Hello%20McDonald,%20I%20would%20like%20to%20commission%20an%20original%20painting."
+class="btn btn-outline">
+
+Commission an Artwork
+
+</a>
 
 </div>
 
@@ -397,175 +81,8 @@ into timeless stories through color, atmosphere, and brushwork.
 
 </section>
 
-<section class="section" id="gallery">
+<script src="script.js"></script>
 
-<h2 class="section-title">
-Featured Collection
-  <p class="section-sub">
-A curated collection of original oil paintings available for acquisition and private commission.
-</p>
-</h2>
-
-<p class="section-sub">
-
-</p>
-
-<div class="gallery">
-
-<div class="art-card">
-
-<img src="The Feet That Carried a Continent.jpeg"
-onclick="openArtwork(this.src)">
-
-<div class="art-info">
-
-<h3 class="art-title">The Feet That Carried a Continent</h3>
-
-<p class="medium">
-Oil on Canvas • 60 × 80 cm
-</p>
-  <div class="status available">
-Available
-</div>
-
-<p class="price">
-TZS 850,000
-</p>
-
-<a
-class="buy-btn"
-href="https://wa.me/255692973059?text=Hello%20McDonald,%20I%20am%20interested%20in%20The%20Old%20The%20feet%20that%20carried%20a%20continent.%20Could%20you%20please%20provide%20availability,%20dimensions,%20and%20delivery%20details?"
-target="_blank">
-Acquire Artwork
-</a>
-
-</div>
-</div>
-
-<div class="art-card">
-
-<img src="The Last Ember 1.jpeg"
-onclick="openArtwork(this.src)">
-
-<div class="art-info">
-
-<h3 class="art-title">The Last Ember 1</h3>
-
-<p class="medium">
-Oil on Canvas • 60 × 80 cm
-</p>
-  <div class="status sold">
-Sold
-</div>
-
-<p class="price">
-TZS 850,000
-</p>
-
-<div style="
-padding:12px 24px;
-border:1px solid #555;
-color:#777;
-display:inline-block;
-">
-Collected
-</div>
-
-</div>
-</div>
-
-</section>
-  <section class="section">
-
-<h2 class="section-title">
-Commission an Original Artwork
-</h2>
-
-<div class="statement">
-
-Interested in a custom painting?
-
-Whether it is a portrait, landscape, storytelling piece,
-or a special memory you would like transformed into art,
-I accept selected commissions.
-
-Each commission is created with careful attention to
-composition, atmosphere, and craftsmanship.
-
-</div>
-
-<div style="text-align:center; margin-top:40px;">
-
-<a
-class="buy-btn"
-href="https://wa.me/255692973059?text=Hello%20McDonald,%20I%20would%20like%20to%20commission%20an%20original%20painting."
-target="_blank">
-
-Request a Commission
-
-</a>
-
-</div>
-
-</section>
-
-<footer id="contact">
-
-<h2>Contact</h2>
-
-<div class="contact">
-WhatsApp: +255 692 973 059
-</div>
-
-<div class="contact">
-Instagram:
-<a href="https://instagram.com/mc_ndokeji"
-target="_blank">
-@mc_ndokeji
-</a>
-</div>
-
-<div class="contact">
-Mwanza, Tanzania
-</div>
-
-</footer>
-<div id="lightbox"
-style="
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.95);
-z-index:9999;
-justify-content:center;
-align-items:center;
-">
-
-<img id="lightbox-img"
-style="
-max-width:95%;
-max-height:95%;
-">
-
-</div>
-
-<script>
-
-const lightbox=document.getElementById('lightbox');
-const lightboxImg=document.getElementById('lightbox-img');
-
-function openArtwork(src){
-  lightbox.style.display='flex';
-  lightboxImg.src=src;
-}
-
-lightbox.onclick=function(){
-  lightbox.style.display='none';
-}
-
-</script>
 </body>
+
 </html>
