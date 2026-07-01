@@ -541,3 +541,72 @@ color:#ff6b6b;
 color:#f4c95d;
 
 }
+/*=========================
+ABOUT
+=========================*/
+
+.about{
+
+padding:140px 8%;
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:90px;
+
+align-items:center;
+
+background:#11100f;
+
+}
+
+.about-image img{
+
+width:100%;
+
+border-radius:18px;
+
+display:block;
+
+box-shadow:0 25px 70px rgba(0,0,0,.45);
+
+}
+
+.about-content h2{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:3.5rem;
+
+margin:20px 0;
+
+}
+
+.about-content p{
+
+line-height:2;
+
+color:#bcb5ad;
+
+margin-bottom:35px;
+
+}
+
+@media(max-width:900px){
+
+.about{
+
+grid-template-columns:1fr;
+
+padding:90px 30px;
+
+}
+
+.about-content h2{
+
+font-size:2.6rem;
+
+}
+
+}
