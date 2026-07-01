@@ -412,3 +412,132 @@ font-size:2.5rem;
 }
 
 }
+/* =====================
+COLLECTION
+===================== */
+
+.gallery-section{
+
+padding:120px 8%;
+
+background:#0d0b09;
+
+}
+
+.gallery-header{
+
+text-align:center;
+
+max-width:760px;
+
+margin:auto auto 70px;
+
+}
+
+.gallery-header h2{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:3.2rem;
+
+margin:15px 0;
+
+}
+
+.gallery-header p{
+
+color:#b9b2aa;
+
+line-height:1.8;
+
+}
+
+.gallery-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+gap:35px;
+
+}
+
+.art-card{
+
+background:#151311;
+
+border-radius:18px;
+
+overflow:hidden;
+
+transition:.45s;
+
+cursor:pointer;
+
+}
+
+.art-card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 20px 60px rgba(0,0,0,.45);
+
+}
+
+.art-card img{
+
+width:100%;
+
+display:block;
+
+/* This is the important part */
+
+height:auto;
+
+object-fit:contain;
+
+}
+
+.art-info{
+
+padding:25px;
+
+}
+
+.art-info h3{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:2rem;
+
+margin-bottom:10px;
+
+}
+
+.status{
+
+font-size:.85rem;
+
+font-weight:600;
+
+letter-spacing:2px;
+
+}
+
+.available{
+
+color:#88d17a;
+
+}
+
+.sold{
+
+color:#ff6b6b;
+
+}
+
+.reserved{
+
+color:#f4c95d;
+
+}
