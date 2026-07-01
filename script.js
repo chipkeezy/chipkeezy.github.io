@@ -1,15 +1,31 @@
-window.addEventListener("scroll", () => {
+const navbar=document.querySelector(".navbar");
 
-const nav = document.querySelector(".navbar");
+window.addEventListener("scroll",()=>{
 
-if(window.scrollY > 80){
+if(window.scrollY>80){
 
-nav.classList.add("scrolled");
+navbar.classList.add("scrolled");
 
 }else{
 
-nav.classList.remove("scrolled");
+navbar.classList.remove("scrolled");
 
 }
+
+const reveals=document.querySelectorAll(".reveal");
+
+reveals.forEach(section=>{
+
+const top=section.getBoundingClientRect().top;
+
+const visible=window.innerHeight-120;
+
+if(top<visible){
+
+section.classList.add("active");
+
+}
+
+});
 
 });
