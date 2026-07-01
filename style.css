@@ -610,3 +610,90 @@ font-size:2.6rem;
 }
 
 }
+/*==========================
+STUDIO
+==========================*/
+
+.studio{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+align-items:center;
+
+gap:90px;
+
+padding:140px 8%;
+
+background:#0d0b09;
+
+}
+
+.studio-image img{
+
+width:100%;
+
+display:block;
+
+border-radius:18px;
+
+box-shadow:0 30px 80px rgba(0,0,0,.45);
+
+}
+
+.studio-content h2{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:3.5rem;
+
+margin:20px 0;
+
+}
+
+.studio-content p{
+
+line-height:2;
+
+color:#bdb6af;
+
+margin-bottom:30px;
+
+}
+
+blockquote{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:1.7rem;
+
+font-style:italic;
+
+color:#C6A56A;
+
+margin-bottom:35px;
+
+padding-left:20px;
+
+border-left:3px solid #C6A56A;
+
+}
+
+@media(max-width:900px){
+
+.studio{
+
+grid-template-columns:1fr;
+
+padding:90px 30px;
+
+}
+
+.studio-content h2{
+
+font-size:2.6rem;
+
+}
+
+}
