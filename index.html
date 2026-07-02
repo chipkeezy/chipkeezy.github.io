@@ -141,52 +141,52 @@ Each work is unique and available as an original unless marked otherwise.
 
 <div class="gallery-grid">
 
-<div class="art-card">
+<div class="art-card"
 
-<img src="ember.jpeg" alt="Painting">
+data-title="The Last Ember 2"
 
-<div class="art-info">
+data-description="A celebration of atmosphere, memory and golden light painted entirely in oils."
 
-<h3>The Last Ember 2</h3>
-
-<span class="status available">AVAILABLE</span>
-
-</div>
-
-</div>
-<div class="art-card">
-
-<img src="masai.jpeg" alt="Painting">
-
-<div class="art-info">
-
-<h3>The Woman King</h3>
+data-image="ember.jpeg">
 
 <span class="status available">AVAILABLE</span>
 
 </div>
 
 </div>
-<div class="art-card">
+<div class="art-card"
 
-<img src="boy.jpeg" alt="Painting">
+data-title="The Morning Light"
 
-<div class="art-info">
+data-description="A celebration of atmosphere, memory and golden light painted entirely in oils."
 
-<h3>The Last Sherphard Of The Dawn</h3>
+data-image="masai.jpeg">
 
 <span class="status available">AVAILABLE</span>
 
 </div>
 
 </div>
-<div class="art-card">
+<div class="art-card"
 
-<img src="feet.jpeg" alt="Painting">
+data-title="Last sherphard of the Dawn"
 
-<div class="art-info">
+data-description="A celebration of atmosphere, memory and golden light painted entirely in oils."
 
-<h3>The Feet That Carried a Continent</h3>
+data-image="boy.jpeg">
+
+<span class="status available">AVAILABLE</span>
+
+</div>
+
+</div>
+<div class="art-card"
+
+data-title="The Feet that carried a Continent"
+
+data-description="A celebration of atmosphere, memory and golden light painted entirely in oils."
+
+data-image="feet.jpeg">
 
 <span class="status available">AVAILABLE</span>
 
@@ -302,7 +302,35 @@ Explore the Collection
 </section>
 
 <script src="script.js"></script>
+<!-- Museum Viewer -->
 
+<div id="lightbox">
+
+<div class="viewer">
+
+<span class="close">&times;</span>
+
+<img id="viewer-img">
+
+<div class="viewer-info">
+
+<h2 id="viewer-title"></h2>
+
+<p id="viewer-description"></p>
+
+<a id="viewer-link"
+class="btn"
+target="_blank">
+
+Acquire Artwork
+
+</a>
+
+</div>
+
+</div>
+
+</div>
 </body>
 
 </html>
