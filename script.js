@@ -2,6 +2,22 @@ document.addEventListener("DOMContentLoaded", function() {
     gsap.registerPlugin(ScrollTrigger);
 
     // ==========================================
+    // 0. RAISE THE CURTAIN (Fades out the black loading screen)
+    // ==========================================
+    const introScreen = document.getElementById("intro-screen");
+    if (introScreen) {
+        gsap.to(introScreen, {
+            opacity: 0,
+            duration: 1.5,
+            delay: 0.5,
+            ease: "power2.inOut",
+            onComplete: () => {
+                introScreen.style.display = "none";
+            }
+        });
+    }
+
+    // ==========================================
     // 1. YOUR PAINTINGS (Final Art)
     // ==========================================
     const paintings = [
@@ -85,30 +101,24 @@ document.addEventListener("DOMContentLoaded", function() {
             `;
         });
         
-        // 3. THE 3D SCROLL ENGINE (Brings art out of the black screen)
+        // 3. THE 3D SCROLL ENGINE
         const panels = document.querySelectorAll('.art-panel');
-        const zSpacing = 1600; // Distance between paintings in 3D space
+        const zSpacing = 1600; 
 
         function updateTunnelPositions() {
             let top = document.documentElement.scrollTop || window.pageYOffset;
             
             panels.forEach((panel, i) => {
-                // Calculate how close the painting should be based on scroll position
                 let zPosition = (-i * zSpacing) + (top * 1.5); 
-                
-                // Fade items in as they approach, and vanish once they pass behind the camera
                 let opacity = zPosition > 400 ? 0 : (zPosition < -2500 ? 0 : 1);
                 
                 gsap.set(panel, { z: zPosition, opacity: opacity });
             });
         }
 
-        // Listen for scrolling to update positions instantly
         window.addEventListener('scroll', updateTunnelPositions);
-        // Run once at startup to show the first painting immediately
         updateTunnelPositions();
 
-        // Subtle breathing animation for depth
         panels.forEach((panel, i) => {
             gsap.to(panel.querySelector('.tilt-img'), { 
                 y: 12, 
@@ -126,27 +136,32 @@ document.addEventListener("DOMContentLoaded", function() {
     // LIGHTBOX POPUP LOGIC
     // ==========================================
     const lightbox = document.getElementById("lightbox");
-    document.addEventListener("click", function(e) {
-        const panel = e.target.closest(".art-panel");
-        if (panel) {
-            const data = paintings[panel.getAttribute("data-index")];
-            document.getElementById("viewer-img").src = data.image;
-            document.getElementById("viewer-title").innerText = data.title;
-            document.getElementById("viewer-description").innerHTML = `
-                <p style="color: #d4af37; margin-bottom: 5px;"><strong>Investment: ${data.price}</strong></p>
-                <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 10px;"><strong>Medium:</strong> ${data.medium} | <strong>Size:</strong> ${data.size}</p>
-                <p style="white-space: pre-line; italic;">"${data.description}"</p>`;
-            
-            const link = document.getElementById("viewer-link");
-            link.innerText = data.status === "SOLD" ? "Commission Similar Work" : "Acquire Piece via WhatsApp";
-            link.href = data.status === "SOLD" 
-                ? `https://wa.me/255692973059?text=I%20saw%20${encodeURIComponent(data.title)}%20is%20sold.%20I%20would%20like%20to%20commission%20a%20similar%20original%20artwork.`
-                : `https://wa.me/255692973059?text=I%20am%20interested%20in%20acquiring%20the%20original%20painting%20${encodeURIComponent(data.title)}%20for%20${encodeURIComponent(data.price)}.`;
-            
-            lightbox.classList.add("active");
-        }
-    });
+    if (lightbox) {
+        document.addEventListener("click", function(e) {
+            const panel = e.target.closest(".art-panel");
+            if (panel) {
+                const data = paintings[panel.getAttribute("data-index")];
+                document.getElementById("viewer-img").src = data.image;
+                document.getElementById("viewer-title").innerText = data.title;
+                document.getElementById("viewer-description").innerHTML = `
+                    <p style="color: #d4af37; margin-bottom: 5px;"><strong>Investment: ${data.price}</strong></p>
+                    <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 10px;"><strong>Medium:</strong> ${data.medium} | <strong>Size:</strong> ${data.size}</p>
+                    <p style="white-space: pre-line; italic;">"${data.description}"</p>`;
+                
+                const link = document.getElementById("viewer-link");
+                if(link) {
+                    link.innerText = data.status === "SOLD" ? "Commission Similar Work" : "Acquire Piece via WhatsApp";
+                    link.href = data.status === "SOLD" 
+                        ? `https://wa.me/255692973059?text=I%20saw%20${encodeURIComponent(data.title)}%20is%20sold.%20I%20would%20like%20to%20commission%20a%20similar%20original%20artwork.`
+                        : `https://wa.me/255692973059?text=I%20am%20interested%20in%20acquiring%20the%20original%20painting%20${encodeURIComponent(data.title)}%20for%20${encodeURIComponent(data.price)}.`;
+                }
+                lightbox.classList.add("active");
+            }
+        });
 
-    // Close lightbox
-    document.querySelector(".close")?.addEventListener("click", () => lightbox.classList.remove("active"));
+        const closeBtn = document.querySelector(".close");
+        if(closeBtn) {
+            closeBtn.addEventListener("click", () => lightbox.classList.remove("active"));
+        }
+    }
 });
