@@ -1,28 +1,28 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // CINEMATIC INTRO
-const intro = document.getElementById("intro-screen");
-const tl = gsap.timeline();
-
-tl.to(".intro-logo", { opacity: 1, duration: 1.5, ease: "power2.inOut" })
-  .to(".intro-logo", { scale: 1.1, duration: 2, ease: "power2.inOut" })
-  .to(intro, { opacity: 0, duration: 1, onComplete: () => intro.style.display = "none" });
-    // 1. Register the GSAP tools
+    // 1. Register GSAP tools
     gsap.registerPlugin(ScrollTrigger);
 
-    // 2. Your Art List
+    // 2. Cinematic Intro Reveal (This raises the black curtain)
+    const intro = document.getElementById("intro-screen");
+    if (intro) {
+        const tl = gsap.timeline();
+        tl.to(".intro-logo", { opacity: 1, duration: 1.5, ease: "power2.inOut" })
+          .to(".intro-logo", { scale: 1.1, duration: 2, ease: "power2.inOut" })
+          .to(intro, { opacity: 0, duration: 1, onComplete: () => intro.style.display = "none" });
+    }
+
+    // 3. Your Art List
     const paintings = [
         { title: "The Last Ember", image: "The Last Ember 1.jpeg", status: "AVAILABLE", medium: "Oil on Canvas", size: "24x36", description: "A study in light and warmth." },
         { title: "Boy", image: "boy.jpeg", status: "SOLD", medium: "Oil on Canvas", size: "18x24", description: "Portrait of a young spirit." },
         { title: "Ember", image: "ember.jpeg", status: "AVAILABLE", medium: "Oil on Canvas", size: "20x20", description: "Abstract fire series." },
         { title: "Feet", image: "feet.jpeg", status: "AVAILABLE", medium: "Oil on Canvas", size: "12x12", description: "Movement study." }
-        // Add more items here if needed, just like the ones above
+        // Add more items here later
     ];
 
+    // 4. Build the 3D Tunnel
     const tunnelWorld = document.getElementById("tunnel-world");
-    
-    // Check if we are on the page with the tunnel
     if (tunnelWorld) {
-        // Build the paintings
         paintings.forEach((p, index) => {
             tunnelWorld.innerHTML += `
                 <div class="art-panel" data-index="${index}">
@@ -35,7 +35,6 @@ tl.to(".intro-logo", { opacity: 1, duration: 1.5, ease: "power2.inOut" })
             `;
         });
 
-        // Setup the animation
         const panels = document.querySelectorAll('.art-panel');
         const zSpacing = 1600;
         const totalDepth = (panels.length - 1) * zSpacing;
@@ -55,7 +54,7 @@ tl.to(".intro-logo", { opacity: 1, duration: 1.5, ease: "power2.inOut" })
             });
         });
 
-        // The Scroll "Flight"
+        // Scroll Flight Animation
         gsap.to(".tunnel-world", {
             z: totalDepth,
             ease: "none",
@@ -83,28 +82,43 @@ tl.to(".intro-logo", { opacity: 1, duration: 1.5, ease: "power2.inOut" })
         });
     }
 
-   // 3. Museum Viewer (Lightbox)
-const lightbox = document.getElementById("lightbox");
-const viewerImg = document.getElementById("viewer-img");
-const viewerTitle = document.getElementById("viewer-title");
-const viewerDescription = document.getElementById("viewer-description"); // Make sure this exists
+    // 5. Museum Viewer (Lightbox & Missing Descriptions Fix)
+    const lightbox = document.getElementById("lightbox");
+    const viewerImg = document.getElementById("viewer-img");
+    const viewerTitle = document.getElementById("viewer-title");
+    const viewerDescription = document.getElementById("viewer-description");
+    const viewerLink = document.getElementById("viewer-link");
 
-document.querySelectorAll(".art-panel").forEach(card => {
-    card.addEventListener("click", () => {
-        const index = card.getAttribute("data-index");
-        const data = paintings[index];
+    if (lightbox) {
+        document.querySelectorAll(".art-panel").forEach(card => {
+            card.addEventListener("click", () => {
+                const index = card.getAttribute("data-index");
+                const data = paintings[index];
+                
+                viewerImg.src = data.image;
+                viewerTitle.innerText = data.title;
+                
+                // Injects the missing details back into the viewer
+                viewerDescription.innerHTML = `
+                    <p><strong>Medium:</strong> ${data.medium}</p>
+                    <p><strong>Dimensions:</strong> ${data.size}</p>
+                    <p style="margin-top: 15px; font-style: italic; color: #a09990;">"${data.description}"</p>
+                `;
 
-        // This injects the missing details back into the viewer
-        viewerImg.src = data.image;
-        viewerTitle.innerText = data.title;
-        viewerDescription.innerHTML = `
-            <p><strong>Medium:</strong> ${data.medium}</p>
-            <p><strong>Dimensions:</strong> ${data.size}</p>
-            <p style="margin-top: 15px; font-style: italic;">"${data.description}"</p>
-        `;
+                // Set WhatsApp link for the specific painting
+                if (viewerLink) {
+                    viewerLink.href = `https://wa.me/255692973059?text=Hello%20McDonald,%20I%20am%20interested%20in%20acquiring%20your%20painting:%20"${data.title}".`;
+                }
 
-        lightbox.classList.add("active");
-    });
+                lightbox.classList.add("active");
+            });
+        });
+        
+        document.querySelector(".close").addEventListener("click", () => lightbox.classList.remove("active"));
+        
+        // Close if clicking outside the image
+        lightbox.addEventListener("click", (e) => {
+            if (e.target === lightbox) lightbox.classList.remove("active");
+        });
+    }
 });
-
-document.querySelector(".close").addEventListener("click", () => lightbox.classList.remove("active"));
