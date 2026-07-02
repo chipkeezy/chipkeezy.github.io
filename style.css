@@ -1,3 +1,29 @@
+/* -----------------------------------------
+   SYSTEM RESET & FONTS
+----------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #0d0b09;
+    color: #F5F2EC;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* -----------------------------------------
+   CINEMATIC INTRO CURTAIN
+----------------------------------------- */
 #intro-screen {
     position: fixed;
     top: 0;
@@ -15,34 +41,64 @@
     width: 200px;
     opacity: 0;
 }
-/* ---------------------
-   RESET
-----------------------*/
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+/* -----------------------------------------
+   GLOBAL TYPOGRAPHY & INTERACTIVE CORE
+----------------------------------------- */
+.section-tag {
+    color: #C6A56A;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: .8rem;
+    margin-bottom: 15px;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-body {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
+blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7rem;
+    font-style: italic;
+    color: #C6A56A;
+    margin-bottom: 35px;
+    padding-left: 20px;
+    border-left: 3px solid #C6A56A;
 }
 
-body {
-    background: #0d0b09;
+.btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background: rgba(198, 165, 106, 0.15);
     color: #F5F2EC;
-    font-family: 'Inter', sans-serif;
-    overflow-x: hidden;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 400;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(198, 165, 106, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    cursor: pointer;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
 }
 
-/* ==========================
-   NAVIGATION
-========================== */
+.btn:hover {
+    background: rgba(198, 165, 106, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-outline:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* -----------------------------------------
+   NAVIGATION HEADER
+----------------------------------------- */
 .navbar {
     position: fixed;
     top: 0;
@@ -69,14 +125,12 @@ body {
     display: flex;
     align-items: center;
     gap: 15px;
-    z-index: 100;
 }
 
 .logo img {
     width: 50px;
     height: 50px;
     object-fit: contain;
-    flex-shrink: 0;
 }
 
 .logo h2 {
@@ -111,9 +165,9 @@ nav a:hover {
     color: #c6a56a;
 }
 
-/* ---------------------
-   HERO
-----------------------*/
+/* -----------------------------------------
+   HERO IMMERSION SURFACE
+----------------------------------------- */
 .hero {
     position: relative;
     height: 100vh;
@@ -162,75 +216,36 @@ nav a:hover {
     flex-wrap: wrap;
 }
 
-.btn {
-    display: inline-block;
-    padding: 15px 40px;
-    background: rgba(198, 165, 106, 0.15); /* Semi-transparent gold */
-    color: #F5F2EC;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 400;
-    transition: all 0.4s ease;
-    border: 1px solid rgba(198, 165, 106, 0.4);
-    backdrop-filter: blur(10px); /* The "Glass" blur */
-    cursor: pointer;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-}
-
-.btn:hover {
-    background: rgba(198, 165, 106, 0.4);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
-
-.btn-outline {
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.btn-outline:hover {
-    background: rgba(255, 255, 255, 0.05);
-}
-
-/* ==========================
-   FEATURED MASTERPIECE
-========================== */
-.featured {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+/* -----------------------------------------
+   EDITORIAL CONTENT GRID LAYOUTS
+----------------------------------------- */
+.featured, .about, .studio {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 70px;
-    padding: 120px 8%;
-    background: #11100f;
-    flex-wrap: wrap;
+    padding: 140px 8%;
+    align-items: center;
 }
 
-.featured-text {
-    flex: 1;
-    min-width: 320px;
+.featured { background: #11100f; }
+.about { background: #11100f; }
+.studio { background: #0d0b09; }
+
+.featured-text, .about-content, .studio-content {
+    width: 100%;
 }
 
-.section-tag {
-    color: #C6A56A;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    font-size: .8rem;
-    margin-bottom: 15px;
-}
-
-.featured h2 {
+.featured h2, .about-content h2, .studio-content h2 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 3.4rem;
-    margin-bottom: 20px;
+    font-size: 3.5rem;
+    margin: 20px 0;
+    line-height: 1.1;
 }
 
-.featured-description {
+.featured-description, .about-content p, .studio-content p {
     color: #bfb8ae;
     line-height: 1.9;
     margin-bottom: 30px;
-    max-width: 520px;
 }
 
 .details {
@@ -244,154 +259,29 @@ nav a:hover {
 }
 
 .available {
-    color: #9ddf8a;
+    color: #88d17a;
     font-weight: bold;
 }
 
-.featured-image {
-    flex: 1;
-    min-width: 320px;
-}
-
-.featured-image img {
+.featured-image img, .about-image img, .studio-image img {
     width: 100%;
     border-radius: 18px;
     display: block;
-    box-shadow: 0 30px 80px rgba(0,0,0,.45);
-    transition: .5s;
+    box-shadow: 0 25px 70px rgba(0,0,0,.45);
+    transition: .5s ease;
 }
 
 .featured-image img:hover {
     transform: scale(1.02);
 }
 
-/* =====================
-   COLLECTION (GRID)
-===================== */
-.gallery-section {
-    padding: 120px 8%;
-    background: #0d0b09;
-}
-
-.gallery-header {
-    text-align: center;
-    max-width: 760px;
-    margin: 0 auto 70px;
-}
-
-.gallery-header h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 3.2rem;
-    margin: 15px 0;
-}
-
-.gallery-header p {
-    color: #b9b2aa;
-    line-height: 1.8;
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 35px;
-}
-
-.art-card {
-    background: #151311;
-    border-radius: 18px;
-    overflow: hidden;
-    transition: .45s;
-    cursor: pointer;
-}
-
-.art-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 60px rgba(0,0,0,.45);
-}
-
-.art-card img {
-    width: 100%;
-    height: 350px;
-    object-fit: cover;
-    display: block;
-}
-
-.art-info {
-    padding: 25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.art-info h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.8rem;
-    font-weight: 500;
-}
-
-.status {
-    font-size: .75rem;
-    font-weight: 600;
-    letter-spacing: 2px;
-    padding: 4px 10px;
-    border-radius: 4px;
-    background: rgba(255,255,255,0.05);
-}
-
-.available { color: #88d17a; }
-.sold { color: #ff6b6b; }
-.reserved { color: #f4c95d; }
-
-/*=========================
-  ABOUT & STUDIO
-=========================*/
-.about, .studio {
-    padding: 140px 8%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 90px;
-    align-items: center;
-}
-
-.about { background: #11100f; }
-.studio { background: #0d0b09; }
-
-.about-image img, .studio-image img {
-    width: 100%;
-    border-radius: 18px;
-    display: block;
-    box-shadow: 0 25px 70px rgba(0,0,0,.45);
-}
-
-.about-content h2, .studio-content h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 3.5rem;
-    margin: 20px 0;
-}
-
-.about-content p, .studio-content p {
-    line-height: 2;
-    color: #bcb5ad;
-    margin-bottom: 35px;
-}
-
-blockquote {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.7rem;
-    font-style: italic;
-    color: #C6A56A;
-    margin-bottom: 35px;
-    padding-left: 20px;
-    border-left: 3px solid #C6A56A;
-}
-
-/* ==========================
-   SCROLL REVEAL (THE FIX)
-========================== */
+/* -----------------------------------------
+   SCROLL REVEAL SCENE ANIMATIONS
+----------------------------------------- */
 .reveal {
     opacity: 0;
     transform: translateY(40px);
-    transition: opacity 1.2s ease, transform 1.2s ease;
+    transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1), transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .reveal.active {
@@ -399,9 +289,137 @@ blockquote {
     transform: translateY(0);
 }
 
-/*==========================
-  MUSEUM VIEWER (LIGHTBOX)
-==========================*/
+/* -----------------------------------------
+   3D TUNNEL CONFIGURATION
+----------------------------------------- */
+.tunnel-container {
+    height: 100vh;
+    width: 100%;
+    perspective: 1500px;
+    overflow: hidden;
+    position: relative;
+    background: #050404;
+}
+
+.tunnel-world {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-style: preserve-3d;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #C6A56A;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    z-index: 10;
+    pointer-events: none;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.4; transform: translate(-50%, 0); }
+    50% { opacity: 1; transform: translate(-50%, 10px); }
+}
+
+.art-panel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 450px;
+    transform: translate(-50%, -50%);
+    transform-style: preserve-3d;
+    cursor: pointer;
+    transition: opacity 0.8s ease;
+}
+
+.art-panel img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.9);
+}
+
+.art-panel-info {
+    position: absolute;
+    top: 50%;
+    left: 115%;
+    transform: translateY(-50%);
+    width: 350px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.art-panel-info h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    color: #F5F2EC;
+    line-height: 1.1;
+}
+
+.art-panel-info p {
+    color: #C6A56A;
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* -----------------------------------------
+   ACTIONABLE CONTACT HUB
+----------------------------------------- */
+#contact {
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #050404;
+    padding: 20px;
+}
+
+.contact-card {
+    text-align: center;
+    padding: 60px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(198, 165, 106, 0.2);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    max-width: 600px;
+    width: 100%;
+}
+
+.contact-card h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    color: #F5F2EC;
+    margin-bottom: 20px;
+}
+
+.contact-card p {
+    color: #C6A56A;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+.contact-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+/* -----------------------------------------
+   LIGHTBOX OVERLAY VIEWER
+----------------------------------------- */
 #lightbox {
     position: fixed;
     inset: 0;
@@ -467,16 +485,12 @@ blockquote {
     color: white;
 }
 
-/* ---------------------
-   RESPONSIVE MEDIA QUERIES
-----------------------*/
+/* -----------------------------------------
+   ADAPTIVE MEDIA VIEWPORTS
+----------------------------------------- */
 @media(max-width: 900px){
-    .navbar {
-        padding: 15px 20px;
-    }
-    nav {
-        gap: 20px;
-    }
+    .navbar { padding: 15px 20px; }
+    nav { gap: 20px; }
     .logo h2 { font-size: 1.3rem; }
     .hero { padding: 20px; }
     .hero h1 { font-size: 3.2rem; }
@@ -486,107 +500,8 @@ blockquote {
         padding: 80px 24px;
         gap: 40px;
     }
-    .featured h2, .about-content h2, .studio-content h2 {
-        font-size: 2.6rem;
-    }
-    .viewer {
-        grid-template-columns: 1fr;
-        max-height: 85vh;
-        overflow-y: auto;
-        gap: 25px;
-    }
-    .viewer img {
-        max-height: 40vh;
-    }
-    .viewer-info h2 { font-size: 2.2rem; }
-    .close {
-        top: -15px;
-        right: 10px;
-    }
-}
-/* ==========================
-   Z-AXIS 3D TUNNEL
-========================== */
-.tunnel-container {
-    height: 100vh;
-    width: 100%;
-    perspective: 1500px; /* This dictates how deep the 3D camera feels */
-    overflow: hidden;
-    position: relative;
-    background: #050404; /* Extra dark void for cinematic effect */
-}
-
-.tunnel-world {
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform-style: preserve-3d;
-}
-
-.scroll-indicator {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #C6A56A;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
-    letter-spacing: 2px;
-    z-index: 10;
-    pointer-events: none;
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { opacity: 0.4; transform: translate(-50%, 0); }
-    50% { opacity: 1; transform: translate(-50%, 10px); }
-}
-
-.art-panel {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 450px; 
-    transform: translate(-50%, -50%);
-    transform-style: preserve-3d;
-    cursor: pointer;
-}
-
-.art-panel img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 40px 100px rgba(0,0,0,0.9);
-}
-
-.art-panel-info {
-    position: absolute;
-    top: 50%;
-    left: 115%; /* Text pushes out to the right side of the painting */
-    transform: translateY(-50%);
-    width: 350px;
-    opacity: 0; 
-    pointer-events: none;
-}
-
-.art-panel-info h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.8rem;
-    margin-bottom: 15px;
-    color: #F5F2EC;
-    line-height: 1.1;
-}
-
-.art-panel-info p {
-    color: #C6A56A;
-    font-size: 0.85rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-}
-
-@media(max-width: 900px){
+    .featured h2, .about-content h2, .studio-content h2 { font-size: 2.6rem; }
+    
     .art-panel { width: 75vw; }
     .art-panel-info {
         top: 110%;
@@ -595,63 +510,19 @@ blockquote {
         text-align: center;
         width: 100%;
     }
-}
-.art-panel {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 450px;
-    transform: translate(-50%, -50%);
-    transform-style: preserve-3d;
-    cursor: pointer;
-    transition: opacity 0.8s ease; /* This adds the "expensive" fade */
-}
-#contact {
-    height: 60vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #050404;
-    padding: 20px;
+
+    .viewer {
+        grid-template-columns: 1fr;
+        max-height: 85vh;
+        overflow-y: auto;
+        gap: 25px;
+    }
+    .viewer img { max-height: 40vh; }
+    .viewer-info h2 { font-size: 2.2rem; }
+    .close { top: -15px; right: 10px; }
 }
 
-.contact-card {
-    text-align: center;
-    padding: 60px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(198, 165, 106, 0.2);
-    border-radius: 20px;
-    backdrop-filter: blur(20px);
-}
-
-.contact-card h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 3rem;
-    color: #F5F2EC;
-    margin-bottom: 20px;
-}
-
-.contact-card p {
-    color: #C6A56A;
-    margin-bottom: 30px;
-    letter-spacing: 2px;
-}
-/* Contact Grid Layout */
-.contact-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px; /* Spacing between buttons */
-    margin-top: 30px;
-}
-
-/* Ensure buttons look great on mobile */
 @media(max-width: 600px) {
-    .contact-grid {
-        flex-direction: column;
-        align-items: center;
-    }
-    .contact-grid .btn {
-        width: 80%;
-    }
+    .contact-grid { flex-direction: column; align-items: center; }
+    .contact-grid .btn { width: 80%; }
 }
