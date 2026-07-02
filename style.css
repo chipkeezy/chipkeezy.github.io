@@ -10,6 +10,11 @@
 html {
     scroll-behavior: smooth;
 }
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
 
 body {
     background: #0d0b09;
@@ -573,4 +578,14 @@ blockquote {
         text-align: center;
         width: 100%;
     }
+}
+.art-panel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 450px;
+    transform: translate(-50%, -50%);
+    transform-style: preserve-3d;
+    cursor: pointer;
+    transition: opacity 0.8s ease; /* This adds the "expensive" fade */
 }
