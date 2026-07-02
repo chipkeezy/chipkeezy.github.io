@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // 5. Dynamic Art Vault List (UPGRADED WITH PRICING FOR DIRECT SALES)
+    // 5. Dynamic Art Vault List (Syntax Fixed with Backticks)
     const paintings = [
         { 
             title: "The Last Ember 1", 
@@ -49,8 +49,8 @@ document.addEventListener("DOMContentLoaded", function() {
             price: "Private Collection", 
             medium: "Oil on Canvas", 
             size: "60x80 cm", 
-            description: "The painting reminds us that the strongest people are often those who have weathered the hardest storms and still find peace in the quiet moments.
-Some men leave behind buildings; others leave behind stories that become the foundation of a people.." 
+            description: `The painting reminds us that the strongest people are often those who have weathered the hardest storms and still find peace in the quiet moments.
+Some men leave behind buildings; others leave behind stories that become the foundation of a people.` 
         },
         { 
             title: "The Shepherd of Tomorrow", 
@@ -59,7 +59,7 @@ Some men leave behind buildings; others leave behind stories that become the fou
             price: "$300", 
             medium: "Oil on Canvas", 
             size: "60x80 cm", 
-            description: "The herd beneath him is the inheritance of his ancestors, while the mountain beyond him is a reminder that greatness is built through patience. Though he is only a boy, his calm gaze carries the responsibility of generations.." 
+            description: `The herd beneath him is the inheritance of his ancestors, while the mountain beyond him is a reminder that greatness is built through patience. Though he is only a boy, his calm gaze carries the responsibility of generations.` 
         },
         { 
             title: "Tle Last Ember 2", 
@@ -68,8 +68,8 @@ Some men leave behind buildings; others leave behind stories that become the fou
             price: "$300", 
             medium: "Oil on Canvas", 
             size: "60x80 cm", 
-            description: "The painting reminds us that the strongest people are often those who have weathered the hardest storms and still find peace in the quiet moments.
-Some men leave behind buildings; others leave behind stories that become the foundation of a people.." 
+            description: `The painting reminds us that the strongest people are often those who have weathered the hardest storms and still find peace in the quiet moments.
+Some men leave behind buildings; others leave behind stories that become the foundation of a people.` 
         },
         { 
             title: "The Feet that carried a continet", 
@@ -78,20 +78,19 @@ Some men leave behind buildings; others leave behind stories that become the fou
             price: "$300", 
             medium: "Oil on Canvas", 
             size: "60x80 cm", 
-            description: "Movement study." 
+            description: `Movement study.` 
         },
-         { 
+        { 
             title: "Daughter of the Plains", 
             image: "masai.jpeg", 
             status: "AVAILABLE", 
             price: "$300", 
             medium: "Oil on Canvas", 
             size: "60x80 cm", 
-            description: "She stands in silence, adorned not only with beads but with the legacy of generations. Her beauty is not measured by appearance alone—it is found in her courage, her wisdom, and her unwavering pride in who she is.
+            description: `She stands in silence, adorned not only with beads but with the legacy of generations. Her beauty is not measured by appearance alone—it is found in her courage, her wisdom, and her unwavering pride in who she is.
 Her eyes look beyond the horizon, carrying the hopes of her ancestors and the promise of those yet to come.
-She is more than a daughter of Africa; she is the heartbeat of its future.." 
-        },
-        
+She is more than a daughter of Africa; she is the heartbeat of its future.` 
+        }
     ];
 
     // 6. Interactive 3D Tunnel Engineering
@@ -116,7 +115,6 @@ She is more than a daughter of Africa; she is the heartbeat of its future.."
         panels.forEach(function(panel, i) {
             gsap.set(panel, { z: -i * zSpacing, opacity: i === 0 ? 1 : 0 });
 
-            // Mobile/Universal Breathing Animation
             gsap.to(panel.querySelector('.tilt-img'), {
                 y: 12,
                 rotationZ: i % 2 === 0 ? 1 : -1,
@@ -127,7 +125,6 @@ She is more than a daughter of Africa; she is the heartbeat of its future.."
                 delay: i * 0.4
             });
 
-            // Desktop Mouse Tilt Effect
             panel.addEventListener('mousemove', function(e) {
                 const rect = panel.getBoundingClientRect();
                 const x = e.clientX - rect.left - rect.width / 2;
@@ -147,7 +144,7 @@ She is more than a daughter of Africa; she is the heartbeat of its future.."
                 pin: true,
                 start: "top top",
                 end: "+=" + (panels.length * 1200),
-                scrub: 2.5, // Smooth momentum for mobile
+                scrub: 2.5,
                 onUpdate: function(self) {
                     const currentZ = self.progress * totalDepth;
                     panels.forEach(function(panel, i) {
@@ -166,7 +163,7 @@ She is more than a daughter of Africa; she is the heartbeat of its future.."
         });
     }
 
-    // 7. Lightbox Museum Interface Handler (UPGRADED FOR SALES)
+    // 7. Lightbox Museum Interface Handler
     const lightbox = document.getElementById("lightbox");
     const viewerImg = document.getElementById("viewer-img");
     const viewerTitle = document.getElementById("viewer-title");
@@ -183,7 +180,6 @@ She is more than a daughter of Africa; she is the heartbeat of its future.."
                 if (viewerImg) viewerImg.src = data.image;
                 if (viewerTitle) viewerTitle.innerText = data.title;
                 
-                // Injecting the Price, Medium, and Story into the Lightbox
                 if (viewerDescription) {
                     viewerDescription.innerHTML = `
                         <p style="font-size: 1.1rem; color: #d4af37; margin-bottom: 10px; letter-spacing: 1px;">
@@ -191,18 +187,15 @@ She is more than a daughter of Africa; she is the heartbeat of its future.."
                         </p>
                         <p><strong>Medium:</strong> ${data.medium}</p>
                         <p><strong>Dimensions:</strong> ${data.size}</p>
-                        <p style="margin-top: 15px; font-style: italic; color: #a09990; line-height: 1.6;">"${data.description}"</p>
+                        <p style="margin-top: 15px; font-style: italic; color: #a09990; line-height: 1.6; white-space: pre-line;">"${data.description}"</p>
                     `;
                 }
 
-                // Dynamic WhatsApp Link generation based on availability
                 if (viewerLink) {
                     if (data.status === "SOLD") {
-                        // If it's sold, change button to Commission Inquiry
                         viewerLink.innerText = "Request Similar Commission";
                         viewerLink.href = `https://wa.me/255692973059?text=Hello%20McDonald,%20I%20saw%20"${encodeURIComponent(data.title)}" did%20sell.%20I%20would%20love%20to%20discuss%20commissioning%20a%20similar%20piece.`;
                     } else {
-                        // If available, standard acquisition link with price included
                         viewerLink.innerText = "Acquire This Piece";
                         viewerLink.href = `https://wa.me/255692973059?text=Hello%20McDonald,%20I%20am%20interested%20in%20acquiring%20your%20painting:%20"${encodeURIComponent(data.title)}"%20listed%20at%20${encodeURIComponent(data.price)}.`;
                     }
