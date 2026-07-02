@@ -37,8 +37,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // ==========================================
     // 2. YOUR STUDIO PROCESS (Work in Progress)
     // ==========================================
-    // When you have actual behind-the-scenes photos, upload them to GitHub
-    // and change the "image" names below to match your files!
     const processImages = [
         { 
             title: "Initial Sketch", 
@@ -59,10 +57,10 @@ document.addEventListener("DOMContentLoaded", function() {
     // 1. Render Process Images
     const processGrid = document.getElementById("process-grid");
     if (processGrid) {
-        processGrid.innerHTML = ""; // Clear existing
+        processGrid.innerHTML = ""; 
         processImages.forEach(item => {
             processGrid.innerHTML += `
-                <div class="process-item" style="border: 1px solid #333; padding: 15px; text-align: center; border-radius: 8px;">
+                <div class="process-item" style="border: 1px solid #333; padding: 15px; text-align: center; border-radius: 8px; background: #111;">
                     <img src="${item.image}" alt="${item.title}" style="width: 100%; height: auto; display: block; margin-bottom: 15px; border-radius: 4px;">
                     <h3 style="font-size: 1.2rem; margin: 10px 0; font-family: serif;">${item.title}</h3>
                     <p style="font-size: 0.9rem; color: #aaa;">${item.description}</p>
@@ -71,10 +69,10 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 2. Render Paintings Tunnel (Your Existing Gallery)
+    // 2. Render Paintings Tunnel
     const tunnelWorld = document.getElementById("tunnel-world");
     if (tunnelWorld) {
-        tunnelWorld.innerHTML = ""; // Clear existing
+        tunnelWorld.innerHTML = ""; 
         paintings.forEach(function(p, index) {
             tunnelWorld.innerHTML += `
                 <div class="art-panel" data-index="${index}">
@@ -87,17 +85,46 @@ document.addEventListener("DOMContentLoaded", function() {
             `;
         });
         
-        // Re-initializing GSAP for the new panels
+        // 3. THE 3D SCROLL ENGINE (Brings art out of the black screen)
         const panels = document.querySelectorAll('.art-panel');
-        const zSpacing = 1600;
+        const zSpacing = 1600; // Distance between paintings in 3D space
+
+        function updateTunnelPositions() {
+            let top = document.documentElement.scrollTop || window.pageYOffset;
+            
+            panels.forEach((panel, i) => {
+                // Calculate how close the painting should be based on scroll position
+                let zPosition = (-i * zSpacing) + (top * 1.5); 
+                
+                // Fade items in as they approach, and vanish once they pass behind the camera
+                let opacity = zPosition > 400 ? 0 : (zPosition < -2500 ? 0 : 1);
+                
+                gsap.set(panel, { z: zPosition, opacity: opacity });
+            });
+        }
+
+        // Listen for scrolling to update positions instantly
+        window.addEventListener('scroll', updateTunnelPositions);
+        // Run once at startup to show the first painting immediately
+        updateTunnelPositions();
+
+        // Subtle breathing animation for depth
         panels.forEach((panel, i) => {
-            gsap.set(panel, { z: -i * zSpacing, opacity: i === 0 ? 1 : 0 });
-            // Breathing animation
-            gsap.to(panel.querySelector('.tilt-img'), { y: 12, rotationZ: i % 2 === 0 ? 1 : -1, duration: 3.5, yoyo: true, repeat: -1, ease: "sine.inOut", delay: i * 0.4 });
+            gsap.to(panel.querySelector('.tilt-img'), { 
+                y: 12, 
+                rotationZ: i % 2 === 0 ? 1 : -1, 
+                duration: 3.5, 
+                yoyo: true, 
+                repeat: -1, 
+                ease: "sine.inOut", 
+                delay: i * 0.4 
+            });
         });
     }
 
-    // 3. Lightbox Logic (For Painting Details)
+    // ==========================================
+    // LIGHTBOX POPUP LOGIC
+    // ==========================================
     const lightbox = document.getElementById("lightbox");
     document.addEventListener("click", function(e) {
         const panel = e.target.closest(".art-panel");
@@ -106,14 +133,15 @@ document.addEventListener("DOMContentLoaded", function() {
             document.getElementById("viewer-img").src = data.image;
             document.getElementById("viewer-title").innerText = data.title;
             document.getElementById("viewer-description").innerHTML = `
-                <p style="color: #d4af37;"><strong>Investment: ${data.price}</strong></p>
-                <p><strong>Medium:</strong> ${data.medium}</p>
-                <p style="white-space: pre-line;">"${data.description}"</p>`;
+                <p style="color: #d4af37; margin-bottom: 5px;"><strong>Investment: ${data.price}</strong></p>
+                <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 10px;"><strong>Medium:</strong> ${data.medium} | <strong>Size:</strong> ${data.size}</p>
+                <p style="white-space: pre-line; italic;">"${data.description}"</p>`;
             
             const link = document.getElementById("viewer-link");
+            link.innerText = data.status === "SOLD" ? "Commission Similar Work" : "Acquire Piece via WhatsApp";
             link.href = data.status === "SOLD" 
-                ? `https://wa.me/255692973059?text=I%20saw%20${encodeURIComponent(data.title)}%20sold.%20I%20want%20a%20commission.`
-                : `https://wa.me/255692973059?text=I%20am%20interested%20in%20acquiring%20${encodeURIComponent(data.title)}%20for%20${encodeURIComponent(data.price)}.`;
+                ? `https://wa.me/255692973059?text=I%20saw%20${encodeURIComponent(data.title)}%20is%20sold.%20I%20would%20like%20to%20commission%20a%20similar%20original%20artwork.`
+                : `https://wa.me/255692973059?text=I%20am%20interested%20in%20acquiring%20the%20original%20painting%20${encodeURIComponent(data.title)}%20for%20${encodeURIComponent(data.price)}.`;
             
             lightbox.classList.add("active");
         }
