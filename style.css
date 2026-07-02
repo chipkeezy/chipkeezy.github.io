@@ -606,3 +606,33 @@ blockquote {
     cursor: pointer;
     transition: opacity 0.8s ease; /* This adds the "expensive" fade */
 }
+#contact {
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #050404;
+    padding: 20px;
+}
+
+.contact-card {
+    text-align: center;
+    padding: 60px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(198, 165, 106, 0.2);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+}
+
+.contact-card h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    color: #F5F2EC;
+    margin-bottom: 20px;
+}
+
+.contact-card p {
+    color: #C6A56A;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
