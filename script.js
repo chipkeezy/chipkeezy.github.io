@@ -1,4 +1,11 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // CINEMATIC INTRO
+const intro = document.getElementById("intro-screen");
+const tl = gsap.timeline();
+
+tl.to(".intro-logo", { opacity: 1, duration: 1.5, ease: "power2.inOut" })
+  .to(".intro-logo", { scale: 1.1, duration: 2, ease: "power2.inOut" })
+  .to(intro, { opacity: 0, duration: 1, onComplete: () => intro.style.display = "none" });
     // 1. Register the GSAP tools
     gsap.registerPlugin(ScrollTrigger);
 
