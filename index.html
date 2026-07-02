@@ -7,6 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -59,14 +61,11 @@
         </div>
     </section>
 
-    <section id="gallery" class="gallery-section reveal">
-        <div class="gallery-header">
-            <p class="section-tag">Collection</p>
-            <h2>Original Oil Paintings</h2>
-            <p>Every painting is created by hand using traditional oil painting techniques.</p>
+    <section id="gallery" class="tunnel-container">
+    <div class="tunnel-world" id="tunnel-world">
         </div>
-        <div class="gallery-grid" id="gallery-grid"></div>
-    </section>
+    <div class="scroll-indicator">Scroll to Fly Forward ↓</div>
+</section>
 
     <section id="about" class="about reveal">
         <div class="about-image">
