@@ -479,3 +479,95 @@ blockquote {
         right: 10px;
     }
 }
+/* ==========================
+   Z-AXIS 3D TUNNEL
+========================== */
+.tunnel-container {
+    height: 100vh;
+    width: 100%;
+    perspective: 1500px; /* This dictates how deep the 3D camera feels */
+    overflow: hidden;
+    position: relative;
+    background: #050404; /* Extra dark void for cinematic effect */
+}
+
+.tunnel-world {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-style: preserve-3d;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #C6A56A;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    z-index: 10;
+    pointer-events: none;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.4; transform: translate(-50%, 0); }
+    50% { opacity: 1; transform: translate(-50%, 10px); }
+}
+
+.art-panel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 450px; 
+    transform: translate(-50%, -50%);
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.art-panel img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.9);
+}
+
+.art-panel-info {
+    position: absolute;
+    top: 50%;
+    left: 115%; /* Text pushes out to the right side of the painting */
+    transform: translateY(-50%);
+    width: 350px;
+    opacity: 0; 
+    pointer-events: none;
+}
+
+.art-panel-info h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    color: #F5F2EC;
+    line-height: 1.1;
+}
+
+.art-panel-info p {
+    color: #C6A56A;
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+@media(max-width: 900px){
+    .art-panel { width: 75vw; }
+    .art-panel-info {
+        top: 110%;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        width: 100%;
+    }
+}
