@@ -48,44 +48,48 @@ document.addEventListener("DOMContentLoaded", function() {
             status: "SOLD", 
             price: "Private Collection", 
             medium: "Oil on Canvas", 
-            size: "24x36 cm", 
-            description: "A study in light and warmth." 
+            size: "60x80 cm", 
+            description: "The painting reminds us that the strongest people are often those who have weathered the hardest storms and still find peace in the quiet moments.
+Some men leave behind buildings; others leave behind stories that become the foundation of a people.." 
         },
         { 
-            title: "Boy", 
+            title: "The Shepherd of Tomorrow", 
             image: "boy.jpeg", 
             status: "AVAILABLE", 
-            price: "$1,200", 
+            price: "$300", 
             medium: "Oil on Canvas", 
             size: "60x80 cm", 
-            description: "Portrait of a young spirit." 
+            description: "The herd beneath him is the inheritance of his ancestors, while the mountain beyond him is a reminder that greatness is built through patience. Though he is only a boy, his calm gaze carries the responsibility of generations.." 
         },
         { 
             title: "Tle Last Ember 2", 
             image: "ember.jpeg", 
             status: "AVAILABLE", 
-            price: "$1,200", 
+            price: "$300", 
             medium: "Oil on Canvas", 
             size: "60x80 cm", 
-            description: "Abstract fire series." 
+            description: "The painting reminds us that the strongest people are often those who have weathered the hardest storms and still find peace in the quiet moments.
+Some men leave behind buildings; others leave behind stories that become the foundation of a people.." 
         },
         { 
             title: "The Feet that carried a continet", 
             image: "feet.jpeg", 
             status: "AVAILABLE", 
-            price: "$1,200", 
+            price: "$300", 
             medium: "Oil on Canvas", 
             size: "60x80 cm", 
             description: "Movement study." 
         },
          { 
-            title: "Woman king", 
+            title: "Daughter of the Plains", 
             image: "masai.jpeg", 
             status: "AVAILABLE", 
-            price: "$1,200", 
+            price: "$300", 
             medium: "Oil on Canvas", 
             size: "60x80 cm", 
-            description: "Abstract fire series." 
+            description: "She stands in silence, adorned not only with beads but with the legacy of generations. Her beauty is not measured by appearance alone—it is found in her courage, her wisdom, and her unwavering pride in who she is.
+Her eyes look beyond the horizon, carrying the hopes of her ancestors and the promise of those yet to come.
+She is more than a daughter of Africa; she is the heartbeat of its future.." 
         },
         
     ];
