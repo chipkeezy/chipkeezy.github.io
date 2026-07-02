@@ -1,245 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>McDonald Simon | Original Oil Paintings</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>McDonald Simon | Original Oil Paintings</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header class="navbar">
-
-<div class="logo">
-
-<img src="logo.png" alt="McDonald Simon Logo">
-
-<div>
-
-<h2>McDonald Simon</h2>
-
-<p>ORIGINAL OIL PAINTINGS</p>
-
-</div>
-
-</div>
-<nav>
-
-<a href="#">Home</a>
-
-<a href="#gallery">Gallery</a>
-
-<a href="#about">About</a>
-
-<a href="#contact">Contact</a>
-
-</nav>
-
-</header>
-
-<section class="hero">
-
-<div class="overlay"></div>
-
-<div class="hero-content">
-
-<h1>
-Stories Preserved<br>
-Through Light.
-</h1>
-
-<p>
-
-Original oil paintings inspired by memory,
-culture and atmosphere.
-
-</p>
-
-<div class="hero-buttons">
-
-<a href="#gallery" class="btn">
-Explore Collection
-</a>
-
-<a href="https://wa.me/255692973059?text=Hello%20McDonald,%20I%20would%20like%20to%20commission%20an%20original%20painting."
-class="btn btn-outline">
-
-Commission an Artwork
-
-</a>
-
-</div>
-
-</div>
-
-</section>
-  <section class="featured reveal">
-
-<div class="featured-text">
-
-<p class="section-tag">Featured Masterpiece</p>
-
-<h2>The Last Ember 2</h2>
-
-<p class="featured-description">
-
-The painting reminds us that the strongest people are often those who have weathered the hardest storms and still find peace in the quiet moments.
-Some men leave behind buildings; others leave behind stories that become the foundation of a people.
-
-</p>
-
-<ul class="details">
-<li><strong>Medium:</strong> Oil on Canvas</li>
-<li><strong>Dimensions:</strong> 60 × 80 cm</li>
-<li><strong>Status:</strong> <span class="available">Available</span></li>
-</ul>
-
-<a href="https://wa.me/255692973059?text=Hello%20McDonald,%20I%20am%20interested%20in%20The%20Morning%20Light."
-class="btn">
-
-Acquire Artwork
-
-</a>
-
-</div>
-
-<div class="featured-image">
-
-<img src="ember.jpeg" alt="Featured Painting">
-
-</div>
-
-</section>
-<section class="gallery-section reveal">
-
-<div class="gallery-header">
-<p class="section-tag">Collection</p>
-<h2>Original Oil Paintings</h2>
-<p>Every painting is created by hand using traditional oil painting techniques.</p>
-</div>
-
-<div class="gallery-grid" id="gallery-grid"></div>
-
-</section>
-</section>
- <section class="about reveal">
-
-<div class="about-image">
-
-<img src="artist.jpeg" alt="McDonald Simon">
-
-</div>
-
-<div class="about-content">
-
-<p class="section-tag">About the Artist</p>
-
-<h2>Painting Stories Through Light</h2>
-
-<p>
-
-I am McDonald Simon, a Tanzanian oil painter whose work explores memory,
-light and the quiet dignity found in everyday life.
-
-Working primarily in oils, I combine impressionistic brushwork with
-carefully observed realism to create paintings that invite viewers to
-pause and reflect.
-
-Each piece is painted by hand and exists as an original work.
-
-</p>
-
-<a href="https://wa.me/255692973059?text=Hello%20McDonald,%20I%20would%20like%20to%20know%20more%20about%20your%20work."
-class="btn">
-
-Let's Talk
-
-</a>
-
-</div>
-
-</section>
- <section class="studio reveal">
-
-<div class="studio-content">
-
-<p class="section-tag">Inside the Studio</p>
-
-<h2>Where Every Painting Begins</h2>
-
-<p>
-
-Every painting begins with observation, patience and traditional oil
-painting techniques. My studio is a place where ideas slowly become
-brushstrokes, and brushstrokes become stories.
-
-</p>
-
-<blockquote>
-
-"Every canvas begins with silence before it begins with colour."
-
-</blockquote>
-
-<a href="https://wa.me/255692973059?text=Hello%20McDonald,%20I%20would%20love%20to%20visit%20your%20online%20collection."
-class="btn">
-
-Explore the Collection
-
-</a>
-
-</div>
-
-<div class="studio-image">
-
-<img src="studio.jpeg" alt="Studio">
-
-</div>
-
-</section>
-
-<script src="script.js"></script>
-<!-- Museum Viewer -->
-
-<div id="lightbox">
-
-<div class="viewer">
-
-<span class="close">&times;</span>
-
-<img id="viewer-img">
-
-<div class="viewer-info">
-
-<h2 id="viewer-title"></h2>
-
-<p id="viewer-description"></p>
-
-<a id="viewer-link"
-class="btn"
-target="_blank">
-
-Acquire Artwork
-
-</a>
-
-</div>
-
-</div>
-
-</div>
+    <header class="navbar">
+        <div class="logo">
+            <img src="logo.png" alt="McDonald Simon Logo">
+            <div>
+                <h2>McDonald Simon</h2>
+                <p>ORIGINAL OIL PAINTINGS</p>
+            </div>
+        </div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h1>Stories Preserved<br>Through Light.</h1>
+            <p>Original oil paintings inspired by memory, culture and atmosphere.</p>
+            <div class="hero-buttons">
+                <a href="#gallery" class="btn">Explore Collection</a>
+                <a href="https://wa.me/255692973059?text=Hello%20McDonald,%20I%20would%20like%20to%20commission%20an%20original%20painting." class="btn btn-outline">Commission an Artwork</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured reveal">
+        <div class="featured-text">
+            <p class="section-tag">Featured Masterpiece</p>
+            <h2>The Last Ember 2</h2>
+            <p class="featured-description">
+                The painting reminds us that the strongest people are often those who have weathered the hardest storms and still find peace in the quiet moments. 
+                Some men leave behind buildings; others leave behind stories that become the foundation of a people.
+            </p>
+            <ul class="details">
+                <li><strong>Medium:</strong> Oil on Canvas</li>
+                <li><strong>Dimensions:</strong> 60 × 80 cm</li>
+                <li><strong>Status:</strong> <span class="available">Available</span></li>
+            </ul>
+            <a href="https://wa.me/255692973059?text=Hello%20McDonald,%20I%20am%20interested%20in%20The%20Last%20Ember%202." class="btn">Acquire Artwork</a>
+        </div>
+        <div class="featured-image">
+            <img src="ember.jpeg" alt="Featured Painting">
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery-section reveal">
+        <div class="gallery-header">
+            <p class="section-tag">Collection</p>
+            <h2>Original Oil Paintings</h2>
+            <p>Every painting is created by hand using traditional oil painting techniques.</p>
+        </div>
+        <div class="gallery-grid" id="gallery-grid"></div>
+    </section>
+
+    <section id="about" class="about reveal">
+        <div class="about-image">
+            <img src="artist.jpeg" alt="McDonald Simon">
+        </div>
+        <div class="about-content">
+            <p class="section-tag">About the Artist</p>
+            <h2>Painting Stories Through Light</h2>
+            <p>
+                I am McDonald Simon, a Tanzanian oil painter whose work explores memory, light and the quiet dignity found in everyday life. 
+                Working primarily in oils, I combine impressionistic brushwork with carefully observed realism to create paintings that invite viewers to pause and reflect.
+                Each piece is painted by hand and exists as an original work.
+            </p>
+            <a href="https://wa.me/255692973059?text=Hello%20McDonald,%20I%20would%20like%20to%20know%20more%20about%20your%20work." class="btn">Let's Talk</a>
+        </div>
+    </section>
+
+    <section id="contact" class="studio reveal">
+        <div class="studio-content">
+            <p class="section-tag">Inside the Studio</p>
+            <h2>Where Every Painting Begins</h2>
+            <p>Every painting begins with observation, patience and traditional oil painting techniques. My studio is a place where ideas slowly become brushstrokes, and brushstrokes become stories.</p>
+            <blockquote>"Every canvas begins with silence before it begins with colour."</blockquote>
+            <a href="https://wa.me/255692973059?text=Hello%20McDonald,%20I%20would%20love%20to%20visit%20your%20online%20collection." class="btn">Explore the Collection</a>
+        </div>
+        <div class="studio-image">
+            <img src="studio.jpeg" alt="Studio">
+        </div>
+    </section>
+
+    <div id="lightbox">
+        <div class="viewer">
+            <span class="close">&times;</span>
+            <img id="viewer-img" src="" alt="Gallery Preview">
+            <div class="viewer-info">
+                <h2 id="viewer-title"></h2>
+                <div id="viewer-description"></div>
+                <a id="viewer-link" href="#" class="btn" target="_blank">Acquire Artwork</a>
+            </div>
+        </div>
+    </type>
+
+    <script src="script.js"></script>
 </body>
-
 </html>
