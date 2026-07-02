@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     gsap.registerPlugin(ScrollTrigger);
 
     // ==========================================
-    // ADD NEW PAINTINGS BELOW THIS LINE
+    // 1. YOUR PAINTINGS (Final Art)
     // ==========================================
     const paintings = [
         { 
@@ -12,8 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
             price: "Private Collection", 
             medium: "Oil on Canvas", 
             size: "60x80 cm", 
-            description: `The painting reminds us that the strongest people are often those who have weathered the hardest storms and still find peace in the quiet moments.
-Some men leave behind buildings; others leave behind stories that become the foundation of a people.` 
+            description: "The painting reminds us that the strongest people are often those who have weathered the hardest storms and still find peace in the quiet moments.\nSome men leave behind buildings; others leave behind stories that become the foundation of a people." 
         },
         { 
             title: "The Shepherd of Tomorrow", 
@@ -22,7 +21,7 @@ Some men leave behind buildings; others leave behind stories that become the fou
             price: "$300", 
             medium: "Oil on Canvas", 
             size: "60x80 cm", 
-            description: `The herd beneath him is the inheritance of his ancestors, while the mountain beyond him is a reminder that greatness is built through patience.` 
+            description: "The herd beneath him is the inheritance of his ancestors, while the mountain beyond him is a reminder that greatness is built through patience." 
         },
         { 
             title: "Daughter of the Plains", 
@@ -31,14 +30,48 @@ Some men leave behind buildings; others leave behind stories that become the fou
             price: "$300", 
             medium: "Oil on Canvas", 
             size: "60x80 cm", 
-            description: `She stands in silence, adorned not only with beads but with the legacy of generations. Her beauty is not measured by appearance alone.` 
+            description: "She stands in silence, adorned not only with beads but with the legacy of generations. Her beauty is not measured by appearance alone." 
         }
     ];
-    // ==========================================
-    // STOP EDITING HERE
-    // ==========================================
 
-    // --- Core Engine (Don't change this part) ---
+    // ==========================================
+    // 2. YOUR STUDIO PROCESS (Work in Progress)
+    // ==========================================
+    // When you have actual behind-the-scenes photos, upload them to GitHub
+    // and change the "image" names below to match your files!
+    const processImages = [
+        { 
+            title: "Initial Sketch", 
+            image: "sketch1.jpeg", 
+            description: "The first vision of the piece." 
+        },
+        { 
+            title: "First Layers", 
+            image: "wip1.jpeg", 
+            description: "Building the foundation." 
+        }
+    ];
+
+    // ==========================================
+    // ENGINE: RENDERING THE SECTIONS
+    // ==========================================
+    
+    // 1. Render Process Images
+    const processGrid = document.getElementById("process-grid");
+    if (processGrid) {
+        processGrid.innerHTML = ""; // Clear existing
+        processImages.forEach(item => {
+            processGrid.innerHTML += `
+                <div class="process-item" style="border: 1px solid #333; padding: 15px; text-align: center; border-radius: 8px;">
+                    <img src="${item.image}" alt="${item.title}" style="width: 100%; height: auto; display: block; margin-bottom: 15px; border-radius: 4px;">
+                    <h3 style="font-size: 1.2rem; margin: 10px 0; font-family: serif;">${item.title}</h3>
+                    <p style="font-size: 0.9rem; color: #aaa;">${item.description}</p>
+                </div>
+            `;
+        });
+    }
+
+    // 2. Render Paintings Tunnel (Your Existing Gallery)
     const tunnelWorld = document.getElementById("tunnel-world");
     if (tunnelWorld) {
         tunnelWorld.innerHTML = ""; // Clear existing
@@ -54,7 +87,7 @@ Some men leave behind buildings; others leave behind stories that become the fou
             `;
         });
         
-        // ... Re-initializing GSAP for the new panels
+        // Re-initializing GSAP for the new panels
         const panels = document.querySelectorAll('.art-panel');
         const zSpacing = 1600;
         panels.forEach((panel, i) => {
@@ -64,7 +97,7 @@ Some men leave behind buildings; others leave behind stories that become the fou
         });
     }
 
-    // Lightbox Logic
+    // 3. Lightbox Logic (For Painting Details)
     const lightbox = document.getElementById("lightbox");
     document.addEventListener("click", function(e) {
         const panel = e.target.closest(".art-panel");
