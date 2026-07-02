@@ -42,13 +42,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // 5. Dynamic Art Vault List
     const paintings = [
-        { title: "The Last Ember", image: "The Last Ember 1.jpeg", status: "AVAILABLE", medium: "Oil on Canvas", size: "24x36 cm", description: "A study in light and warmth." },
-        { title: "Boy", image: "boy.jpeg", status: "SOLD", medium: "Oil on Canvas", size: "18x24 cm", description: "Portrait of a young spirit." },
-        { title: "Ember", image: "ember.jpeg", status: "AVAILABLE", medium: "Oil on Canvas", size: "20x20 cm", description: "Abstract fire series." },
-        { title: "Feet", image: "feet.jpeg", status: "AVAILABLE", medium: "Oil on Canvas", size: "12x12 cm", description: "Movement study." }
+        { title: "The Last Ember 1", image: "The Last Ember 1.jpeg", status: "SOLD", medium: "Oil on Canvas", size: "60x80 cm", description: "A study in light and warmth." },
+        { title: "Boy", image: "boy.jpeg", status: "AVAILABLE", medium: "Oil on Canvas", size: "18x24 cm", description: "Portrait of a young spirit." },
+        { title: "The Last Ember 2", image: "ember.jpeg", status: "AVAILABLE", medium: "Oil on Canvas", size: "20x20 cm", description: "Abstract fire series." },
+        { title: "The Feet that carried the continent", image: "feet.jpeg", status: "AVAILABLE", medium: "Oil on Canvas", size: "12x12 cm", description: "Movement study." }
     ];
 
-    // 6. Interactive 3D Tunnel Engineering
+    // 6. Interactive 3D Tunnel Engineering (UPGRADED FOR MOBILE)
     const tunnelWorld = document.getElementById("tunnel-world");
     if (tunnelWorld) {
         paintings.forEach(function(p, index) {
@@ -70,6 +70,18 @@ document.addEventListener("DOMContentLoaded", function() {
         panels.forEach(function(panel, i) {
             gsap.set(panel, { z: -i * zSpacing, opacity: i === 0 ? 1 : 0 });
 
+            // MOBILE FIX: Add a gentle, continuous "breathing" float so paintings never look dead
+            gsap.to(panel.querySelector('.tilt-img'), {
+                y: 12,
+                rotationZ: i % 2 === 0 ? 1 : -1, // Alternates slight tilts
+                duration: 3.5,
+                yoyo: true,
+                repeat: -1,
+                ease: "sine.inOut",
+                delay: i * 0.4
+            });
+
+            // DESKTOP: Mouse Tilt Effect (Stays active for computers)
             panel.addEventListener('mousemove', function(e) {
                 const rect = panel.getBoundingClientRect();
                 const x = e.clientX - rect.left - rect.width / 2;
@@ -89,7 +101,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 pin: true,
                 start: "top top",
                 end: "+=" + (panels.length * 1200),
-                scrub: 1,
+                // MOBILE FIX: Increased scrub from 1 to 2.5. This adds "momentum" 
+                // so the scrolling glides to a stop on touch devices.
+                scrub: 2.5, 
                 onUpdate: function(self) {
                     const currentZ = self.progress * totalDepth;
                     panels.forEach(function(panel, i) {
@@ -116,7 +130,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const viewerLink = document.getElementById("viewer-link");
 
     if (lightbox) {
-        // Use event delegation for dynamically created gallery panels
         document.addEventListener("click", function(e) {
             const panel = e.target.closest(".art-panel");
             if (panel) {
