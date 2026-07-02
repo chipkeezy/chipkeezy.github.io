@@ -40,15 +40,57 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // 5. Dynamic Art Vault List
+    // 5. Dynamic Art Vault List (UPGRADED WITH PRICING FOR DIRECT SALES)
     const paintings = [
-        { title: "The Last Ember 1", image: "The Last Ember 1.jpeg", status: "SOLD", medium: "Oil on Canvas", size: "60x80 cm", description: "A study in light and warmth." },
-        { title: "Boy", image: "boy.jpeg", status: "AVAILABLE", medium: "Oil on Canvas", size: "18x24 cm", description: "Portrait of a young spirit." },
-        { title: "The Last Ember 2", image: "ember.jpeg", status: "AVAILABLE", medium: "Oil on Canvas", size: "20x20 cm", description: "Abstract fire series." },
-        { title: "The Feet that carried the continent", image: "feet.jpeg", status: "AVAILABLE", medium: "Oil on Canvas", size: "12x12 cm", description: "Movement study." }
+        { 
+            title: "The Last Ember 1", 
+            image: "The Last Ember 1.jpeg", 
+            status: "SOLD", 
+            price: "Private Collection", 
+            medium: "Oil on Canvas", 
+            size: "24x36 cm", 
+            description: "A study in light and warmth." 
+        },
+        { 
+            title: "Boy", 
+            image: "boy.jpeg", 
+            status: "AVAILABLE", 
+            price: "$1,200", 
+            medium: "Oil on Canvas", 
+            size: "60x80 cm", 
+            description: "Portrait of a young spirit." 
+        },
+        { 
+            title: "Tle Last Ember 2", 
+            image: "ember.jpeg", 
+            status: "AVAILABLE", 
+            price: "$1,200", 
+            medium: "Oil on Canvas", 
+            size: "60x80 cm", 
+            description: "Abstract fire series." 
+        },
+        { 
+            title: "The Feet that carried a continet", 
+            image: "feet.jpeg", 
+            status: "AVAILABLE", 
+            price: "$1,200", 
+            medium: "Oil on Canvas", 
+            size: "60x80 cm", 
+            description: "Movement study." 
+        },
+         { 
+            title: "Woman king", 
+            image: "masai.jpeg", 
+            status: "AVAILABLE", 
+            price: "$1,200", 
+            medium: "Oil on Canvas", 
+            size: "60x80 cm", 
+            description: "Abstract fire series." 
+        },
+        
     ];
 
-    // 6. Interactive 3D Tunnel Engineering (UPGRADED FOR MOBILE)
+    // 6. Interactive 3D Tunnel Engineering
     const tunnelWorld = document.getElementById("tunnel-world");
     if (tunnelWorld) {
         paintings.forEach(function(p, index) {
@@ -70,10 +112,10 @@ document.addEventListener("DOMContentLoaded", function() {
         panels.forEach(function(panel, i) {
             gsap.set(panel, { z: -i * zSpacing, opacity: i === 0 ? 1 : 0 });
 
-            // MOBILE FIX: Add a gentle, continuous "breathing" float so paintings never look dead
+            // Mobile/Universal Breathing Animation
             gsap.to(panel.querySelector('.tilt-img'), {
                 y: 12,
-                rotationZ: i % 2 === 0 ? 1 : -1, // Alternates slight tilts
+                rotationZ: i % 2 === 0 ? 1 : -1,
                 duration: 3.5,
                 yoyo: true,
                 repeat: -1,
@@ -81,7 +123,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 delay: i * 0.4
             });
 
-            // DESKTOP: Mouse Tilt Effect (Stays active for computers)
+            // Desktop Mouse Tilt Effect
             panel.addEventListener('mousemove', function(e) {
                 const rect = panel.getBoundingClientRect();
                 const x = e.clientX - rect.left - rect.width / 2;
@@ -101,9 +143,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 pin: true,
                 start: "top top",
                 end: "+=" + (panels.length * 1200),
-                // MOBILE FIX: Increased scrub from 1 to 2.5. This adds "momentum" 
-                // so the scrolling glides to a stop on touch devices.
-                scrub: 2.5, 
+                scrub: 2.5, // Smooth momentum for mobile
                 onUpdate: function(self) {
                     const currentZ = self.progress * totalDepth;
                     panels.forEach(function(panel, i) {
@@ -122,7 +162,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 7. Lightbox Museum Interface Handler
+    // 7. Lightbox Museum Interface Handler (UPGRADED FOR SALES)
     const lightbox = document.getElementById("lightbox");
     const viewerImg = document.getElementById("viewer-img");
     const viewerTitle = document.getElementById("viewer-title");
@@ -139,16 +179,29 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (viewerImg) viewerImg.src = data.image;
                 if (viewerTitle) viewerTitle.innerText = data.title;
                 
+                // Injecting the Price, Medium, and Story into the Lightbox
                 if (viewerDescription) {
                     viewerDescription.innerHTML = `
+                        <p style="font-size: 1.1rem; color: #d4af37; margin-bottom: 10px; letter-spacing: 1px;">
+                            <strong>Investment: ${data.price}</strong>
+                        </p>
                         <p><strong>Medium:</strong> ${data.medium}</p>
                         <p><strong>Dimensions:</strong> ${data.size}</p>
-                        <p style="margin-top: 15px; font-style: italic; color: #a09990;">"${data.description}"</p>
+                        <p style="margin-top: 15px; font-style: italic; color: #a09990; line-height: 1.6;">"${data.description}"</p>
                     `;
                 }
 
+                // Dynamic WhatsApp Link generation based on availability
                 if (viewerLink) {
-                    viewerLink.href = `https://wa.me/255692973059?text=Hello%20McDonald,%20I%20am%20interested%20in%20acquiring%20your%20painting:%20"${encodeURIComponent(data.title)}".`;
+                    if (data.status === "SOLD") {
+                        // If it's sold, change button to Commission Inquiry
+                        viewerLink.innerText = "Request Similar Commission";
+                        viewerLink.href = `https://wa.me/255692973059?text=Hello%20McDonald,%20I%20saw%20"${encodeURIComponent(data.title)}" did%20sell.%20I%20would%20love%20to%20discuss%20commissioning%20a%20similar%20piece.`;
+                    } else {
+                        // If available, standard acquisition link with price included
+                        viewerLink.innerText = "Acquire This Piece";
+                        viewerLink.href = `https://wa.me/255692973059?text=Hello%20McDonald,%20I%20am%20interested%20in%20acquiring%20your%20painting:%20"${encodeURIComponent(data.title)}"%20listed%20at%20${encodeURIComponent(data.price)}.`;
+                    }
                 }
 
                 lightbox.classList.add("active");
