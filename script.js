@@ -83,18 +83,28 @@ tl.to(".intro-logo", { opacity: 1, duration: 1.5, ease: "power2.inOut" })
         });
     }
 
-    // 3. Museum Viewer (Lightbox)
-    const lightbox = document.getElementById("lightbox");
-    if (lightbox) {
-        document.querySelectorAll(".art-panel").forEach(card => {
-            card.addEventListener("click", () => {
-                const index = card.getAttribute("data-index");
-                const data = paintings[index];
-                document.getElementById("viewer-img").src = data.image;
-                document.getElementById("viewer-title").innerText = data.title;
-                lightbox.classList.add("active");
-            });
-        });
-        document.querySelector(".close").addEventListener("click", () => lightbox.classList.remove("active"));
-    }
+   // 3. Museum Viewer (Lightbox)
+const lightbox = document.getElementById("lightbox");
+const viewerImg = document.getElementById("viewer-img");
+const viewerTitle = document.getElementById("viewer-title");
+const viewerDescription = document.getElementById("viewer-description"); // Make sure this exists
+
+document.querySelectorAll(".art-panel").forEach(card => {
+    card.addEventListener("click", () => {
+        const index = card.getAttribute("data-index");
+        const data = paintings[index];
+
+        // This injects the missing details back into the viewer
+        viewerImg.src = data.image;
+        viewerTitle.innerText = data.title;
+        viewerDescription.innerHTML = `
+            <p><strong>Medium:</strong> ${data.medium}</p>
+            <p><strong>Dimensions:</strong> ${data.size}</p>
+            <p style="margin-top: 15px; font-style: italic;">"${data.description}"</p>
+        `;
+
+        lightbox.classList.add("active");
+    });
 });
+
+document.querySelector(".close").addEventListener("click", () => lightbox.classList.remove("active"));
