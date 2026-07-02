@@ -636,3 +636,22 @@ blockquote {
     margin-bottom: 30px;
     letter-spacing: 2px;
 }
+/* Contact Grid Layout */
+.contact-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px; /* Spacing between buttons */
+    margin-top: 30px;
+}
+
+/* Ensure buttons look great on mobile */
+@media(max-width: 600px) {
+    .contact-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    .contact-grid .btn {
+        width: 80%;
+    }
+}
