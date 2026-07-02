@@ -89,12 +89,13 @@
         </div>
     </section>
 
-    <section id="studio" class="studio reveal">
+   <section id="studio" class="studio reveal">
     <div class="studio-content">
         <p class="section-tag">Inside the Studio</p>
         <h2>Where Every Painting Begins</h2>
         <p>Every painting begins with observation, patience and traditional oil painting techniques. My studio is a place where ideas slowly become brushstrokes, and brushstrokes become stories.</p>
         <blockquote>"Every canvas begins with silence before it begins with colour."</blockquote>
+        <!-- The updated button -->
         <a href="#studio-process" class="btn">View Studio Process</a>
     </div>
     <div class="studio-image">
@@ -102,35 +103,39 @@
     </div>
 </section>
 
+<!-- THE NEW BEHIND THE SCENES SECTION -->
 <section id="studio-process" style="padding: 80px 20px; background: #0a0a0a; color: #fff;">
     <h2 style="text-align: center; margin-bottom: 40px; font-family: serif; font-size: 2.5rem;">Behind the Scenes</h2>
     <div id="process-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto;">
-        </div>
+        <!-- Process images will automatically appear here from script.js -->
+    </div>
 </section>
-    <section id="contact">
-        <div class="contact-card">
-            <h2>Let's Connect</h2>
-            <p>For commissions, inquiries, or studio visits.</p>
-            <div class="contact-grid">
-                <a href="mailto:mcchipkeezy@gmail.com" class="btn">Email Me</a>
-                <a href="https://wa.me/255692973059" target="_blank" class="btn">WhatsApp</a>
-                <a href="https://www.instagram.com/mc_ndokeji/" target="_blank" class="btn">Instagram</a>
-            </div>
-        </div>
-    </section>
 
-    <div id="lightbox">
-        <div class="viewer">
-            <span class="close">&times;</span>
-            <img id="viewer-img" src="" alt="Gallery Preview">
-            <div class="viewer-info">
-                <h2 id="viewer-title"></h2>
-                <div id="viewer-description"></div>
-                <a id="viewer-link" href="https://wa.me/255692973059" class="btn" target="_blank">Acquire Artwork</a>
-            </div>
+<!-- YOUR CONTACT SECTION -->
+<section id="contact">
+    <div class="contact-card">
+        <h2>Let's Connect</h2>
+        <p>For commissions, inquiries, or studio visits.</p>
+        <div class="contact-grid">
+            <a href="mailto:mcchipkeezy@gmail.com" class="btn">Email Me</a>
+            <a href="https://wa.me/255692973059" target="_blank" class="btn">WhatsApp</a>
+            <a href="https://www.instagram.com/mc_ndokeji/" target="_blank" class="btn">Instagram</a>
         </div>
     </div>
+</section>
 
-    <script src="script.js"></script>
+<!-- YOUR LIGHTBOX (FOR THE GALLERY POPUP) -->
+<div id="lightbox">
+    <span class="close" style="position: absolute; top: 20px; right: 30px; font-size: 40px; color: white; cursor: pointer; z-index: 1000;">&times;</span>
+    <img id="viewer-img" src="" alt="" style="max-width: 80%; max-height: 70vh; margin-top: 40px;">
+    <div style="text-align: center; padding: 20px;">
+        <h3 id="viewer-title" style="color: #fff; font-family: serif; font-size: 2rem; margin-bottom: 10px;"></h3>
+        <div id="viewer-description" style="color: #ccc; margin-bottom: 20px;"></div>
+        <a id="viewer-link" href="" target="_blank" class="btn" style="display: inline-block; padding: 12px 24px; background: #d4af37; color: #000; text-decoration: none; font-weight: bold; border-radius: 4px;"></a>
+    </div>
+</div>
+
+<!-- SCRIPT LINK -->
+<script src="script.js"></script>
 </body>
 </html>
