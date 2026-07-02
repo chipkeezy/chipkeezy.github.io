@@ -1,6 +1,10 @@
-const navbar=document.querySelector(".navbar");
+// =========================
+// NAVBAR
+// =========================
 
-window.addEventListener("scroll",()=>{
+const navbar = document.querySelector(".navbar");
+
+window.addEventListener("scroll", () => {
 
 if(window.scrollY>80){
 
@@ -12,60 +16,124 @@ navbar.classList.remove("scrolled");
 
 }
 
-document.querySelectorAll(".reveal").forEach(section=>{
+});
 
-const top=section.getBoundingClientRect().top;
+// =========================
+// PAINTINGS
+// =========================
 
-if(top<window.innerHeight-120){
+const paintings=[
 
-section.classList.add("active");
+{
+
+title:"The Last Ember II",
+
+image:"ember.jpeg",
+
+status:"AVAILABLE",
+
+medium:"Oil on Canvas",
+
+size:"60 × 80 cm",
+
+description:"A portrait exploring endurance, wisdom and memory."
+
+},
+
+{
+
+title:"The Morning Light",
+
+image:"masai.jpeg",
+
+status:"AVAILABLE",
+
+medium:"Oil on Canvas",
+
+size:"60 × 80 cm",
+
+description:"An atmospheric study of light and colour."
+
+},
+
+{
+
+title:"Last Shepherd of the Dawn",
+
+image:"boy.jpeg",
+
+status:"AVAILABLE",
+
+medium:"Oil on Canvas",
+
+size:"60 × 80 cm",
+
+description:"Inspired by hope and resilience."
+
+},
+
+{
+
+title:"The Feet That Carried a Continent",
+
+image:"feet.jpeg",
+
+status:"AVAILABLE",
+
+medium:"Oil on Canvas",
+
+size:"60 × 80 cm",
+
+description:"A symbolic celebration of heritage."
+
+},
+
+{
+
+title:"The Last Ember I",
+
+image:"The Last Ember 1.jpeg",
+
+status:"SOLD",
+
+medium:"Oil on Canvas",
+
+size:"60 × 80 cm",
+
+description:"The first painting in the Last Ember series."
 
 }
 
-});
+];
+
+// =========================
+// BUILD GALLERY
+// =========================
+
+const gallery=document.getElementById("gallery-grid");
+
+paintings.forEach(p=>{
+
+gallery.innerHTML+=`
+
+<div class="art-card">
+
+<img src="${p.image}" alt="${p.title}">
+
+<div class="art-info">
+
+<h3>${p.title}</h3>
+
+<span class="status ${p.status.toLowerCase()}">
+
+${p.status}
+
+</span>
+
+</div>
+
+</div>
+
+`;
 
 });
-
-const lightbox=document.getElementById("lightbox");
-
-const viewer=document.getElementById("viewer-img");
-
-const title=document.getElementById("viewer-title");
-
-const description=document.getElementById("viewer-description");
-
-const link=document.getElementById("viewer-link");
-
-document.querySelectorAll(".art-card").forEach(card=>{
-
-card.onclick=()=>{
-
-viewer.src=card.dataset.image;
-
-title.innerText=card.dataset.title;
-
-description.innerText=card.dataset.description;
-
-link.href="https://wa.me/255692973059?text=Hello McDonald, I am interested in "+card.dataset.title;
-
-lightbox.classList.add("active");
-
-};
-
-});
-
-document.querySelector(".close").onclick=()=>{
-
-lightbox.classList.remove("active");
-
-};
-
-lightbox.onclick=(e)=>{
-
-if(e.target===lightbox){
-
-lightbox.classList.remove("active");
-
-}
-
-};
