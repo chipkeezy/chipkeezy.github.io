@@ -1,49 +1,49 @@
-// INTRO
 window.addEventListener("load",()=>{
 
 setTimeout(()=>{
 document.getElementById("intro").style.display="none";
-},2000);
+},2500);
 
 });
 
-// NAV SCROLL
 window.addEventListener("scroll",()=>{
 
 document.querySelector(".navbar")
 .classList.toggle("scrolled",window.scrollY>80);
 
+document.querySelectorAll(".reveal").forEach(el=>{
+
+if(el.getBoundingClientRect().top < window.innerHeight-100){
+el.classList.add("active");
+}
+
 });
 
-// DATA
+});
+
 const paintings=[
 {
 title:"The Last Ember II",
 image:"ember.jpeg",
-description:"A reflection of resilience and memory.",
-status:"AVAILABLE"
+desc:"Oil on Canvas • 60 × 80 cm • Available"
 },
 {
 title:"The Morning Light",
 image:"masai.jpeg",
-description:"Light and atmosphere study.",
-status:"AVAILABLE"
+desc:"Oil on Canvas • 60 × 80 cm • Available"
 },
 {
-title:"Last Shepherd of the Dawn",
+title:"Last Shepherd",
 image:"boy.jpeg",
-description:"Hope and endurance.",
-status:"AVAILABLE"
+desc:"Oil on Canvas • 60 × 80 cm • Available"
 },
 {
-title:"The Feet That Carried a Continent",
+title:"Feet of Heritage",
 image:"feet.jpeg",
-description:"Strength and heritage.",
-status:"AVAILABLE"
+desc:"Oil on Canvas • 60 × 80 cm • Available"
 }
 ];
 
-// BUILD GALLERY
 const grid=document.getElementById("gallery-grid");
 
 paintings.forEach(p=>{
@@ -60,7 +60,7 @@ div.onclick=()=>{
 document.getElementById("lightbox").classList.add("active");
 document.getElementById("viewer-img").src=p.image;
 document.getElementById("viewer-title").innerText=p.title;
-document.getElementById("viewer-description").innerText=p.description;
+document.getElementById("viewer-description").innerText=p.desc;
 
 document.getElementById("viewer-link").href=
 "https://wa.me/255692973059?text=Interested in "+p.title;
@@ -71,22 +71,6 @@ grid.appendChild(div);
 
 });
 
-// LIGHTBOX CLOSE
 document.querySelector(".close").onclick=()=>{
 document.getElementById("lightbox").classList.remove("active");
 };
-
-// REVEAL
-window.addEventListener("scroll",()=>{
-
-document.querySelectorAll(".reveal").forEach(el=>{
-
-const top=el.getBoundingClientRect().top;
-
-if(top<window.innerHeight-100){
-el.classList.add("active");
-}
-
-});
-
-});
