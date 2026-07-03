@@ -5,8 +5,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // 0. INTRO LOGO ANIMATION & RAISE THE CURTAIN
     // ==========================================
     const introScreen = document.getElementById("intro-screen");
-    
-    // Broadened selector: Looks for the class, OR any image/heading inside the intro screen
     const introLogo = document.querySelector(".intro-logo, #intro-screen img, #intro-screen h1");
 
     if (introScreen) {
@@ -24,14 +22,13 @@ document.addEventListener("DOMContentLoaded", function() {
             ease: "power2.inOut",
             onComplete: () => {
                 introScreen.style.display = "none";
-                // CRITICAL FIX: Tell GSAP to recalculate the page height now that the curtain is gone
                 ScrollTrigger.refresh();
             }
         });
     }
 
     // ==========================================
-    // 1. YOUR PAINTINGS (Final Art)
+    // 1. YOUR PAINTINGS
     // ==========================================
     const paintings = [
         { 
@@ -64,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function() {
     ];
 
     // ==========================================
-    // 2. YOUR STUDIO PROCESS (Work in Progress)
+    // 2. STUDIO PROCESS
     // ==========================================
     const processImages = [
         { 
@@ -80,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function() {
     ];
 
     // ==========================================
-    // ENGINE: RENDERING THE SECTIONS
+    // ENGINE: RENDERING
     // ==========================================
     
     const processGrid = document.getElementById("process-grid");
@@ -112,13 +109,22 @@ document.addEventListener("DOMContentLoaded", function() {
             `;
         });
         
+        // 3. THE 3D SCROLL ENGINE (FIXED MATH)
         const panels = document.querySelectorAll('.art-panel');
         const zSpacing = 1600; 
 
         function updateTunnelPositions() {
-            let top = document.documentElement.scrollTop || window.pageYOffset;
+            let scrollY = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Find exactly where the tunnel section starts on the page
+            let tunnelTop = tunnelWorld.offsetTop || 0;
+            
+            // Calculate progress starting from the tunnel, adding screen height so it triggers as it enters view
+            let activeScroll = scrollY - tunnelTop + window.innerHeight;
+            if (activeScroll < 0) activeScroll = 0;
+
             panels.forEach((panel, i) => {
-                let zPosition = (-i * zSpacing) + (top * 1.5); 
+                let zPosition = (-i * zSpacing) + (activeScroll * 1.5); 
                 let opacity = zPosition > 400 ? 0 : (zPosition < -2500 ? 0 : 1);
                 gsap.set(panel, { z: zPosition, opacity: opacity });
             });
@@ -127,6 +133,7 @@ document.addEventListener("DOMContentLoaded", function() {
         window.addEventListener('scroll', updateTunnelPositions);
         updateTunnelPositions();
 
+        // The continuous bobbing/floating animation
         panels.forEach((panel, i) => {
             gsap.to(panel.querySelector('.tilt-img'), { 
                 y: 12, 
@@ -141,9 +148,8 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // ==========================================
-    // 3. SCROLL REVEALS (Moved AFTER rendering)
+    // 4. SCROLL REVEALS
     // ==========================================
-    // We target broader tags like 'section' and 'header' to guarantee we catch your text
     const revealElements = document.querySelectorAll('.hero-content, .studio-content, .contact-card, .reveal, .process-item, section, header');
     
     if (revealElements.length > 0) {
@@ -163,8 +169,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             );
         });
-        
-        // Final recalculation to ensure perfect math
         ScrollTrigger.refresh();
     }
 
