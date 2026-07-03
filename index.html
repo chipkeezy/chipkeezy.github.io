@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>McDonald Simon | Original Oil Paintings</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<title>McDonald Simon | Original Oil Paintings</title>
 
-    <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <!-- INTRO -->
 <div id="intro">
-    <div class="intro-content">
-        <img src="logo.png" class="intro-logo">
-        <h1>McDonald Simon</h1>
-        <p>Original Oil Paintings</p>
-        <div class="line"></div>
-    </div>
+    <img src="logo.png" class="intro-logo">
+    <h1>McDonald Simon</h1>
+    <p>Original Oil Paintings</p>
 </div>
 
 <!-- NAV -->
@@ -33,10 +32,10 @@
     </div>
 
     <nav>
-        <a href="#">Home</a>
         <a href="#gallery">Gallery</a>
         <a href="#about">About</a>
         <a href="#studio">Studio</a>
+        <a class="cta" href="#commission">Commission</a>
     </nav>
 </header>
 
@@ -45,39 +44,85 @@
     <div class="hero-content">
         <h1>Stories Preserved Through Light</h1>
         <p>Original oil paintings inspired by memory, culture and atmosphere.</p>
-        <a href="#gallery" class="btn">Explore Collection</a>
+
+        <div class="hero-buttons">
+            <a href="#gallery" class="btn">Explore Collection</a>
+            <a href="https://wa.me/255692973059?text=Hello McDonald, I would like to commission a painting" class="btn outline">Commission Artwork</a>
+        </div>
     </div>
 </section>
 
 <!-- FEATURED -->
 <section class="featured reveal">
-    <div class="featured-text">
+    <img src="ember.jpeg">
+    <div>
         <h2>The Last Ember II</h2>
+        <p>Oil on Canvas • 60 × 80 cm • Available</p>
         <p>A reflection of resilience and memory through warm tonal storytelling.</p>
     </div>
-    <img src="ember.jpeg">
 </section>
 
 <!-- GALLERY -->
 <section id="gallery" class="gallery reveal">
     <h2>Collection</h2>
+
     <div class="gallery-grid" id="gallery-grid"></div>
+</section>
+
+<!-- STUDIO PROCESS -->
+<section id="studio" class="studio reveal">
+    <h2>Inside the Studio</h2>
+    <p>Every painting begins with silence, observation and light.</p>
+
+    <div class="studio-grid">
+        <img src="studio1.jpeg">
+        <img src="studio2.jpeg">
+        <img src="studio3.jpeg">
+    </div>
 </section>
 
 <!-- ABOUT -->
 <section id="about" class="about reveal">
     <img src="artist.jpeg">
+
     <div>
         <h2>About the Artist</h2>
-        <p>I am McDonald Simon, an oil painter exploring light, memory and human stories.</p>
+        <p>
+        I am McDonald Simon, a Tanzanian oil painter exploring memory, culture, and emotional light.
+        Each work is an original piece painted by hand.
+        </p>
+
+        <div class="stats">
+            <div>10+ Works</div>
+            <div>Oil Painter</div>
+            <div>Tanzania</div>
+        </div>
     </div>
 </section>
 
-<!-- STUDIO -->
-<section id="studio" class="studio reveal">
-    <h2>Inside the Studio</h2>
-    <p>Where every painting begins with silence and observation.</p>
+<!-- COMMISSION -->
+<section id="commission" class="commission reveal">
+    <h2>Commission an Artwork</h2>
+    <p>Portraits, cultural stories, family heirlooms, or custom museum pieces.</p>
+
+    <a class="btn" href="https://wa.me/255692973059?text=I want to commission an artwork">Start Commission</a>
 </section>
+
+<!-- CONTACT -->
+<section class="contact reveal">
+    <h2>Contact</h2>
+
+    <div class="contact-grid">
+        <div>📱 WhatsApp<br>0692973059</div>
+        <div>📷 Instagram<br>@mc_ndokeji</div>
+        <div>✉ Email<br>mcchipkeezy@gmail.com</div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>McDonald Simon • Original Oil Paintings</p>
+</footer>
 
 <!-- LIGHTBOX -->
 <div id="lightbox">
@@ -85,7 +130,7 @@
     <img id="viewer-img">
     <h2 id="viewer-title"></h2>
     <p id="viewer-description"></p>
-    <a id="viewer-link" class="btn" target="_blank">Acquire Artwork</a>
+    <a id="viewer-link" class="btn">Acquire Artwork</a>
 </div>
 
 <script src="script.js"></script>
