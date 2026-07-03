@@ -84,11 +84,12 @@ document.addEventListener("DOMContentLoaded", function() {
     if (processGrid) {
         processGrid.innerHTML = ""; 
         processImages.forEach(item => {
+            // Stripped inline styles so your CSS can style this grid correctly
             processGrid.innerHTML += `
-                <div class="process-item" style="border: 1px solid #333; padding: 15px; text-align: center; border-radius: 8px; background: #111;">
-                    <img src="${item.image}" alt="${item.title}" style="width: 100%; height: auto; display: block; margin-bottom: 15px; border-radius: 4px;">
-                    <h3 style="font-size: 1.2rem; margin: 10px 0; font-family: serif;">${item.title}</h3>
-                    <p style="font-size: 0.9rem; color: #aaa;">${item.description}</p>
+                <div class="process-item">
+                    <img src="${item.image}" alt="${item.title}" style="width: 100%; height: auto; display: block; margin-bottom: 15px;">
+                    <h3>${item.title}</h3>
+                    <p>${item.description}</p>
                 </div>
             `;
         });
@@ -109,22 +110,20 @@ document.addEventListener("DOMContentLoaded", function() {
             `;
         });
         
-        // 3. THE 3D SCROLL ENGINE (FIXED MATH)
+        // 3. THE 3D SCROLL ENGINE (Bulletproof Viewport Math)
         const panels = document.querySelectorAll('.art-panel');
         const zSpacing = 1600; 
 
         function updateTunnelPositions() {
-            let scrollY = window.pageYOffset || document.documentElement.scrollTop;
+            let rect = tunnelWorld.getBoundingClientRect();
+            // This calculates exactly how far the tunnel container has pushed up into your screen
+            let activeScroll = window.innerHeight - rect.top; 
             
-            // Find exactly where the tunnel section starts on the page
-            let tunnelTop = tunnelWorld.offsetTop || 0;
-            
-            // Calculate progress starting from the tunnel, adding screen height so it triggers as it enters view
-            let activeScroll = scrollY - tunnelTop + window.innerHeight;
+            // If the tunnel hasn't entered the screen yet, hold the animation at zero
             if (activeScroll < 0) activeScroll = 0;
 
             panels.forEach((panel, i) => {
-                let zPosition = (-i * zSpacing) + (activeScroll * 1.5); 
+                let zPosition = (-i * zSpacing) + (activeScroll * 2.5); 
                 let opacity = zPosition > 400 ? 0 : (zPosition < -2500 ? 0 : 1);
                 gsap.set(panel, { z: zPosition, opacity: opacity });
             });
@@ -132,19 +131,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
         window.addEventListener('scroll', updateTunnelPositions);
         updateTunnelPositions();
-
-        // The continuous bobbing/floating animation
-        panels.forEach((panel, i) => {
-            gsap.to(panel.querySelector('.tilt-img'), { 
-                y: 12, 
-                rotationZ: i % 2 === 0 ? 1 : -1, 
-                duration: 3.5, 
-                yoyo: true, 
-                repeat: -1, 
-                ease: "sine.inOut", 
-                delay: i * 0.4 
-            });
-        });
+        
+        // *NOTE: The conflicting continuous GSAP floating animation was completely removed here so your CSS hover works again!*
     }
 
     // ==========================================
@@ -181,12 +169,22 @@ document.addEventListener("DOMContentLoaded", function() {
             const panel = e.target.closest(".art-panel");
             if (panel) {
                 const data = paintings[panel.getAttribute("data-index")];
-                document.getElementById("viewer-img").src = data.image;
-                document.getElementById("viewer-title").innerText = data.title;
-                document.getElementById("viewer-description").innerHTML = `
-                    <p style="color: #d4af37; margin-bottom: 5px;"><strong>Investment: ${data.price}</strong></p>
-                    <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 10px;"><strong>Medium:</strong> ${data.medium} | <strong>Size:</strong> ${data.size}</p>
-                    <p style="white-space: pre-line; italic;">"${data.description}"</p>`;
+                
+                const viewerImg = document.getElementById("viewer-img");
+                if (viewerImg) viewerImg.src = data.image;
+                
+                const viewerTitle = document.getElementById("viewer-title");
+                if (viewerTitle) viewerTitle.innerText = data.title;
+                
+                const viewerDesc = document.getElementById("viewer-description");
+                if (viewerDesc) {
+                    // Stripped all inline JS styling so your native CSS takes control of the layout
+                    viewerDesc.innerHTML = `
+                        <p class="viewer-price"><strong>Investment:</strong> ${data.price}</p>
+                        <p class="viewer-medium"><strong>Medium:</strong> ${data.medium} | <strong>Size:</strong> ${data.size}</p>
+                        <p class="viewer-story" style="margin-top: 15px; white-space: pre-line;">${data.description}</p>
+                    `;
+                }
                 
                 const link = document.getElementById("viewer-link");
                 if(link) {
