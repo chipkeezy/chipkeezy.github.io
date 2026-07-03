@@ -84,7 +84,6 @@ document.addEventListener("DOMContentLoaded", function() {
     if (processGrid) {
         processGrid.innerHTML = ""; 
         processImages.forEach(item => {
-            // Stripped inline styles so your CSS can style this grid correctly
             processGrid.innerHTML += `
                 <div class="process-item">
                     <img src="${item.image}" alt="${item.title}" style="width: 100%; height: auto; display: block; margin-bottom: 15px;">
@@ -110,29 +109,46 @@ document.addEventListener("DOMContentLoaded", function() {
             `;
         });
         
-        // 3. THE 3D SCROLL ENGINE (Bulletproof Viewport Math)
-        const panels = document.querySelectorAll('.art-panel');
-        const zSpacing = 1600; 
-
-        function updateTunnelPositions() {
-            let rect = tunnelWorld.getBoundingClientRect();
-            // This calculates exactly how far the tunnel container has pushed up into your screen
-            let activeScroll = window.innerHeight - rect.top; 
-            
-            // If the tunnel hasn't entered the screen yet, hold the animation at zero
-            if (activeScroll < 0) activeScroll = 0;
-
-            panels.forEach((panel, i) => {
-                let zPosition = (-i * zSpacing) + (activeScroll * 2.5); 
-                let opacity = zPosition > 400 ? 0 : (zPosition < -2500 ? 0 : 1);
-                gsap.set(panel, { z: zPosition, opacity: opacity });
-            });
-        }
-
-        window.addEventListener('scroll', updateTunnelPositions);
-        updateTunnelPositions();
+        // ==========================================
+        // 3. THE RESTORED 3D DRIFT & PINNING ENGINE
+        // ==========================================
+        const panels = gsap.utils.toArray('.art-panel');
         
-        // *NOTE: The conflicting continuous GSAP floating animation was completely removed here so your CSS hover works again!*
+        // This is the timeline that "stops" the page and drifts through the paintings
+        let galleryTl = gsap.timeline({
+            scrollTrigger: {
+                trigger: tunnelWorld,
+                start: "top top", // Starts when gallery hits the top of the screen
+                end: "+=" + (panels.length * 1000), // Scroll distance needed to see everything
+                pin: true, // MAGIC WORD: Freezes the page here
+                scrub: 1 // Creates the smooth drift effect
+            }
+        });
+
+        panels.forEach((panel, i) => {
+            // Setup: Hide paintings far in the background
+            gsap.set(panel, { z: -3000, opacity: 0 });
+
+            // Fly forward animation
+            galleryTl.to(panel, {
+                z: 400, // Fly past the camera
+                opacity: 1,
+                duration: 2,
+                ease: "none"
+            }, i * 0.8); // Stagger each painting
+
+            // The Left-Side Info Popup Animation
+            const infoBadge = panel.querySelector('.art-panel-info');
+            if (infoBadge) {
+                gsap.set(infoBadge, { opacity: 0, x: -50 }); // Start hidden to the left
+                
+                // Fade in and slide right when the painting is close
+                galleryTl.to(infoBadge, { opacity: 1, x: 0, duration: 0.4 }, (i * 0.8) + 1.2);
+                
+                // Fade out right before the painting disappears
+                galleryTl.to(infoBadge, { opacity: 0, duration: 0.2 }, (i * 0.8) + 1.8);
+            }
+        });
     }
 
     // ==========================================
@@ -161,7 +177,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // ==========================================
-    // LIGHTBOX POPUP LOGIC
+    // RESTORED ORIGINAL LIGHTBOX LOGIC
     // ==========================================
     const lightbox = document.getElementById("lightbox");
     if (lightbox) {
@@ -169,22 +185,14 @@ document.addEventListener("DOMContentLoaded", function() {
             const panel = e.target.closest(".art-panel");
             if (panel) {
                 const data = paintings[panel.getAttribute("data-index")];
+                document.getElementById("viewer-img").src = data.image;
+                document.getElementById("viewer-title").innerText = data.title;
                 
-                const viewerImg = document.getElementById("viewer-img");
-                if (viewerImg) viewerImg.src = data.image;
-                
-                const viewerTitle = document.getElementById("viewer-title");
-                if (viewerTitle) viewerTitle.innerText = data.title;
-                
-                const viewerDesc = document.getElementById("viewer-description");
-                if (viewerDesc) {
-                    // Stripped all inline JS styling so your native CSS takes control of the layout
-                    viewerDesc.innerHTML = `
-                        <p class="viewer-price"><strong>Investment:</strong> ${data.price}</p>
-                        <p class="viewer-medium"><strong>Medium:</strong> ${data.medium} | <strong>Size:</strong> ${data.size}</p>
-                        <p class="viewer-story" style="margin-top: 15px; white-space: pre-line;">${data.description}</p>
-                    `;
-                }
+                // Restored exact original inline layout for the description!
+                document.getElementById("viewer-description").innerHTML = `
+                    <p style="color: #d4af37; margin-bottom: 5px;"><strong>Investment: ${data.price}</strong></p>
+                    <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 10px;"><strong>Medium:</strong> ${data.medium} | <strong>Size:</strong> ${data.size}</p>
+                    <p style="white-space: pre-line; italic;">"${data.description}"</p>`;
                 
                 const link = document.getElementById("viewer-link");
                 if(link) {
