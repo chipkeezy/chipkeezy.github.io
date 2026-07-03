@@ -1,141 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>McDonald Simon | Original Oil Paintings</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
     <div id="intro-screen">
-        <img src="logo.png" alt="McDonald Simon Logo" class="intro-logo">
+        <div class="intro-logo">Logo/Loading...</div>
     </div>
 
-    <header class="navbar">
-        <div class="logo">
-            <img src="logo.png" alt="McDonald Simon Logo">
-            <div>
-                <h2>McDonald Simon</h2>
-                <p>THE NUE IMPRESSIONIST</p>
+    <section id="main-content">
+        <div id="tunnel-world"></div>
+    </section>
+
+    <div id="lightbox">
+        <span class="close">&times;</span>
+        <div class="lightbox-content">
+            <img id="viewer-img" src="" alt="">
+            <div id="viewer-text">
+                <h2 id="viewer-title"></h2>
+                <div id="viewer-description"></div>
+                <a id="viewer-link" href="#" class="btn">Acquire Piece</a>
             </div>
         </div>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
-
-    <section class="hero">
-        <div class="overlay"></div>
-        <div class="hero-content">
-            <h1>Stories Preserved<br>Through Light.</h1>
-            <p>Original oil paintings inspired by memory, culture and atmosphere.</p>
-            <div class="hero-buttons">
-                <a href="#gallery" class="btn">Explore Collection</a>
-                <a href="https://wa.me/255692973059?text=Hello%20McDonald,%20I%20would%20like%20to%20commission%20an%20original%20painting." target="_blank" class="btn btn-outline">Commission an Artwork</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="featured reveal">
-        <div class="featured-text">
-            <p class="section-tag">Featured Masterpiece</p>
-            <h2>The Last Ember 2</h2>
-            <p class="featured-description">
-                The painting reminds us that the strongest people are often those who have weathered the hardest storms and still find peace in the quiet moments. 
-                Some men leave behind buildings; others leave behind stories that become the foundation of a people.
-            </p>
-            <ul class="details">
-                <li><strong>Medium:</strong> Oil on Canvas</li>
-                <li><strong>Dimensions:</strong> 60 × 80 cm</li>
-                <li><strong>Status:</strong> <span class="available">Available</span></li>
-            </ul>
-            <a href="https://wa.me/255692973059?text=Hello%20McDonald,%20I%20am%20interested%20in%20The%20Last%20Ember%202." target="_blank" class="btn">Acquire Artwork</a>
-        </div>
-        <div class="featured-image">
-            <img src="ember.jpeg" alt="Featured Painting">
-        </div>
-    </section>
-
-    <section id="gallery" class="tunnel-container">
-        <div class="tunnel-world" id="tunnel-world"></div>
-        <div class="scroll-indicator">Scroll to Fly Forward ↓</div>
-    </section>
-
-    <section id="about" class="about reveal">
-        <div class="about-image">
-            <img src="artist.jpeg" alt="McDonald Simon">
-        </div>
-        <div class="about-content">
-            <p class="section-tag">About the Artist</p>
-            <h2>Painting Stories Through Light</h2>
-            <p>
-                I am McDonald Simon, a Tanzanian oil painter whose work explores memory, light and the quiet dignity found in everyday life. 
-                Working primarily in oils, I combine impressionistic brushwork with carefully observed realism to create paintings that invite viewers to pause and reflect.
-                Each piece is painted by hand and exists as an original work.
-            </p>
-            <a href="https://wa.me/255692973059?text=Hello%20McDonald,%20I%20would%20like%20to%20know%20more%20about%20your%20work." target="_blank" class="btn">Let's Talk</a>
-        </div>
-    </section>
-
-   <section id="studio" class="studio reveal">
-    <div class="studio-content">
-        <p class="section-tag">Inside the Studio</p>
-        <h2>Where Every Painting Begins</h2>
-        <p>Every painting begins with observation, patience and traditional oil painting techniques. My studio is a place where ideas slowly become brushstrokes, and brushstrokes become stories.</p>
-        <blockquote>"Every canvas begins with silence before it begins with colour."</blockquote>
-        <!-- The updated button -->
-        <a href="#studio-process" class="btn">View Studio Process</a>
     </div>
-    <div class="studio-image">
-        <img src="studio.jpeg" alt="Studio">
-    </div>
-</section>
-
-<!-- THE NEW BEHIND THE SCENES SECTION -->
-<section id="studio-process" style="padding: 80px 20px; background: #0a0a0a; color: #fff;">
-    <h2 style="text-align: center; margin-bottom: 40px; font-family: serif; font-size: 2.5rem;">Behind the Scenes</h2>
-    <div id="process-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto;">
-        <!-- Process images will automatically appear here from script.js -->
-    </div>
-</section>
-
-<!-- YOUR CONTACT SECTION -->
-<section id="contact">
-    <div class="contact-card">
-        <h2>Let's Connect</h2>
-        <p>For commissions, inquiries, or studio visits.</p>
-        <div class="contact-grid">
-            <a href="mailto:mcchipkeezy@gmail.com" class="btn">Email Me</a>
-            <a href="https://wa.me/255692973059" target="_blank" class="btn">WhatsApp</a>
-            <a href="https://www.instagram.com/mc_ndokeji/" target="_blank" class="btn">Instagram</a>
-        </div>
-    </div>
-</section>
-
-<!-- YOUR LIGHTBOX (FOR THE GALLERY POPUP) -->
-<div id="lightbox">
-    <span class="close" style="position: absolute; top: 20px; right: 30px; font-size: 40px; color: white; cursor: pointer; z-index: 1000;">&times;</span>
-    <img id="viewer-img" src="" alt="" style="max-width: 80%; max-height: 70vh; margin-top: 40px;">
-    <div style="text-align: center; padding: 20px;">
-        <h3 id="viewer-title" style="color: #fff; font-family: serif; font-size: 2rem; margin-bottom: 10px;"></h3>
-        <div id="viewer-description" style="color: #ccc; margin-bottom: 20px;"></div>
-        <a id="viewer-link" href="" target="_blank" class="btn" style="display: inline-block; padding: 12px 24px; background: #d4af37; color: #000; text-decoration: none; font-weight: bold; border-radius: 4px;"></a>
-    </div>
-</div>
-
-<!-- SCRIPT LINK -->
-<script src="script.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
