@@ -5,10 +5,11 @@ document.addEventListener("DOMContentLoaded", function() {
     // 0. INTRO LOGO ANIMATION & RAISE THE CURTAIN
     // ==========================================
     const introScreen = document.getElementById("intro-screen");
-    const introLogo = document.querySelector(".intro-logo");
+    
+    // Broadened selector: Looks for the class, OR any image/heading inside the intro screen
+    const introLogo = document.querySelector(".intro-logo, #intro-screen img, #intro-screen h1");
 
     if (introScreen) {
-        // 1. Animate the logo first (pops in)
         if (introLogo) {
             gsap.fromTo(introLogo, 
                 { opacity: 0, scale: 0.5 }, 
@@ -16,38 +17,16 @@ document.addEventListener("DOMContentLoaded", function() {
             );
         }
 
-        // 2. Fade out the black curtain after the logo finishes
         gsap.to(introScreen, {
             opacity: 0,
             duration: 1.5,
-            delay: 1.5, // Waits for logo to finish before fading
+            delay: 1.5,
             ease: "power2.inOut",
             onComplete: () => {
                 introScreen.style.display = "none";
+                // CRITICAL FIX: Tell GSAP to recalculate the page height now that the curtain is gone
+                ScrollTrigger.refresh();
             }
-        });
-    }
-
-    // ==========================================
-    // 0.5. RESTORE SCROLL REVEALS FOR ABOUT/STUDIO/CONTACT
-    // ==========================================
-    const revealElements = document.querySelectorAll('.hero-content, .studio-content, .contact-card, .reveal, .process-item');
-    if (revealElements.length > 0) {
-        revealElements.forEach((el) => {
-            gsap.fromTo(el, 
-                { opacity: 0, y: 40 }, 
-                { 
-                    scrollTrigger: {
-                        trigger: el,
-                        start: "top 85%", // Triggers when the element is 85% down the screen
-                        toggleActions: "play none none reverse"
-                    },
-                    opacity: 1, 
-                    y: 0, 
-                    duration: 1.2, 
-                    ease: "power3.out" 
-                }
-            );
         });
     }
 
@@ -104,7 +83,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // ENGINE: RENDERING THE SECTIONS
     // ==========================================
     
-    // 1. Render Process Images
     const processGrid = document.getElementById("process-grid");
     if (processGrid) {
         processGrid.innerHTML = ""; 
@@ -119,7 +97,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 2. Render Paintings Tunnel
     const tunnelWorld = document.getElementById("tunnel-world");
     if (tunnelWorld) {
         tunnelWorld.innerHTML = ""; 
@@ -135,17 +112,14 @@ document.addEventListener("DOMContentLoaded", function() {
             `;
         });
         
-        // 3. THE 3D SCROLL ENGINE
         const panels = document.querySelectorAll('.art-panel');
         const zSpacing = 1600; 
 
         function updateTunnelPositions() {
             let top = document.documentElement.scrollTop || window.pageYOffset;
-            
             panels.forEach((panel, i) => {
                 let zPosition = (-i * zSpacing) + (top * 1.5); 
                 let opacity = zPosition > 400 ? 0 : (zPosition < -2500 ? 0 : 1);
-                
                 gsap.set(panel, { z: zPosition, opacity: opacity });
             });
         }
@@ -164,6 +138,34 @@ document.addEventListener("DOMContentLoaded", function() {
                 delay: i * 0.4 
             });
         });
+    }
+
+    // ==========================================
+    // 3. SCROLL REVEALS (Moved AFTER rendering)
+    // ==========================================
+    // We target broader tags like 'section' and 'header' to guarantee we catch your text
+    const revealElements = document.querySelectorAll('.hero-content, .studio-content, .contact-card, .reveal, .process-item, section, header');
+    
+    if (revealElements.length > 0) {
+        revealElements.forEach((el) => {
+            gsap.fromTo(el, 
+                { opacity: 0, y: 40 }, 
+                { 
+                    scrollTrigger: {
+                        trigger: el,
+                        start: "top 85%",
+                        toggleActions: "play none none reverse"
+                    },
+                    opacity: 1, 
+                    y: 0, 
+                    duration: 1.2, 
+                    ease: "power3.out" 
+                }
+            );
+        });
+        
+        // Final recalculation to ensure perfect math
+        ScrollTrigger.refresh();
     }
 
     // ==========================================
