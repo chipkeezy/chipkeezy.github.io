@@ -2,18 +2,52 @@ document.addEventListener("DOMContentLoaded", function() {
     gsap.registerPlugin(ScrollTrigger);
 
     // ==========================================
-    // 0. RAISE THE CURTAIN (Fades out the black loading screen)
+    // 0. INTRO LOGO ANIMATION & RAISE THE CURTAIN
     // ==========================================
     const introScreen = document.getElementById("intro-screen");
+    const introLogo = document.querySelector(".intro-logo");
+
     if (introScreen) {
+        // 1. Animate the logo first (pops in)
+        if (introLogo) {
+            gsap.fromTo(introLogo, 
+                { opacity: 0, scale: 0.5 }, 
+                { opacity: 1, scale: 1, duration: 1.2, ease: "back.out(1.5)" }
+            );
+        }
+
+        // 2. Fade out the black curtain after the logo finishes
         gsap.to(introScreen, {
             opacity: 0,
             duration: 1.5,
-            delay: 0.5,
+            delay: 1.5, // Waits for logo to finish before fading
             ease: "power2.inOut",
             onComplete: () => {
                 introScreen.style.display = "none";
             }
+        });
+    }
+
+    // ==========================================
+    // 0.5. RESTORE SCROLL REVEALS FOR ABOUT/STUDIO/CONTACT
+    // ==========================================
+    const revealElements = document.querySelectorAll('.hero-content, .studio-content, .contact-card, .reveal, .process-item');
+    if (revealElements.length > 0) {
+        revealElements.forEach((el) => {
+            gsap.fromTo(el, 
+                { opacity: 0, y: 40 }, 
+                { 
+                    scrollTrigger: {
+                        trigger: el,
+                        start: "top 85%", // Triggers when the element is 85% down the screen
+                        toggleActions: "play none none reverse"
+                    },
+                    opacity: 1, 
+                    y: 0, 
+                    duration: 1.2, 
+                    ease: "power3.out" 
+                }
+            );
         });
     }
 
