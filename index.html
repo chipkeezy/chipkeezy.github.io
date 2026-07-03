@@ -1,31 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>McDonald Simon | Original Oil Paintings</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div id="intro-screen">
-        <div class="intro-logo">Logo/Loading...</div>
+
+<!-- INTRO -->
+<div id="intro">
+    <div class="intro-content">
+        <img src="logo.png" class="intro-logo">
+        <h1>McDonald Simon</h1>
+        <p>Original Oil Paintings</p>
+        <div class="line"></div>
     </div>
+</div>
 
-    <section id="main-content">
-        <div id="tunnel-world"></div>
-    </section>
-
-    <div id="lightbox">
-        <span class="close">&times;</span>
-        <div class="lightbox-content">
-            <img id="viewer-img" src="" alt="">
-            <div id="viewer-text">
-                <h2 id="viewer-title"></h2>
-                <div id="viewer-description"></div>
-                <a id="viewer-link" href="#" class="btn">Acquire Piece</a>
-            </div>
+<!-- NAV -->
+<header class="navbar">
+    <div class="logo">
+        <img src="logo.png">
+        <div>
+            <h2>McDonald Simon</h2>
+            <p>Original Oil Paintings</p>
         </div>
     </div>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="script.js"></script>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#about">About</a>
+        <a href="#studio">Studio</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Stories Preserved Through Light</h1>
+        <p>Original oil paintings inspired by memory, culture and atmosphere.</p>
+        <a href="#gallery" class="btn">Explore Collection</a>
+    </div>
+</section>
+
+<!-- FEATURED -->
+<section class="featured reveal">
+    <div class="featured-text">
+        <h2>The Last Ember II</h2>
+        <p>A reflection of resilience and memory through warm tonal storytelling.</p>
+    </div>
+    <img src="ember.jpeg">
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="gallery reveal">
+    <h2>Collection</h2>
+    <div class="gallery-grid" id="gallery-grid"></div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about reveal">
+    <img src="artist.jpeg">
+    <div>
+        <h2>About the Artist</h2>
+        <p>I am McDonald Simon, an oil painter exploring light, memory and human stories.</p>
+    </div>
+</section>
+
+<!-- STUDIO -->
+<section id="studio" class="studio reveal">
+    <h2>Inside the Studio</h2>
+    <p>Where every painting begins with silence and observation.</p>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+    <span class="close">&times;</span>
+    <img id="viewer-img">
+    <h2 id="viewer-title"></h2>
+    <p id="viewer-description"></p>
+    <a id="viewer-link" class="btn" target="_blank">Acquire Artwork</a>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
