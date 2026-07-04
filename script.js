@@ -353,7 +353,7 @@ HERO PARALLAX
 
 const hero=document.querySelector(".hero");
 
-const heroImage=document.querySelector(".hero-background img");
+const heroImage=document.querySelector(".herro-background img");
 
 hero.addEventListener("mousemove",(e)=>{
 
