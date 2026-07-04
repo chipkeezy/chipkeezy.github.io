@@ -61,41 +61,49 @@ INTRO
 
 window.addEventListener("load",()=>{
 
-const intro=document.getElementById("intro");
+const tl=gsap.timeline();
 
-gsap.from(".intro-logo",{
-
-scale:.45,
+tl.from(".intro-logo",{
 
 opacity:0,
+
+scale:.55,
 
 duration:1.6,
 
 ease:"power4.out"
 
-});
+})
 
-gsap.to(".intro-logo",{
+.to(".light-sweep",{
 
-delay:1.7,
+left:"140%",
 
-scale:1.05,
+duration:1.3,
 
-duration:.7
+ease:"power2.inOut"
 
-});
+},"-=1")
 
-gsap.to(intro,{
+.to(".intro-logo",{
 
-delay:2.7,
+scale:1.04,
+
+duration:.6
+
+},"-=.8")
+
+.to("#intro",{
 
 opacity:0,
 
-duration:1,
+duration:.9,
+
+delay:.4,
 
 onComplete(){
 
-intro.style.display="none";
+document.getElementById("intro").remove();
 
 }
 
