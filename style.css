@@ -1564,3 +1564,118 @@ width:55px;
 }
 
 }
+/* PREMIUM HOVER */
+
+.art-card::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:-120%;
+
+width:70%;
+
+height:100%;
+
+background:linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.08),
+transparent);
+
+transition:1.2s;
+
+}
+
+.art-card:hover::before{
+
+left:160%;
+
+}
+
+/* GOLD FRAME */
+
+.art-image{
+
+padding:10px;
+
+background:linear-gradient(
+145deg,
+#7d6535,
+#d9bf83,
+#6f5526);
+
+}
+
+.art-image img{
+
+border-radius:8px;
+
+}
+
+/* PARALLAX */
+
+.hero-background{
+
+will-change:transform;
+
+}
+
+/* GLASS */
+
+.navbar.scrolled{
+
+background:rgba(10,10,10,.62);
+
+backdrop-filter:blur(24px);
+
+}
+
+/* GOLD CURSOR */
+
+.art-card{
+
+cursor:zoom-in;
+
+}
+
+/* IMAGE LIFT */
+
+.art-card:hover img{
+
+transform:scale(1.08);
+
+}
+
+/* GOLD UNDERLINE */
+
+.section-heading h2{
+
+display:inline-block;
+
+position:relative;
+
+}
+
+.section-heading h2::after{
+
+content:"";
+
+position:absolute;
+
+bottom:-14px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+width:70px;
+
+height:2px;
+
+background:var(--gold);
+
+}
