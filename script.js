@@ -63,17 +63,43 @@ window.addEventListener("load",()=>{
 
 const intro=document.getElementById("intro");
 
-setTimeout(()=>{
+gsap.from(".intro-logo",{
 
-intro.style.opacity="0";
+scale:.45,
 
-setTimeout(()=>{
+opacity:0,
+
+duration:1.6,
+
+ease:"power4.out"
+
+});
+
+gsap.to(".intro-logo",{
+
+delay:1.7,
+
+scale:1.05,
+
+duration:.7
+
+});
+
+gsap.to(intro,{
+
+delay:2.7,
+
+opacity:0,
+
+duration:1,
+
+onComplete(){
 
 intro.style.display="none";
 
-},900);
+}
 
-},2300);
+});
 
 });
 
