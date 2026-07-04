@@ -168,7 +168,7 @@ if(gallery){
 
 artworks.forEach(art=>{
 
-gallery.innerHTML+=`
+gallery.innerHTML += `
 
 <div class="art-card" data-id="${art.id}">
 
@@ -180,63 +180,45 @@ gallery.innerHTML+=`
 
 <div class="art-content">
 
-<div class="status ${art.status}">
+<div class="card-top">
 
+<div class="status ${art.status}">
 ${art.status.toUpperCase()}
+</div>
+
+<div class="year">
+${art.year}
+</div>
 
 </div>
 
 <h3>${art.title}</h3>
 
 <p class="art-story">
-
 ${art.story}
-
 </p>
+
+<div class="divider"></div>
 
 <div class="art-meta">
 
-<div class="meta">
-
+<div>
 <span>Medium</span>
-
 <strong>${art.medium}</strong>
-
 </div>
 
-<div class="meta">
-
-<span>Size</span>
-
+<div>
+<span>Dimensions</span>
 <strong>${art.dimensions}</strong>
-
-</div>
-
-<div class="meta">
-
-<span>Year</span>
-
-<strong>${art.year}</strong>
-
-</div>
-
-<div class="meta">
-
-<span>Collector</span>
-
-<strong>${art.collectorPrice}</strong>
-
 </div>
 
 </div>
 
-<div class="view-link">
+<button class="view-btn">
 
-<span>View Artwork</span>
+View Artwork
 
-<span>→</span>
-
-</div>
+</button>
 
 </div>
 
