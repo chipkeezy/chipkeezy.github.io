@@ -8,7 +8,7 @@ const artworks = [
 {
 id:1,
 title:"The Last Ember II",
-image:"paintings/ember.jpg",
+image:"paintings/ember.jpeg",
 story:"The strongest people are often those who have weathered the hardest storms yet still carry warmth within them.",
 medium:"Oil on Canvas",
 dimensions:"60 × 80 cm",
@@ -20,7 +20,7 @@ collectorPrice:"Price Upon Inquiry"
 {
 id:2,
 title:"The Feet That Carried A Continent",
-image:"paintings/feet.jpg",
+image:"paintings/feet.jpeg",
 story:"A tribute to endurance, sacrifice and the silent journeys that shaped generations.",
 medium:"Oil on Canvas",
 dimensions:"60 × 80 cm",
@@ -32,7 +32,7 @@ collectorPrice:"Price Upon Inquiry"
 {
 id:3,
 title:"Last Shepherd Of The Dawn",
-image:"paintings/boy.jpg",
+image:"paintings/boy.jpeg",
 story:"Hope often walks quietly before the rest of the world notices the sunrise.",
 medium:"Oil on Canvas",
 dimensions:"60 × 80 cm",
@@ -44,7 +44,7 @@ collectorPrice:"Reserved"
 {
 id:4,
 title:"Old Soul",
-image:"paintings/masai.jpg",
+image:"paintings/masai.jpeg",
 story:"A portrait exploring dignity, memory and timeless character.",
 medium:"Oil on Canvas",
 dimensions:"60 × 80 cm",
