@@ -347,3 +347,26 @@ reveal.forEach(section=>{
 observer.observe(section);
 
 });
+/*==========================
+HERO PARALLAX
+==========================*/
+
+const hero=document.querySelector(".hero");
+
+const heroImage=document.querySelector(".hero-background img");
+
+hero.addEventListener("mousemove",(e)=>{
+
+const x=(e.clientX/window.innerWidth-.5)*18;
+
+const y=(e.clientY/window.innerHeight-.5)*18;
+
+heroImage.style.transform=`translate(${x}px,${y}px) scale(1.08)`;
+
+});
+
+hero.addEventListener("mouseleave",()=>{
+
+heroImage.style.transform="translate(0,0) scale(1.05)";
+
+});
