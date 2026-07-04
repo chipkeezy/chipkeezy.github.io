@@ -2004,3 +2004,20 @@ font-size:15px;
 font-weight:500;
 
 }
+.collector-note{
+
+margin:35px 0;
+
+padding-left:22px;
+
+border-left:2px solid var(--gold);
+
+font-style:italic;
+
+color:#d4d4d4;
+
+font-size:17px;
+
+line-height:1.8;
+
+}
