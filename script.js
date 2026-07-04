@@ -43,7 +43,7 @@ collectorPrice:"Reserved"
 
 {
 id:4,
-title:"Old Soul",
+title:"The Old Soul",
 image:"paintings/masai.jpeg",
 story:"A portrait exploring dignity, memory and timeless character.",
 medium:"Oil on Canvas",
