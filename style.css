@@ -1525,12 +1525,28 @@ padding:90px 7%;
 
 }
 
-.desktop-nav{
+.mobile-menu{
 
 display:none;
 
 }
+@media (max-width:900px){
 
+.mobile-menu{
+
+display:flex;
+
+}
+
+.desktop-nav{
+
+display:flex;
+
+gap:40px;
+
+align-items:center;
+
+}
 .menu-btn{
 
 display:flex;
@@ -2019,5 +2035,10 @@ color:#d4d4d4;
 font-size:17px;
 
 line-height:1.8;
+
+}
+.mobile-menu{
+
+display:none;
 
 }
