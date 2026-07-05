@@ -1,63 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>McDonald Simon | Visual Artist</title>
-
-<meta name="description" content="The official portfolio of McDonald Simon, a Tanzanian Visual Artist creating timeless works inspired by light, memory and atmosphere.">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 
-<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 
-</head>
+<script src="script.js"></script>
 
-<body>
-
-<!-- =====================================================
-     CINEMATIC INTRO
-====================================================== -->
+<!-- INTRO -->
 
 <div id="intro">
 
-<div class="intro-bg"></div>
+    <div class="intro-logo">
 
-<div class="light-sweep"></div>
+        <img src="images/logo.png" alt="Logo">
 
-<div class="intro-logo-wrapper">
-
-<img src="images/logo.png"
-class="intro-logo"
-alt="Logo">
+    </div>
 
 </div>
 
-<div class="particles"></div>
 
-</div>
 
-<!-- =====================================================
-     NAVIGATION
-====================================================== -->
+<!-- NAVIGATION -->
 
 <header class="navbar">
 
-<div class="nav-container">
+<div class="container">
 
 <a href="#" class="brand">
 
-<img src="images/logo.png"
-alt="Logo">
+<img src="images/logo.png">
 
-<div class="brand-text">
+<div>
 
 <h2>McDonald Simon</h2>
 
@@ -67,76 +43,44 @@ alt="Logo">
 
 </a>
 
-<nav class="desktop-nav">
+<nav>
 
-<a href="#hero">Home</a>
+<a href="#">Home</a>
 
-<a href="#gallery">Collection</a>
+<a href="#collection">Collection</a>
 
 <a href="#studio">Studio</a>
 
 <a href="#about">About</a>
-
-<a href="#commission">Commission</a>
 
 <a href="#contact">Contact</a>
 
 </nav>
 
-<button class="menu-btn">
+<a class="commission-btn"
+href="https://wa.me/255692973059">
 
-<span></span>
+Commission
 
-<span></span>
-
-<span></span>
-
-</button>
+</a>
 
 </div>
 
 </header>
 
-<!-- =====================================================
-     MOBILE MENU
-====================================================== -->
 
-<div class="mobile-menu">
 
-<a href="#hero">Home</a>
+<!-- HERO -->
 
-<a href="#gallery">Collection</a>
-
-<a href="#studio">Studio</a>
-
-<a href="#about">About</a>
-
-<a href="#commission">Commission</a>
-
-<a href="#contact">Contact</a>
-
-</div>
-
-<!-- =====================================================
-     HERO
-====================================================== -->
-
-<section id="hero" class="hero">
-
-<div class="hero-background">
-
-<img src="images/hero.jpg"
-alt="Featured Artwork">
-
-</div>
+<section class="hero">
 
 <div class="hero-overlay"></div>
 
 <div class="hero-content">
 
-<p class="hero-tag">
+<p class="hero-small">
 
-VISUAL ARTIST
+CONTEMPORARY IMPRESSIONIST
 
 </p>
 
@@ -153,27 +97,26 @@ Through Light
 <p class="hero-description">
 
 Creating timeless works that preserve memory,
-emotion and atmosphere through traditional
-craftsmanship and contemporary vision.
+
+emotion and atmosphere through craftsmanship
+
+and contemporary vision.
 
 </p>
-<div class="collector-note">
 
-Collected by people who believe art should
-tell stories that outlive generations.
-
-</div>
 <div class="hero-buttons">
 
-<a href="#gallery"
-class="btn btn-gold">
+<a href="#collection"
+
+class="btn gold">
 
 Explore Collection
 
 </a>
 
-<a href="#commission"
-class="btn btn-outline">
+<a href="https://wa.me/255692973059"
+
+class="btn glass">
 
 Commission Artwork
 
@@ -183,475 +126,52 @@ Commission Artwork
 
 </div>
 
-<div class="scroll-indicator">
-
-<span></span>
-
-</div>
-
 </section>
 
-<!-- =====================================================
-     FEATURED ARTWORK
-====================================================== -->
 
-<section class="featured reveal">
 
-<div class="section-heading">
+<!-- FEATURED -->
 
-<p>
+<section id="featured"></section>
 
-Featured Artwork
 
-</p>
 
-<h2>
+<!-- COLLECTION -->
 
-A Collector's Highlight
+<section id="collection"></section>
 
-</h2>
 
-</div>
 
-<div class="featured-grid">
+<!-- STUDIO -->
 
-<div class="featured-image">
+<section id="studio"></section>
 
-<img src="paintings/ember.jpeg"
-alt="The Last Ember II">
 
-</div>
 
-<div class="featured-info">
+<!-- ABOUT -->
 
-<div class="status available">
+<section id="about"></section>
 
-AVAILABLE
 
-</div>
 
-<h2>
+<!-- COMMISSION -->
 
-The Last Ember II
+<section id="commission"></section>
 
-</h2>
 
-<p class="story">
 
-The strongest people are often those
-who have weathered the hardest storms
-yet still carry warmth within them.
+<!-- CONTACT -->
 
-</p>
+<section id="contact"></section>
 
-<div class="spec-grid">
 
-<div class="spec">
 
-<span>Medium</span>
+<!-- FOOTER -->
 
-<strong>Oil on Canvas</strong>
+<footer></footer>
 
-</div>
 
-<div class="spec">
 
-<span>Dimensions</span>
+<!-- VIEWER -->
 
-<strong>60 × 80 cm</strong>
-
-</div>
-
-<div class="spec">
-
-<span>Year</span>
-
-<strong>2026</strong>
-
-</div>
-
-<div class="spec">
-
-<span>Collector Price</span>
-
-<strong>Price Upon Inquiry</strong>
-
-</div>
-
-</div>
-
-<a
-
-href="https://wa.me/255692973059?text=Hello McDonald, I am interested in The Last Ember II."
-
-class="btn btn-gold">
-
-Acquire Artwork
-
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- =====================================================
-     COLLECTION
-====================================================== -->
-
-<section id="gallery" class="gallery reveal">
-
-<div class="section-heading">
-
-<p>
-
-Collection
-
-</p>
-
-<h2>
-
-Selected Works
-
-</h2>
-
-<p>
-
-Each artwork is presented with
-its own story, dimensions,
-availability and collector information.
-
-</p>
-
-</div>
-
-<div id="gallery-grid">
-
-<!-- Generated automatically by script.js -->
-
-</div>
-
-</section>
-<!-- =====================================================
-     MUSEUM VIEWER
-====================================================== -->
-
-<div id="museum-viewer">
-
-<div class="viewer-overlay"></div>
-
-<div class="viewer-container">
-
-<button class="viewer-close">&times;</button>
-
-<div class="viewer-image">
-
-<img id="viewer-img" src="" alt="Artwork">
-
-</div>
-
-<div class="viewer-details">
-
-<div id="viewer-status" class="status"></div>
-
-<h2 id="viewer-title"></h2>
-
-<p id="viewer-description"></p>
-
-<div class="viewer-specs">
-
-<div class="spec-item">
-<span>Medium</span>
-<strong id="viewer-medium"></strong>
-</div>
-
-<div class="spec-item">
-<span>Dimensions</span>
-<strong id="viewer-dimensions"></strong>
-</div>
-
-<div class="spec-item">
-<span>Year</span>
-<strong id="viewer-year"></strong>
-</div>
-
-<div class="spec-item">
-<span>Collector Price</span>
-<strong id="viewer-price"></strong>
-</div>
-
-</div>
-
-<a id="viewer-whatsapp"
-class="btn btn-gold"
-target="_blank">
-
-Acquire Artwork
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- =====================================================
-     STUDIO
-====================================================== -->
-
-<section id="studio" class="studio reveal">
-
-<div class="section-heading">
-
-<p>Inside the Studio</p>
-
-<h2>Where Every Artwork Begins</h2>
-
-<p>
-
-Every finished artwork starts as a quiet idea.
-These moments reveal the journey before the final brushstroke.
-
-</p>
-
-</div>
-
-<div class="studio-grid">
-
-<div class="studio-card">
-
-<img src="images/studio1.jpg">
-
-<h3>Observation</h3>
-
-<p>
-Every painting begins with careful study,
-light and composition.
-</p>
-
-</div>
-
-<div class="studio-card">
-
-<img src="images/studio2.jpg">
-
-<h3>Building Form</h3>
-
-<p>
-
-Layers slowly transform the canvas into
-something alive.
-
-</p>
-
-</div>
-
-<div class="studio-card">
-
-<img src="images/studio3.jpg">
-
-<h3>Final Artwork</h3>
-
-<p>
-
-Colour, atmosphere and storytelling come
-together in the final stage.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- =====================================================
-     ABOUT
-====================================================== -->
-
-<section id="about" class="about reveal">
-
-<div class="about-image">
-
-<img src="images/artist.jpeg">
-
-</div>
-
-<div class="about-content">
-
-<p class="section-small">
-
-About
-
-</p>
-
-<h2>
-
-McDonald Simon
-
-</h2>
-
-<h4>
-
-Visual Artist
-
-</h4>
-
-<p>
-
-Based in Tanzania, my work explores
-light, memory, atmosphere and the stories
-that quietly shape our lives.
-
-Rather than simply painting subjects,
-I seek to preserve moments that invite
-people to pause, reflect and connect.
-
-Although many of my recent works are
-created in oil, my practice also embraces
-graphite, pen, watercolor and acrylic,
-allowing each idea to find its most
-natural expression.
-
-</p>
-
-<div class="artist-quote">
-
-"Every artwork begins with silence before
-it begins with colour."
-
-</div>
-
-</div>
-
-</section>
-
-<!-- =====================================================
-     COMMISSION
-====================================================== -->
-
-<section id="commission" class="commission reveal">
-
-<div class="commission-box">
-
-<p>
-
-COMMISSION AN ARTWORK
-
-</p>
-
-<h2>
-
-Let's Create Something Meaningful
-
-</h2>
-
-<p>
-
-Whether you are looking for a portrait,
-a cultural narrative,
-or a personal commission,
-I'd be honoured to create a work
-that tells your story.
-
-</p>
-
-<a
-
-href="https://wa.me/255692973059?text=Hello McDonald, I would like to commission an artwork."
-
-class="btn btn-gold">
-
-Start Your Commission
-
-</a>
-
-</div>
-
-</section>
-
-<!-- =====================================================
-     CONTACT
-====================================================== -->
-
-<section id="contact" class="contact reveal">
-
-<div class="section-heading">
-
-<p>Contact</p>
-
-<h2>
-
-Get In Touch
-
-</h2>
-
-</div>
-
-<div class="contact-grid">
-
-<div class="contact-card">
-
-<h4>Instagram</h4>
-
-<p>@mc_ndokeji</p>
-
-</div>
-
-<div class="contact-card">
-
-<h4>Email</h4>
-
-<p>mcchipkeezy@gmail.com</p>
-
-</div>
-
-<div class="contact-card">
-
-<h4>WhatsApp</h4>
-
-<p>+255 692 973 059</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- =====================================================
-     FOOTER
-====================================================== -->
-
-<footer>
-
-<img src="images/logo.png" class="footer-logo">
-
-<h3>
-
-McDonald Simon
-
-</h3>
-
-<p>
-
-Visual Artist
-
-</p>
-
-<p class="copyright">
-
-© 2026 McDonald Simon.
-All Rights Reserved.
-
-</p>
-
-</footer>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-
-<script src="script.js"></script>
-
-</body>
-</html>
+<div id="viewer"></div>
