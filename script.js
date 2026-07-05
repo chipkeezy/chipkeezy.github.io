@@ -1,63 +1,115 @@
-/*==========================================
-McDonald Simon
-Visual Artist
-==========================================*/
+/* ==========================================
+   McDonald Simon | Version 3
+   Gallery Engine
+========================================== */
+
+gsap.registerPlugin(ScrollTrigger);
+
+/* =========================
+   WEBSITE SETTINGS
+========================= */
+
+const whatsapp =
+"255692973059";
+
+const instagram =
+"https://instagram.com/mc_ndokeji";
+
+const email =
+"mcchipkeezy@gmail.com";
+
+/* =========================
+   ARTWORK DATABASE
+   (ONLY EDIT THIS SECTION)
+========================= */
 
 const artworks = [
 
 {
 id:1,
+
 title:"The Last Ember II",
-image:"paintings/ember.jpeg",
-story:"The strongest people are often those who have weathered the hardest storms yet still carry warmth within them.",
+
+image:"images/ember.jpeg",
+
 medium:"Oil on Canvas",
+
 dimensions:"60 × 80 cm",
+
 year:"2026",
+
+price:"TZS 2,800,000",
+
 status:"available",
-collectorPrice:"Price Upon Inquiry"
+
+story:"The strongest people are often those who have weathered the hardest storms yet still carry warmth within them."
 },
 
 {
 id:2,
+
 title:"The Feet That Carried A Continent",
-image:"paintings/feet.jpeg",
-story:"A tribute to endurance, sacrifice and the silent journeys that shaped generations.",
+
+image:"images/feet.jpeg",
+
 medium:"Oil on Canvas",
+
 dimensions:"60 × 80 cm",
+
 year:"2026",
+
+price:"TZS 2,300,000",
+
 status:"available",
-collectorPrice:"Price Upon Inquiry"
+
+story:"A tribute to endurance, sacrifice and the silent journeys that shaped generations."
 },
 
 {
 id:3,
+
 title:"Last Shepherd Of The Dawn",
-image:"paintings/boy.jpeg",
-story:"Hope often walks quietly before the rest of the world notices the sunrise.",
+
+image:"images/boy.jpeg",
+
 medium:"Oil on Canvas",
+
 dimensions:"60 × 80 cm",
+
 year:"2026",
+
+price:"Reserved",
+
 status:"reserved",
-collectorPrice:"Reserved"
+
+story:"Hope often walks quietly before the rest of the world notices the sunrise."
 },
 
 {
 id:4,
-title:"The Old Soul",
-image:"paintings/masai.jpeg",
-story:"A portrait exploring dignity, memory and timeless character.",
+
+title:"Old Soul",
+
+image:"images/masai.jpeg",
+
 medium:"Oil on Canvas",
+
 dimensions:"60 × 80 cm",
+
 year:"2026",
+
+price:"Private Collection",
+
 status:"sold",
-collectorPrice:"Private Collection"
+
+story:"A portrait exploring dignity, memory and timeless character."
 }
 
 ];
 
-/*==========================================
-INTRO
-==========================================*/
+/* =========================
+   INTRO
+========================= */
 
 window.addEventListener("load",()=>{
 
@@ -69,37 +121,23 @@ opacity:0,
 
 scale:.55,
 
-duration:1.6,
+duration:1.5,
 
 ease:"power4.out"
 
 })
 
-.to(".light-sweep",{
-
-left:"140%",
-
-duration:1.3,
-
-ease:"power2.inOut"
-
-},"-=1")
-
-.to(".intro-logo",{
-
-scale:1.04,
-
-duration:.6
-
-},"-=.8")
+.to("#intro::before",{
+duration:0
+})
 
 .to("#intro",{
+
+delay:1.2,
 
 opacity:0,
 
 duration:.9,
-
-delay:.4,
 
 onComplete(){
 
@@ -110,15 +148,16 @@ document.getElementById("intro").remove();
 });
 
 });
-/*==========================================
-NAVBAR
-==========================================*/
+
+/* =========================
+   NAVBAR
+========================= */
 
 const navbar=document.querySelector(".navbar");
 
 window.addEventListener("scroll",()=>{
 
-if(window.scrollY>80){
+if(window.scrollY>60){
 
 navbar.classList.add("scrolled");
 
@@ -130,37 +169,9 @@ navbar.classList.remove("scrolled");
 
 });
 
-/*==========================================
-MOBILE MENU
-==========================================*/
-
-const menuBtn=document.querySelector(".menu-btn");
-
-const mobileMenu=document.querySelector(".mobile-menu");
-
-if(menuBtn){
-
-menuBtn.onclick=()=>{
-
-mobileMenu.classList.toggle("active");
-
-};
-
-}
-
-document.querySelectorAll(".mobile-menu a").forEach(link=>{
-
-link.onclick=()=>{
-
-mobileMenu.classList.remove("active");
-
-};
-
-});
-
-/*==========================================
-BUILD GALLERY
-==========================================*/
+/* =========================
+   BUILD GALLERY
+========================= */
 
 const gallery=document.getElementById("gallery-grid");
 
@@ -168,26 +179,30 @@ if(gallery){
 
 artworks.forEach(art=>{
 
-gallery.innerHTML += `
+gallery.innerHTML+=`
 
 <div class="art-card" data-id="${art.id}">
 
 <div class="art-image">
 
-<img src="${art.image}" alt="${art.title}" loading="lazy">
+<img src="${art.image}" alt="${art.title}">
 
 </div>
 
 <div class="art-content">
 
-<div class="card-top">
+<div class="card-head">
 
-<div class="status ${art.status}">
+<div class="badge ${art.status}">
+
 ${art.status.toUpperCase()}
+
 </div>
 
-<div class="year">
+<div class="card-year">
+
 ${art.year}
+
 </div>
 
 </div>
@@ -195,26 +210,48 @@ ${art.year}
 <h3>${art.title}</h3>
 
 <p class="art-story">
-${art.story}
-</p>
 
-<div class="divider"></div>
+${art.story}
+
+</p>
 
 <div class="art-meta">
 
-<div>
+<div class="meta">
+
 <span>Medium</span>
+
 <strong>${art.medium}</strong>
+
 </div>
 
-<div>
+<div class="meta">
+
 <span>Dimensions</span>
+
 <strong>${art.dimensions}</strong>
-</div>
 
 </div>
 
-<button class="view-btn">
+<div class="meta">
+
+<span>Collection Value</span>
+
+<strong>${art.price}</strong>
+
+</div>
+
+<div class="meta">
+
+<span>Status</span>
+
+<strong>${art.status}</strong>
+
+</div>
+
+</div>
+
+<button class="view-art">
 
 View Artwork
 
@@ -230,143 +267,28 @@ View Artwork
 
 }
 
-/*==========================================
-VIEWER
-==========================================*/
+/* =========================
+   SCROLL REVEAL
+========================= */
 
-const viewer=document.getElementById("museum-viewer");
+gsap.utils.toArray("section").forEach(section=>{
 
-document.addEventListener("click",(e)=>{
-
-const card=e.target.closest(".art-card");
-
-if(!card) return;
-
-const id=Number(card.dataset.id);
-
-const art=artworks.find(a=>a.id===id);
-
-document.getElementById("viewer-img").src=art.image;
-
-document.getElementById("viewer-title").innerText=art.title;
-
-document.getElementById("viewer-description").innerText=art.story;
-
-document.getElementById("viewer-medium").innerText=art.medium;
-
-document.getElementById("viewer-dimensions").innerText=art.dimensions;
-
-document.getElementById("viewer-year").innerText=art.year;
-
-document.getElementById("viewer-price").innerText=art.collectorPrice;
-
-const badge=document.getElementById("viewer-status");
-
-badge.className="status "+art.status;
-
-badge.innerText=art.status.toUpperCase();
-
-document.getElementById("viewer-whatsapp").href=
-
-`https://wa.me/255692973059?text=Hello McDonald, I am interested in "${art.title}".`;
-
-viewer.classList.add("active");
-
-});
-
-/*==========================================
-CLOSE VIEWER
-==========================================*/
-
-document.querySelector(".viewer-close").onclick=()=>{
-
-viewer.classList.remove("active");
-
-};
-
-viewer.onclick=(e)=>{
-
-if(e.target===viewer){
-
-viewer.classList.remove("active");
-
-}
-
-};
-
-/*==========================================
-SCROLL REVEAL
-==========================================*/
-
-const reveal=document.querySelectorAll(".reveal");
-
-const observer=new IntersectionObserver(entries=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.animate([
-
-{
+gsap.from(section,{
 
 opacity:0,
 
-transform:"translateY(60px)"
+y:80,
 
-},
+duration:1,
 
-{
+scrollTrigger:{
 
-opacity:1,
+trigger:section,
 
-transform:"translateY(0)"
-
-}
-
-],{
-
-duration:900,
-
-fill:"forwards",
-
-easing:"ease"
-
-});
-
-observer.unobserve(entry.target);
+start:"top 85%"
 
 }
 
 });
-
-});
-
-reveal.forEach(section=>{
-
-observer.observe(section);
-
-});
-/*==========================
-HERO PARALLAX
-==========================*/
-
-const hero=document.querySelector(".hero");
-
-const heroImage=document.querySelector(".hero-background img");
-
-hero.addEventListener("mousemove",(e)=>{
-
-const x=(e.clientX/window.innerWidth-.5)*18;
-
-const y=(e.clientY/window.innerHeight-.5)*18;
-
-heroImage.style.transform=`translate(${x}px,${y}px) scale(1.08)`;
-
-});
-
-hero.addEventListener("mouseleave",()=>{
-
-heroImage.style.transform="translate(0,0) scale(1.05)";
 
 });
