@@ -1,29 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>McDonald Simon | Visual Artist</title>
+
+<meta name="description"
+content="McDonald Simon is a Tanzanian Visual Artist creating contemporary paintings that preserve memory, atmosphere and light.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="css/style.css">
 
-<script src="script.js"></script>
+<link rel="icon" href="images/logo.png">
 
-<!-- INTRO -->
+</head>
+
+<body>
+
+<!-- ===========================
+INTRO
+=========================== -->
 
 <div id="intro">
 
-    <div class="intro-logo">
+<div class="intro-light"></div>
 
-        <img src="images/logo.png" alt="Logo">
+<div class="intro-logo">
 
-    </div>
+<img src="images/logo.png" alt="McDonald Simon">
 
 </div>
 
+<div class="intro-grain"></div>
 
+</div>
 
-<!-- NAVIGATION -->
+<!-- ===========================
+NAVIGATION
+=========================== -->
 
 <header class="navbar">
 
@@ -31,7 +53,7 @@
 
 <a href="#" class="brand">
 
-<img src="images/logo.png">
+<img src="images/logo.png" alt="Logo">
 
 <div>
 
@@ -47,9 +69,11 @@
 
 <a href="#">Home</a>
 
-<a href="#collection">Collection</a>
+<a href="#featured">Featured</a>
 
-<a href="#studio">Studio</a>
+<a href="#collection">Gallery</a>
+
+<a href="#journey">Journey</a>
 
 <a href="#about">About</a>
 
@@ -57,8 +81,9 @@
 
 </nav>
 
-<a class="commission-btn"
-href="https://wa.me/255692973059">
+<a
+href="https://wa.me/255692973059?text=Hello%20McDonald,%20I%20would%20like%20to%20commission%20an%20artwork."
+class="commission-btn">
 
 Commission
 
@@ -68,19 +93,21 @@ Commission
 
 </header>
 
-
-
-<!-- HERO -->
+<!-- ===========================
+HERO
+=========================== -->
 
 <section class="hero">
 
 <div class="hero-overlay"></div>
 
+<div class="container">
+
 <div class="hero-content">
 
-<p class="hero-small">
+<p class="hero-label">
 
-CONTEMPORARY IMPRESSIONIST
+VISUAL ARTIST
 
 </p>
 
@@ -90,32 +117,30 @@ Stories<br>
 
 Preserved<br>
 
-Through Light
+Through Light.
 
 </h1>
 
-<p class="hero-description">
+<p>
 
-Creating timeless works that preserve memory,
+Every artwork begins with observation,
+patience and craftsmanship.
 
-emotion and atmosphere through craftsmanship
-
-and contemporary vision.
+Each piece is created to preserve memory,
+emotion and atmosphere for generations.
 
 </p>
 
 <div class="hero-buttons">
 
-<a href="#collection"
+<a href="#collection" class="btn gold">
 
-class="btn gold">
-
-Explore Collection
+Explore Gallery
 
 </a>
 
-<a href="https://wa.me/255692973059"
-
+<a
+href="https://wa.me/255692973059?text=Hello%20McDonald,%20I%20would%20like%20to%20commission%20an%20artwork."
 class="btn glass">
 
 Commission Artwork
@@ -126,17 +151,136 @@ Commission Artwork
 
 </div>
 
+</div>
+
+<div class="scroll-indicator">
+
+<span></span>
+
+</div>
+
 </section>
 
+<!-- ===========================
+FEATURED
+=========================== -->
 
+<section id="featured">
 
-<!-- FEATURED -->
+<div class="container">
 
-<section id="featured"></section>
+<div class="section-header">
 
+<span>Featured Masterpiece</span>
 
+<h2>The Last Ember II</h2>
 
-<!-- COLLECTION -->
+<p>
+
+A painting about resilience, quiet strength and
+the warmth that remains after life's greatest trials.
+
+</p>
+
+</div>
+
+<div class="featured-grid">
+
+<div class="featured-image">
+
+<img
+src="images/ember.jpg"
+alt="The Last Ember II">
+
+</div>
+
+<div class="featured-info">
+
+<div class="museum-label">
+
+<div class="label">
+
+<small>Status</small>
+
+<strong class="available">
+
+Available
+
+</strong>
+
+</div>
+
+<div class="label">
+
+<small>Medium</small>
+
+<strong>
+
+Oil on Canvas
+
+</strong>
+
+</div>
+
+<div class="label">
+
+<small>Dimensions</small>
+
+<strong>
+
+60 × 80 cm
+
+</strong>
+
+</div>
+
+<div class="label">
+
+<small>Collection Value</small>
+
+<strong>
+
+TZS 2,800,000
+
+</strong>
+
+</div>
+
+</div>
+
+<p class="featured-story">
+
+The strongest people are often those
+who have weathered the hardest storms
+yet continue to carry warmth for others.
+
+This painting is a reminder that true
+strength is rarely loud.
+
+</p>
+
+<a
+
+href="https://wa.me/255692973059?text=Hello%20McDonald,%20I%20am%20interested%20in%20The%20Last%20Ember%20II."
+
+class="btn gold">
+
+Acquire Artwork
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- COLLECTION STARTS HERE -->
+<!-- ===========================
+COLLECTION
+=========================== -->
 
 <section id="collection" class="gallery">
 
@@ -146,53 +290,444 @@ Commission Artwork
 
 <span>Collection</span>
 
-<h2>Original Works</h2>
+<h2>Selected Works</h2>
 
 <p>
 
-Every artwork is an original creation, carefully crafted to preserve
-light, memory and emotion. Click any artwork to explore its story.
+Every artwork tells its own story.
+Each piece is handcrafted and exists as an original work unless marked otherwise.
 
 </p>
 
 </div>
 
-<div id="gallery-grid"></div>
+<div id="gallery-grid">
+
+<!-- JavaScript automatically generates all artworks here -->
+
+</div>
 
 </div>
 
 </section>
 
-<!-- STUDIO -->
-
-<section id="studio"></section>
 
 
+<!-- ===========================
+QUOTE
+=========================== -->
 
-<!-- ABOUT -->
+<section class="quote-section">
 
-<section id="about"></section>
+<div class="container">
 
+<blockquote>
 
+"Light remembers what time forgets."
 
-<!-- COMMISSION -->
+</blockquote>
 
-<section id="commission"></section>
+</div>
 
-
-
-<!-- CONTACT -->
-
-<section id="contact"></section>
+</section>
 
 
 
-<!-- FOOTER -->
+<!-- ===========================
+CREATIVE JOURNEY
+=========================== -->
 
-<footer></footer>
+<section id="journey">
+
+<div class="container">
+
+<div class="section-header">
+
+<span>The Creative Journey</span>
+
+<h2>Every Painting Has A Beginning</h2>
+
+<p>
+
+Every finished painting begins long before the first brushstroke.
+It begins with observation, patience and imagination.
+
+</p>
+
+</div>
+
+<div class="journey-grid">
+
+<div class="journey-card">
+
+<div class="journey-number">01</div>
+
+<h3>Observation</h3>
+
+<p>
+
+Every story begins by carefully observing people,
+places and moments worth remembering.
+
+</p>
+
+</div>
+
+<div class="journey-card">
+
+<div class="journey-number">02</div>
+
+<h3>Sketch</h3>
+
+<p>
+
+Ideas become structure through drawing and composition.
+
+</p>
+
+</div>
+
+<div class="journey-card">
+
+<div class="journey-number">03</div>
+
+<h3>Painting</h3>
+
+<p>
+
+Layer by layer the painting slowly finds its atmosphere.
+
+</p>
+
+</div>
+
+<div class="journey-card">
+
+<div class="journey-number">04</div>
+
+<h3>Completion</h3>
+
+<p>
+
+Only when every detail feels alive is the artwork considered complete.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
 
 
 
-<!-- VIEWER -->
+<!-- ===========================
+ABOUT
+=========================== -->
 
-<div id="viewer"></div>
+<section id="about">
+
+<div class="container about-grid">
+
+<div class="about-image">
+
+<img src="images/artist.jpg" alt="McDonald Simon">
+
+</div>
+
+<div class="about-content">
+
+<span>About The Artist</span>
+
+<h2>Creating Timeless Visual Stories</h2>
+
+<p>
+
+My name is McDonald Simon, a Tanzanian Visual Artist whose work explores memory, atmosphere and the emotional power of light.
+
+Rather than simply recording appearances, I seek to create artworks that invite viewers to pause, reflect and discover stories within each brushstroke.
+
+Working across multiple traditional media, every artwork is approached with patience, craftsmanship and respect for timeless artistic principles.
+
+</p>
+
+<a
+
+href="https://wa.me/255692973059"
+
+class="btn gold">
+
+Work With Me
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ===========================
+COMMISSION
+=========================== -->
+
+<section id="commission">
+
+<div class="container">
+
+<div class="section-header">
+
+<span>Commission</span>
+
+<h2>Let's Create Something Meaningful</h2>
+
+<p>
+
+Private collectors, families, businesses and interior designers are welcome to commission original artworks created specifically for their space.
+
+</p>
+
+</div>
+
+<div class="commission-grid">
+
+<div>
+
+<h3>Portraits</h3>
+
+<p>Personal and family commissions.</p>
+
+</div>
+
+<div>
+
+<h3>Collectors</h3>
+
+<p>Original works for private collections.</p>
+
+</div>
+
+<div>
+
+<h3>Businesses</h3>
+
+<p>Hotels, restaurants, offices and public spaces.</p>
+
+</div>
+
+</div>
+
+<div class="commission-center">
+
+<a
+
+href="https://wa.me/255692973059?text=Hello%20McDonald,%20I%20would%20like%20to%20commission%20an%20artwork."
+
+class="btn gold">
+
+Start A Commission
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ===========================
+CONTACT
+=========================== -->
+
+<section id="contact">
+
+<div class="container">
+
+<div class="section-header">
+
+<span>Contact</span>
+
+<h2>Let's Connect</h2>
+
+<p>
+
+Whether you're interested in collecting, commissioning or simply saying hello,
+I'd love to hear from you.
+
+</p>
+
+</div>
+
+<div class="contact-grid">
+
+<div class="contact-card">
+
+<h3>Email</h3>
+
+<p>
+
+mcchipkeezy@gmail.com
+
+</p>
+
+</div>
+
+<div class="contact-card">
+
+<h3>Instagram</h3>
+
+<p>
+
+@mc_ndokeji
+
+</p>
+
+</div>
+
+<div class="contact-card">
+
+<h3>WhatsApp</h3>
+
+<p>
+
++255 692 973 059
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ===========================
+FOOTER
+=========================== -->
+
+<footer>
+
+<div class="container footer-content">
+
+<img src="images/logo.png" class="footer-logo">
+
+<p>
+
+© 2026 McDonald Simon
+
+</p>
+
+<p>
+
+Visual Artist · Tanzania
+
+</p>
+
+</div>
+
+</footer>
+
+
+
+<!-- ===========================
+MUSEUM VIEWER
+=========================== -->
+
+<div id="viewer">
+
+<div class="viewer-overlay"></div>
+
+<div class="viewer-window">
+
+<button id="closeViewer">
+
+×
+
+</button>
+
+<div class="viewer-image">
+
+<img id="viewerImg">
+
+</div>
+
+<div class="viewer-info">
+
+<div id="viewerStatus" class="badge"></div>
+
+<h2 id="viewerTitle"></h2>
+
+<p id="viewerStory"></p>
+
+<div class="viewer-grid">
+
+<div>
+
+<span>Medium</span>
+
+<strong id="viewerMedium"></strong>
+
+</div>
+
+<div>
+
+<span>Dimensions</span>
+
+<strong id="viewerDimensions"></strong>
+
+</div>
+
+<div>
+
+<span>Year</span>
+
+<strong id="viewerYear"></strong>
+
+</div>
+
+<div>
+
+<span>Collection Value</span>
+
+<strong id="viewerPrice"></strong>
+
+</div>
+
+</div>
+
+<a
+
+id="viewerWhatsapp"
+
+class="btn gold"
+
+target="_blank">
+
+Acquire Artwork
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+<script src="js/script.js"></script>
+
+</body>
+
+</html>    
