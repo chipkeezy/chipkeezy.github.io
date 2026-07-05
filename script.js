@@ -1,147 +1,107 @@
-/* ==========================================
-   McDonald Simon | Version 3
-   Gallery Engine
-========================================== */
+/*==================================================
+McDonald Simon Portfolio V3
+Gallery Engine
+==================================================*/
 
 gsap.registerPlugin(ScrollTrigger);
 
-/* =========================
-   WEBSITE SETTINGS
-========================= */
+/*=========================================
+ARTWORK DATABASE
+Only edit this section in the future
+=========================================*/
 
-const whatsapp =
-"255692973059";
-
-const instagram =
-"https://instagram.com/mc_ndokeji";
-
-const email =
-"mcchipkeezy@gmail.com";
-
-/* =========================
-   ARTWORK DATABASE
-   (ONLY EDIT THIS SECTION)
-========================= */
-
-const artworks = [
+const artworks=[
 
 {
 id:1,
-
+featured:true,
 title:"The Last Ember II",
-
-image:"images/ember.jpeg",
-
+image:"images/ember.jpg",
+story:"The strongest people are often those who have weathered the hardest storms yet continue to carry warmth for others.",
 medium:"Oil on Canvas",
-
 dimensions:"60 × 80 cm",
-
 year:"2026",
-
 price:"TZS 2,800,000",
-
-status:"available",
-
-story:"The strongest people are often those who have weathered the hardest storms yet still carry warmth within them."
+status:"available"
 },
 
 {
 id:2,
-
+featured:false,
 title:"The Feet That Carried A Continent",
-
-image:"images/feet.jpeg",
-
+image:"images/feet.jpg",
+story:"A tribute to endurance, sacrifice and the silent journeys that shaped generations.",
 medium:"Oil on Canvas",
-
 dimensions:"60 × 80 cm",
-
 year:"2026",
-
 price:"TZS 2,300,000",
-
-status:"available",
-
-story:"A tribute to endurance, sacrifice and the silent journeys that shaped generations."
+status:"available"
 },
 
 {
 id:3,
-
+featured:false,
 title:"Last Shepherd Of The Dawn",
-
-image:"images/boy.jpeg",
-
+image:"images/boy.jpg",
+story:"Hope often walks quietly before the rest of the world notices the sunrise.",
 medium:"Oil on Canvas",
-
 dimensions:"60 × 80 cm",
-
 year:"2026",
-
 price:"Reserved",
-
-status:"reserved",
-
-story:"Hope often walks quietly before the rest of the world notices the sunrise."
+status:"reserved"
 },
 
 {
 id:4,
-
+featured:false,
 title:"Old Soul",
-
-image:"images/masai.jpeg",
-
+image:"images/masai.jpg",
+story:"A portrait exploring dignity, memory and timeless character.",
 medium:"Oil on Canvas",
-
 dimensions:"60 × 80 cm",
-
 year:"2026",
-
 price:"Private Collection",
-
-status:"sold",
-
-story:"A portrait exploring dignity, memory and timeless character."
+status:"sold"
 }
 
 ];
 
-/* =========================
-   INTRO
-========================= */
+/*=========================================
+INTRO
+=========================================*/
 
 window.addEventListener("load",()=>{
+
+const intro=document.querySelector("#intro");
 
 const tl=gsap.timeline();
 
 tl.from(".intro-logo",{
 
 opacity:0,
-
-scale:.55,
-
-duration:1.5,
-
+scale:.6,
+duration:1.3,
 ease:"power4.out"
 
 })
 
-.to("#intro::before",{
-duration:0
-})
+.from(".intro-light",{
+
+x:-900,
+duration:1.8,
+ease:"power2.out"
+
+},"<")
 
 .to("#intro",{
 
-delay:1.2,
-
 opacity:0,
-
-duration:.9,
+duration:.8,
+delay:.9,
 
 onComplete(){
 
-document.getElementById("intro").remove();
+intro.remove();
 
 }
 
@@ -149,127 +109,27 @@ document.getElementById("intro").remove();
 
 });
 
-/* =========================
-   NAVBAR
-========================= */
+/*=========================================
+NAVBAR
+=========================================*/
 
 const navbar=document.querySelector(".navbar");
 
 window.addEventListener("scroll",()=>{
 
-if(window.scrollY>60){
+navbar.classList.toggle(
 
-navbar.classList.add("scrolled");
+"scrolled",
 
-}else{
+window.scrollY>50
 
-navbar.classList.remove("scrolled");
-
-}
+);
 
 });
 
-/* =========================
-   BUILD GALLERY
-========================= */
-
-const gallery=document.getElementById("gallery-grid");
-
-if(gallery){
-
-artworks.forEach(art=>{
-
-gallery.innerHTML+=`
-
-<div class="art-card" data-id="${art.id}">
-
-<div class="art-image">
-
-<img src="${art.image}" alt="${art.title}">
-
-</div>
-
-<div class="art-content">
-
-<div class="card-head">
-
-<div class="badge ${art.status}">
-
-${art.status.toUpperCase()}
-
-</div>
-
-<div class="card-year">
-
-${art.year}
-
-</div>
-
-</div>
-
-<h3>${art.title}</h3>
-
-<p class="art-story">
-
-${art.story}
-
-</p>
-
-<div class="art-meta">
-
-<div class="meta">
-
-<span>Medium</span>
-
-<strong>${art.medium}</strong>
-
-</div>
-
-<div class="meta">
-
-<span>Dimensions</span>
-
-<strong>${art.dimensions}</strong>
-
-</div>
-
-<div class="meta">
-
-<span>Collection Value</span>
-
-<strong>${art.price}</strong>
-
-</div>
-
-<div class="meta">
-
-<span>Status</span>
-
-<strong>${art.status}</strong>
-
-</div>
-
-</div>
-
-<button class="view-art">
-
-View Artwork
-
-</button>
-
-</div>
-
-</div>
-
-`;
-
-});
-
-}
-
-/* =========================
-   SCROLL REVEAL
-========================= */
+/*=========================================
+SCROLL REVEALS
+=========================================*/
 
 gsap.utils.toArray("section").forEach(section=>{
 
