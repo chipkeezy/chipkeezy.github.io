@@ -67,41 +67,86 @@ status:"available"
 ];
 
 /*=========================================
-INTRO
+CINEMATIC INTRO V2
 =========================================*/
 
 window.addEventListener("load",()=>{
 
-const intro=document.querySelector("#intro");
-
 const tl=gsap.timeline();
 
-tl.from(".intro-logo",{
+tl.set(".intro-logo",{
 
 opacity:0,
-scale:.6,
-duration:1.3,
-ease:"power4.out"
+
+scale:.55
 
 })
 
-.from(".intro-light",{
+.set(".intro-glow",{
 
-x:-900,
-duration:1.8,
+opacity:0,
+
+scale:.4
+
+})
+
+.to(".intro-light",{
+
+left:"160%",
+
+duration:1.4,
+
 ease:"power2.out"
 
+})
+
+.to(".intro-logo",{
+
+opacity:1,
+
+scale:1,
+
+duration:1,
+
+ease:"back.out(1.8)"
+
+},"-=0.9")
+
+.to(".intro-glow",{
+
+opacity:1,
+
+scale:1.3,
+
+duration:1.2
+
 },"<")
+
+.to(".intro-logo",{
+
+scale:1.05,
+
+duration:1,
+
+repeat:1,
+
+yoyo:true,
+
+ease:"sine.inOut"
+
+})
 
 .to("#intro",{
 
 opacity:0,
-duration:.8,
-delay:.9,
+
+duration:.9,
+
+ease:"power2.inOut",
 
 onComplete(){
 
-intro.remove();
+document.getElementById("intro").remove();
 
 }
 
