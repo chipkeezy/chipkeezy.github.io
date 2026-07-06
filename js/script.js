@@ -21,7 +21,7 @@ story:"The strongest people are often those who have weathered the hardest storm
 medium:"Oil on Canvas",
 dimensions:"60 × 80 cm",
 year:"2026",
-price:"$ 300",
+price:"$ 320",
 status:"available"
 },
 
