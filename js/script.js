@@ -21,7 +21,7 @@ story:"The strongest people are often those who have weathered the hardest storm
 medium:"Oil on Canvas",
 dimensions:"60 × 80 cm",
 year:"2026",
-price:"TZS 2,800,000",
+price:"$ 300",
 status:"available"
 },
 
@@ -34,7 +34,7 @@ story:"A tribute to endurance, sacrifice and the silent journeys that shaped gen
 medium:"Oil on Canvas",
 dimensions:"60 × 80 cm",
 year:"2026",
-price:"TZS 2,300,000",
+price:"$ 300",
 status:"available"
 },
 
@@ -47,8 +47,8 @@ story:"Hope often walks quietly before the rest of the world notices the sunrise
 medium:"Oil on Canvas",
 dimensions:"60 × 80 cm",
 year:"2026",
-price:"Reserved",
-status:"reserved"
+price:"$ 300",
+status:"available"
 },
 
 {
@@ -60,8 +60,8 @@ story:"A portrait exploring dignity, memory and timeless character.",
 medium:"Oil on Canvas",
 dimensions:"60 × 80 cm",
 year:"2026",
-price:"Private Collection",
-status:"sold"
+price:"$ 300",
+status:"available"
 }
 
 ];
