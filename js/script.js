@@ -74,65 +74,81 @@ window.addEventListener("load",()=>{
 
 const tl=gsap.timeline();
 
-tl.set(".intro-logo",{
+gsap.set("#brushReveal",{
+
+scale:.9,
+
+opacity:0
+
+});
+
+gsap.set("#logoReveal",{
 
 opacity:0,
 
-scale:.55
+scale:.8
+
+});
+
+tl.to("#brushReveal",{
+
+opacity:1,
+
+duration:.6
 
 })
 
-.set(".intro-glow",{
+.fromTo(
 
-opacity:0,
+"#brushReveal",
 
-scale:.4
+{
 
-})
+drawSVG:"0%"
+
+},
+
+{
+
+drawSVG:"100%",
+
+duration:2,
+
+ease:"power2.inOut"
+
+}
+
+)
 
 .to(".intro-light",{
 
-left:"160%",
+opacity:1,
 
-duration:1.4,
+duration:1
 
-ease:"power2.out"
+},"-=1.2")
 
-})
-
-.to(".intro-logo",{
+.to("#logoReveal",{
 
 opacity:1,
 
 scale:1,
 
-duration:1,
+duration:.9,
 
 ease:"back.out(1.8)"
 
-},"-=0.9")
+},"-=1")
 
-.to(".intro-glow",{
-
-opacity:1,
-
-scale:1.3,
-
-duration:1.2
-
-},"<")
-
-.to(".intro-logo",{
+.to("#logoReveal",{
 
 scale:1.05,
-
-duration:1,
 
 repeat:1,
 
 yoyo:true,
 
-ease:"sine.inOut"
+duration:.8
 
 })
 
@@ -140,9 +156,9 @@ ease:"sine.inOut"
 
 opacity:0,
 
-duration:.9,
+duration:1,
 
-ease:"power2.inOut",
+delay:.5,
 
 onComplete(){
 
@@ -153,7 +169,6 @@ document.getElementById("intro").remove();
 });
 
 });
-
 /*=========================================
 NAVBAR
 =========================================*/
