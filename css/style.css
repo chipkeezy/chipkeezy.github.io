@@ -1766,3 +1766,80 @@ transparent 70%);
 opacity:0;
 
 }
+/*=============================
+PREMIUM INTRO
+=============================*/
+
+#brushReveal{
+
+position:absolute;
+
+width:720px;
+
+max-width:80vw;
+
+z-index:5;
+
+mix-blend-mode:screen;
+
+}
+
+#logoReveal{
+
+position:relative;
+
+z-index:10;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+#logoReveal img{
+
+width:170px;
+
+max-width:32vw;
+
+filter:
+
+drop-shadow(0 0 18px rgba(200,161,90,.25))
+
+drop-shadow(0 0 50px rgba(200,161,90,.18));
+
+}
+
+.intro-light{
+
+position:absolute;
+
+left:-35%;
+
+width:420px;
+
+height:420px;
+
+border-radius:50%;
+
+background:
+
+radial-gradient(circle,
+
+rgba(233,194,95,.28),
+
+transparent 72%);
+
+filter:blur(40px);
+
+pointer-events:none;
+
+}
+
+#intro{
+
+transition:opacity .8s ease;
+
+}
