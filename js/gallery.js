@@ -54,37 +54,4 @@ closeArtwork();
 
 });
 
-createGallery();
-const filterButtons=document.querySelectorAll(".gallery-filter button");
 
-filterButtons.forEach(button=>{
-
-button.addEventListener("click",()=>{
-
-filterButtons.forEach(btn=>btn.classList.remove("active"));
-
-button.classList.add("active");
-
-const filter=button.textContent.toLowerCase();
-
-const cards=document.querySelectorAll(".art-card");
-
-cards.forEach(card=>{
-
-const status=card.querySelector(".art-status").textContent.toLowerCase();
-
-if(filter==="all"){
-
-card.style.display="block";
-
-}else{
-
-card.style.display=status===filter?"block":"none";
-
-}
-
-});
-
-});
-
-});
