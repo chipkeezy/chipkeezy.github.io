@@ -2,98 +2,56 @@
 AUTO GALLERY
 =========================================*/
 
-const gallery = document.getElementById("gallery-grid");
+const viewer = document.getElementById("viewer");
+const closeBtn = document.querySelector(".close-viewer");
 
-function createGallery(){
+function openArtwork(index){
 
-gallery.innerHTML="";
-
-artworks.forEach((art,index)=>{
-
-gallery.innerHTML+=`
-
-<article class="art-card">
-
-<div class="art-image">
-
-<img src="${art.image}" loading="lazy">
-
-<div class="art-status">
-
-${art.status}
-
-</div>
-
-</div>
-
-<div class="art-info">
-
-<h3>${art.title}</h3>
-
-<p>${art.medium}</p>
-
-<span>${art.size}</span>
-
-<small>${art.year}</small>
-
-<button onclick="openArtwork(${index})" class="view-artwork">
-
-View Artwork →
-
-</button>
-
-</div>
-
-</article>
-
-`;
-
-});
-
-}
-
-createGallery();
-
-const viewer=document.getElementById("viewer");
-
-function openArtwork(i){
-
-const art=artworks[i];
+const art = artworks[index];
 
 viewer.classList.add("active");
 
-viewerImg.src=art.image;
+document.getElementById("viewerImg").src = art.image;
+document.getElementById("viewerTitle").textContent = art.title;
+document.getElementById("viewerStory").textContent = art.story;
+document.getElementById("viewerMedium").textContent = art.medium;
+document.getElementById("viewerSize").textContent = art.size;
+document.getElementById("viewerYear").textContent = art.year;
+document.getElementById("viewerPrice").textContent = art.price;
+document.getElementById("viewerStatus").textContent = art.status;
 
-viewerTitle.textContent=art.title;
-
-viewerStory.textContent=art.story;
-
-viewerMedium.textContent=art.medium;
-
-viewerSize.textContent=art.size;
-
-viewerYear.textContent=art.year;
-
-viewerPrice.textContent=art.price;
-
-viewerStatus.textContent=art.status;
+document.body.style.overflow="hidden";
 
 }
 
-document.querySelector(".close-viewer").onclick=()=>{
+function closeArtwork(){
 
 viewer.classList.remove("active");
 
-};
+document.body.style.overflow="auto";
 
-viewer.onclick=(e)=>{
+}
+
+closeBtn.addEventListener("click",closeArtwork);
+
+viewer.addEventListener("click",(e)=>{
 
 if(e.target===viewer){
 
-viewer.classList.remove("active");
+closeArtwork();
 
 }
 
-};
+});
+
+document.addEventListener("keydown",(e)=>{
+
+if(e.key==="Escape"){
+
+closeArtwork();
+
+}
+
+});
 
 createGallery();
