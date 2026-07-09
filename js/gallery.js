@@ -1,14 +1,17 @@
-const gallery = document.getElementById("gallery-grid");
+/*=========================================
+MUSEUM GALLERY
+=========================================*/
 
+const gallery = document.getElementById("gallery-grid");
 const viewer = document.getElementById("viewer");
 
-function createGallery(){
+function createGallery() {
 
-    if(!gallery) return;
+    if (!gallery) return;
 
-    gallery.innerHTML="";
+    gallery.innerHTML = "";
 
-    artworks.forEach((art,index)=>{
+    artworks.forEach((art, index) => {
 
         gallery.innerHTML += `
 
@@ -54,42 +57,126 @@ function createGallery(){
 
 createGallery();
 
+
+/*=========================================
+OPEN ARTWORK
+=========================================*/
+
 function openArtwork(index){
 
-const art = artworks[index];
+    const art = artworks[index];
 
-viewer.classList.add("active");
+    viewer.classList.add("active");
 
-document.getElementById("viewerImg").src = art.image;
+    document.body.style.overflow = "hidden";
 
-document.getElementById("viewerTitle").textContent = art.title;
+    document.getElementById("viewerImg").src = art.image;
+    document.getElementById("viewerTitle").textContent = art.title;
+    document.getElementById("viewerStory").textContent = art.story;
+    document.getElementById("viewerMedium").textContent = art.medium;
+    document.getElementById("viewerSize").textContent = art.size;
+    document.getElementById("viewerYear").textContent = art.year;
+    document.getElementById("viewerPrice").textContent = art.price;
+    document.getElementById("viewerStatus").textContent = art.status;
 
-document.getElementById("viewerStory").textContent = art.story;
+    const whatsappBtn = document.getElementById("viewerWhatsapp");
 
-document.getElementById("viewerMedium").textContent = art.medium;
+    if(art.status.toLowerCase() === "available"){
 
-document.getElementById("viewerSize").textContent = art.size;
+        whatsappBtn.textContent = "Acquire This Original";
 
-document.getElementById("viewerYear").textContent = art.year;
+        whatsappBtn.href =
+        "https://wa.me/255692973059?text=" +
+        encodeURIComponent(
 
-document.getElementById("viewerPrice").textContent = art.price;
+`Hello McDonald Simon,
 
-document.getElementById("viewerStatus").textContent = art.status;
+I am interested in acquiring your original artwork "${art.title}".
+
+Could you please let me know if it is still available?`
+
+        );
+
+    }
+
+    else if(art.status.toLowerCase() === "sold"){
+
+        whatsappBtn.textContent = "Request a Similar Commission";
+
+        whatsappBtn.href =
+        "https://wa.me/255692973059?text=" +
+        encodeURIComponent(
+
+`Hello McDonald Simon,
+
+I love your artwork "${art.title}".
+
+Although I understand it has been sold, I would like to commission a similar masterpiece inspired by it.
+
+Could we discuss the details?`
+
+        );
+
+    }
+
+    else{
+
+        whatsappBtn.textContent = "Enquire About This Artwork";
+
+        whatsappBtn.href =
+        "https://wa.me/255692973059?text=" +
+        encodeURIComponent(
+
+`Hello McDonald Simon,
+
+I would like to enquire about your artwork "${art.title}".`
+
+        );
+
+    }
 
 }
 
-document.querySelector(".close-viewer").addEventListener("click",()=>{
 
-viewer.classList.remove("active");
+/*=========================================
+CLOSE VIEWER
+=========================================*/
+
+function closeArtwork(){
+
+    viewer.classList.remove("active");
+
+    document.body.style.overflow = "auto";
+
+}
+
+
+const closeButton = document.querySelector(".close-viewer");
+
+if(closeButton){
+
+    closeButton.addEventListener("click", closeArtwork);
+
+}
+
+
+viewer.addEventListener("click", function(e){
+
+    if(e.target === viewer){
+
+        closeArtwork();
+
+    }
 
 });
 
-viewer.addEventListener("click",(e)=>{
 
-if(e.target===viewer){
+document.addEventListener("keydown", function(e){
 
-viewer.classList.remove("active");
+    if(e.key === "Escape"){
 
-}
+        closeArtwork();
+
+    }
 
 });
