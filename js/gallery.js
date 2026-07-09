@@ -1,7 +1,3 @@
-/*=========================================
-MUSEUM GALLERY
-=========================================*/
-
 const gallery = document.getElementById("gallery-grid");
 
 const viewer = document.getElementById("viewer");
@@ -60,67 +56,40 @@ createGallery();
 
 function openArtwork(index){
 
-    const art = artworks[index];
+const art = artworks[index];
 
-    viewer.classList.add("active");
+viewer.classList.add("active");
 
-    document.getElementById("viewerImg").src = art.image;
-    document.getElementById("viewerTitle").textContent = art.title;
-    document.getElementById("viewerStory").textContent = art.story;
-    document.getElementById("viewerMedium").textContent = art.medium;
-    document.getElementById("viewerSize").textContent = art.size;
-    document.getElementById("viewerYear").textContent = art.year;
-    document.getElementById("viewerPrice").textContent = art.price;
-    document.getElementById("viewerStatus").textContent = art.status;
+document.getElementById("viewerImg").src = art.image;
 
-    const btn = document.getElementById("viewerWhatsapp");
+document.getElementById("viewerTitle").textContent = art.title;
 
-    if(art.status.toLowerCase() === "available"){
+document.getElementById("viewerStory").textContent = art.story;
 
-        btn.textContent = "Acquire This Original";
+document.getElementById("viewerMedium").textContent = art.medium;
 
-        btn.href =
-        "https://wa.me/255692973059?text=" +
-        encodeURIComponent(
-        `Hello McDonald Simon,
+document.getElementById("viewerSize").textContent = art.size;
 
-I am interested in acquiring your original artwork "${art.title}".
+document.getElementById("viewerYear").textContent = art.year;
 
-Could you please let me know if it is still available?`
-        );
+document.getElementById("viewerPrice").textContent = art.price;
 
-    }
-
-    else if(art.status.toLowerCase() === "sold"){
-
-        btn.textContent = "Request a Similar Commission";
-
-        btn.href =
-        "https://wa.me/255692973059?text=" +
-        encodeURIComponent(
-        `Hello McDonald Simon,
-
-I love your artwork "${art.title}".
-
-Although I understand it has been sold, I would like to commission a similar painting.
-
-Could we discuss the details?`
-        );
-
-    }
-
-    else{
-
-        btn.textContent = "Enquire About This Artwork";
-
-        btn.href =
-        "https://wa.me/255692973059?text=" +
-        encodeURIComponent(
-        `Hello McDonald Simon,
-
-I would like to enquire about "${art.title}".`
-        );
-
-    }
+document.getElementById("viewerStatus").textContent = art.status;
 
 }
+
+document.querySelector(".close-viewer").addEventListener("click",()=>{
+
+viewer.classList.remove("active");
+
+});
+
+viewer.addEventListener("click",(e)=>{
+
+if(e.target===viewer){
+
+viewer.classList.remove("active");
+
+}
+
+});
