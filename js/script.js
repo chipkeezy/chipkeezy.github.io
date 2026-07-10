@@ -460,3 +460,15 @@ const y=(e.clientY/window.innerHeight-.5)*12;
 hero.style.backgroundPosition=`calc(50% + ${x}px) calc(50% + ${y}px)`;
 
 });
+/*=========================================
+MOBILE MENU
+=========================================*/
+
+const menuBtn = document.querySelector(".menu-btn");
+const mobileMenu = document.querySelector(".mobile-menu");
+
+menuBtn.addEventListener("click", () => {
+
+    mobileMenu.classList.toggle("active");
+
+});
