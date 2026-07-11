@@ -475,18 +475,22 @@ MOBILE MENU
 const menuBtn = document.querySelector(".menu-btn");
 const mobileMenu = document.querySelector(".mobile-menu");
 
-menuBtn.addEventListener("click",()=>{
+if (menuBtn && mobileMenu) {
 
-mobileMenu.classList.toggle("active");
+    menuBtn.addEventListener("click", function () {
 
-});
+        mobileMenu.classList.toggle("active");
 
-document.querySelectorAll(".mobile-menu a").forEach(link=>{
+    });
 
-link.addEventListener("click",()=>{
+    document.querySelectorAll(".mobile-menu a").forEach(link => {
 
-mobileMenu.classList.remove("active");
+        link.addEventListener("click", function () {
 
-});
+            mobileMenu.classList.remove("active");
 
-});
+        });
+
+    });
+
+}
