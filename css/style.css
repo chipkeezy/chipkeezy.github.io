@@ -458,85 +458,6 @@ PREMIUM NAVBAR
 
 }
 
-/*==================================================
-MOBILE MENU
-==================================================*/
-
-.menu-btn{
-
-display:none;
-
-background:none;
-
-border:none;
-
-}
-
-.menu-btn span{
-
-display:block;
-
-width:28px;
-
-height:2px;
-
-margin:6px 0;
-
-background:var(--gold);
-
-}
-
-.mobile-menu{
-
-position:fixed;
-
-top:0;
-
-right:-100%;
-
-width:280px;
-
-height:100vh;
-
-padding:110px 35px;
-
-background:#111;
-
-transition:.45s;
-
-z-index:99999;
-
-box-shadow:-10px 0 40px rgba(0,0,0,.45);
-
-}
-
-.mobile-menu.active{
-
-right:0;
-
-}
-
-.mobile-menu a{
-
-display:block;
-
-padding:18px 0;
-
-border-bottom:1px solid rgba(255,255,255,.08);
-
-font-size:18px;
-
-transition:.3s;
-
-}
-
-.mobile-menu a:hover{
-
-color:var(--gold);
-
-padding-left:10px;
-
-}
 
 /*==================================================
 HERO
@@ -741,84 +662,139 @@ transform:translateY(10px);
 }
 
 /*==================================================
-RESPONSIVE NAV + HERO
+FINAL MOBILE LAYOUT
 ==================================================*/
 
-@media(max-width:900px){
+@media (max-width:900px){
 
-.desktop-nav,
-.commission-btn{
-
-display:none;
-
+html,
+body{
+    overflow-x:hidden;
+    width:100%;
 }
 
-.menu-btn{
-
-display:block;
-
+.container{
+    width:92%;
 }
+
+section{
+    padding:80px 0;
+}
+
+/* NAVBAR */
 
 .nav-wrapper{
-
-padding:0 6px;
-
+    height:72px;
 }
 
 .brand img{
-
-width:46px;
-
+    width:48px;
 }
 
+.desktop-nav,
+.commission-btn{
+    display:none;
+}
+
+.menu-btn{
+    display:flex;
+}
+
+/* HERO */
+
 .hero{
-
-padding:130px 0 90px;
-
-text-align:center;
-
+    min-height:100vh;
+    padding:110px 0 70px;
+    text-align:center;
 }
 
 .hero-content{
+    max-width:100%;
+    align-items:center;
+}
 
-margin:auto;
-
-align-items:center;
-
+.hero-small{
+    font-size:11px;
+    letter-spacing:3px;
 }
 
 .hero h1{
-
-font-size:54px;
-
+    font-size:48px;
+    line-height:.95;
 }
 
 .hero-description{
-
-font-size:17px;
-
-max-width:100%;
-
+    max-width:100%;
+    font-size:16px;
 }
 
 .hero-buttons{
-
-flex-direction:column;
-
-width:100%;
-
+    width:100%;
+    flex-direction:column;
 }
 
 .hero-buttons .btn{
+    width:100%;
+}
 
-width:100%;
+/* FEATURED */
+
+.featured-grid{
+    grid-template-columns:1fr;
+    gap:40px;
+}
+
+.museum-label{
+    grid-template-columns:1fr;
+}
+
+/* GALLERY */
+
+#gallery-grid{
+    grid-template-columns:1fr;
+    gap:30px;
+}
+
+.art-content,
+.art-info{
+    padding:22px;
+}
+
+.art-meta{
+    grid-template-columns:1fr;
+}
+
+/* JOURNEY */
+
+.journey-grid{
+    grid-template-columns:1fr;
+}
+
+/* ABOUT */
+
+.about-grid{
+    grid-template-columns:1fr;
+    gap:40px;
+}
+
+/* COMMISSION */
+
+.commission-grid{
+    grid-template-columns:1fr;
+}
+
+/* CONTACT */
+
+.contact-grid{
+    grid-template-columns:1fr;
+}
+
+/* FOOTER */
+
+.footer-content{
+    flex-direction:column;
+    text-align:center;
+}
 
 }
 
-.scroll-indicator{
-
-bottom:20px;
-
-}
-
-}
