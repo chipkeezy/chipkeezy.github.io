@@ -468,29 +468,28 @@ hero.style.backgroundPosition=`calc(50% + ${x}px) calc(50% + ${y}px)`;
 });
 
 }
+
 /*=========================================
 MOBILE MENU
 =========================================*/
 
-const menuBtn = document.querySelector(".menu-btn");
-const mobileMenu = document.querySelector(".mobile-menu");
+document.addEventListener("DOMContentLoaded", () => {
 
-if (menuBtn && mobileMenu) {
+    const menuBtn = document.querySelector(".menu-btn");
+    const mobileMenu = document.querySelector(".mobile-menu");
 
-    menuBtn.addEventListener("click", function () {
+    if (!menuBtn || !mobileMenu) return;
 
+    menuBtn.addEventListener("click", () => {
         mobileMenu.classList.toggle("active");
-
+        menuBtn.classList.toggle("active");
     });
 
     document.querySelectorAll(".mobile-menu a").forEach(link => {
-
-        link.addEventListener("click", function () {
-
+        link.addEventListener("click", () => {
             mobileMenu.classList.remove("active");
-
+            menuBtn.classList.remove("active");
         });
-
     });
 
-}
+});
