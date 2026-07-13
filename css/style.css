@@ -748,25 +748,16 @@ FEATURED MASTERPIECE
 }
 
 /*==================================================
-COLLECTION GALLERY
+LUXURY GALLERY
 ==================================================*/
-
-.gallery{
-    background:#090909;
-}
 
 #gallery-grid{
 
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(360px,1fr));
-gap:42px;
-margin-top:70px;
+grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+gap:50px;
 
 }
-
-/*==============================
-ART CARD
-==============================*/
 
 .art-card{
 
@@ -775,8 +766,7 @@ border:1px solid rgba(200,161,90,.18);
 border-radius:24px;
 overflow:hidden;
 transition:.45s;
-box-shadow:0 18px 60px rgba(0,0,0,.45);
-position:relative;
+box-shadow:0 30px 70px rgba(0,0,0,.35);
 
 }
 
@@ -784,65 +774,25 @@ position:relative;
 
 transform:translateY(-12px);
 border-color:var(--gold);
-box-shadow:0 30px 70px rgba(0,0,0,.65);
+box-shadow:0 35px 90px rgba(200,161,90,.18);
 
 }
-
-/* Luxury golden shine */
-
-.art-card::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-
-    left:-170%;
-
-    width:60%;
-
-    height:100%;
-
-    background:linear-gradient(
-
-        90deg,
-
-        transparent,
-
-        rgba(255,255,255,.14),
-
-        transparent
-
-    );
-
-    transition:1.2s;
-
-}
-
-.art-card:hover::before{
-
-    left:170%;
-
-}
-
-/*==============================
-IMAGE FRAME
-==============================*/
 
 .art-image{
 
 position:relative;
 overflow:hidden;
+aspect-ratio:4/5;
+background:#000;
 
 }
 
 .art-image img{
 
 width:100%;
-height:500px;
+height:100%;
 object-fit:cover;
-transition:.8s;
+transition:.7s;
 
 }
 
@@ -852,176 +802,108 @@ transform:scale(1.06);
 
 }
 
-/*==============================
-CONTENT
-==============================*/
+.art-status{
 
-.art-content{
-
-padding:28px;
-
-}
-
-.card-head{
-
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:22px;
-
-}
-
-.badge{
-
-padding:8px 16px;
-border-radius:999px;
+position:absolute;
+top:18px;
+left:18px;
+padding:8px 18px;
+background:rgba(0,0,0,.75);
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,.08);
+border-radius:40px;
 font-size:11px;
-font-weight:700;
 letter-spacing:2px;
+color:var(--gold);
 text-transform:uppercase;
 
 }
 
-.badge.available{
+.art-content{
 
-background:#c8a15a;
-color:#111;
-
-}
-
-.badge.sold{
-
-background:#444;
-color:white;
+padding:30px;
 
 }
 
-.card-year{
+.card-top{
 
-color:var(--gold);
-font-weight:600;
+display:flex;
+justify-content:space-between;
+margin-bottom:18px;
+font-size:13px;
+letter-spacing:1px;
+color:#b7b7b7;
 
 }
 
 .art-content h3{
 
-font-size:34px;
-margin-bottom:16px;
+font-size:38px;
+margin-bottom:18px;
+line-height:1.05;
 
 }
 
 .art-story{
 
-min-height:95px;
+font-size:15px;
 line-height:1.8;
-margin-bottom:28px;
-color:#cfcfcf;
+margin-bottom:30px;
+min-height:95px;
 
 }
 
-/*==============================
-META GRID
-==============================*/
-
-.art-meta{
+.art-details{
 
 display:grid;
 grid-template-columns:repeat(2,1fr);
-gap:14px;
-margin-bottom:30px;
+gap:18px;
+margin-bottom:28px;
 
 }
 
-.meta{
+.art-details div{
 
+padding:18px;
 background:#171717;
-padding:16px;
 border-radius:16px;
 border:1px solid rgba(255,255,255,.05);
 
 }
 
-.meta span{
+.art-details small{
 
 display:block;
-font-size:11px;
-letter-spacing:2px;
-color:var(--gold);
 margin-bottom:8px;
+color:#999;
+font-size:12px;
+text-transform:uppercase;
+letter-spacing:1px;
 
 }
 
-.meta strong{
+.art-details strong{
 
+color:white;
 font-size:15px;
 
 }
 
-/*==============================
-BADGES
-==============================*/
-
-.badge{
-
-    display:inline-flex;
-
-    padding:8px 18px;
-
-    border-radius:999px;
-
-    font-size:11px;
-
-    letter-spacing:2px;
-
-    text-transform:uppercase;
-
-    font-weight:700;
-
-}
-
-.available{
-
-    background:rgba(52,120,72,.20);
-
-    color:#9ee7b2;
-
-}
-
-.reserved{
-
-    background:rgba(201,161,90,.18);
-
-    color:#f3d68d;
-
-}
-
-.sold{
-
-    background:rgba(120,120,120,.15);
-
-    color:#dddddd;
-
-}
-
-/*==============================
-BUTTON
-==============================*/
-
-.view-art{
+.view-artwork{
 
 width:100%;
 padding:18px;
-border:none;
-border-radius:999px;
 background:var(--gold);
 color:#111;
-font-weight:700;
-font-size:15px;
+font-weight:600;
+border:none;
+border-radius:999px;
 transition:.35s;
+font-size:15px;
 
 }
 
-.view-art:hover{
+.view-artwork:hover{
 
 background:var(--gold-light);
 transform:translateY(-3px);
@@ -1031,37 +913,36 @@ transform:translateY(-3px);
 MOBILE
 ==============================*/
 
-@media(max-width:900px){
+@media(max-width:768px){
 
 #gallery-grid{
 
-    grid-template-columns:1fr;
-
-    gap:32px;
+grid-template-columns:1fr;
+gap:30px;
 
 }
 
 .art-content{
 
-    padding:24px;
+padding:22px;
 
 }
 
 .art-content h3{
 
-    font-size:30px;
-
-}
-
-.art-meta{
-
-    grid-template-columns:1fr;
+font-size:31px;
 
 }
 
 .art-story{
 
-    min-height:auto;
+min-height:auto;
+
+}
+
+.art-details{
+
+grid-template-columns:1fr;
 
 }
 
