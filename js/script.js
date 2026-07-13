@@ -319,6 +319,7 @@ AUTOMATIC FEATURED ARTWORK
 const featured=artworks.find(a=>a.featured);
 
 if(featured){
+document.getElementById("viewerSize").textContent = art.dimensions;    
 
 document.querySelector("#featured h2").textContent=featured.title;
 
