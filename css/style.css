@@ -756,9 +756,12 @@ COLLECTION GALLERY
 }
 
 #gallery-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(360px,1fr));
-    gap:45px;
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(360px,1fr));
+gap:42px;
+margin-top:70px;
+
 }
 
 /*==============================
@@ -767,31 +770,21 @@ ART CARD
 
 .art-card{
 
-    background:#131313;
-
-    border:1px solid rgba(255,255,255,.07);
-
-    border-radius:24px;
-
-    overflow:hidden;
-
-    transition:.45s ease;
-
-    position:relative;
-
-    box-shadow:0 20px 60px rgba(0,0,0,.30);
+background:#111;
+border:1px solid rgba(200,161,90,.18);
+border-radius:24px;
+overflow:hidden;
+transition:.45s;
+box-shadow:0 18px 60px rgba(0,0,0,.45);
+position:relative;
 
 }
 
 .art-card:hover{
 
-    transform:translateY(-12px);
-
-    border-color:rgba(200,161,90,.40);
-
-    box-shadow:
-    0 35px 90px rgba(0,0,0,.45),
-    0 0 0 1px rgba(200,161,90,.12);
+transform:translateY(-12px);
+border-color:var(--gold);
+box-shadow:0 30px 70px rgba(0,0,0,.65);
 
 }
 
@@ -839,36 +832,23 @@ IMAGE FRAME
 
 .art-image{
 
-    padding:12px;
-
-    background:linear-gradient(
-        145deg,
-        #5b4522,
-        #c8a15a,
-        #6a5128
-    );
+position:relative;
+overflow:hidden;
 
 }
 
 .art-image img{
 
-    width:100%;
-
-    aspect-ratio:4/5;
-
-    object-fit:cover;
-
-    display:block;
-
-    border-radius:14px;
-
-    transition:1s;
+width:100%;
+height:500px;
+object-fit:cover;
+transition:.8s;
 
 }
 
 .art-card:hover img{
 
-    transform:scale(1.05);
+transform:scale(1.06);
 
 }
 
@@ -878,45 +858,64 @@ CONTENT
 
 .art-content{
 
-    padding:30px;
+padding:28px;
 
 }
 
 .card-head{
 
-    display:flex;
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:22px;
 
-    justify-content:space-between;
+}
 
-    align-items:center;
+.badge{
 
-    margin-bottom:20px;
+padding:8px 16px;
+border-radius:999px;
+font-size:11px;
+font-weight:700;
+letter-spacing:2px;
+text-transform:uppercase;
+
+}
+
+.badge.available{
+
+background:#c8a15a;
+color:#111;
+
+}
+
+.badge.sold{
+
+background:#444;
+color:white;
 
 }
 
 .card-year{
 
-    color:var(--gold);
-
-    letter-spacing:2px;
-
-    font-size:12px;
+color:var(--gold);
+font-weight:600;
 
 }
 
 .art-content h3{
 
-    font-size:36px;
-
-    margin-bottom:16px;
+font-size:34px;
+margin-bottom:16px;
 
 }
 
 .art-story{
 
-    margin-bottom:24px;
-
-    min-height:95px;
+min-height:95px;
+line-height:1.8;
+margin-bottom:28px;
+color:#cfcfcf;
 
 }
 
@@ -926,49 +925,35 @@ META GRID
 
 .art-meta{
 
-    display:grid;
-
-    grid-template-columns:repeat(2,1fr);
-
-    gap:15px;
-
-    margin-bottom:28px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:14px;
+margin-bottom:30px;
 
 }
 
 .meta{
 
-    background:#191919;
-
-    padding:16px;
-
-    border-radius:14px;
-
-    border:1px solid rgba(255,255,255,.05);
+background:#171717;
+padding:16px;
+border-radius:16px;
+border:1px solid rgba(255,255,255,.05);
 
 }
 
 .meta span{
 
-    display:block;
-
-    color:var(--gold);
-
-    font-size:11px;
-
-    letter-spacing:2px;
-
-    text-transform:uppercase;
-
-    margin-bottom:8px;
+display:block;
+font-size:11px;
+letter-spacing:2px;
+color:var(--gold);
+margin-bottom:8px;
 
 }
 
 .meta strong{
 
-    font-size:14px;
-
-    font-weight:500;
+font-size:15px;
 
 }
 
@@ -1024,32 +1009,24 @@ BUTTON
 
 .view-art{
 
-    width:100%;
-
-    padding:16px;
-
-    border-radius:999px;
-
-    border:1px solid rgba(200,161,90,.35);
-
-    color:var(--gold);
-
-    background:transparent;
-
-    transition:.35s;
-
-    font-weight:600;
+width:100%;
+padding:18px;
+border:none;
+border-radius:999px;
+background:var(--gold);
+color:#111;
+font-weight:700;
+font-size:15px;
+transition:.35s;
 
 }
 
 .view-art:hover{
 
-    background:var(--gold);
-
-    color:#111;
+background:var(--gold-light);
+transform:translateY(-3px);
 
 }
-
 /*==============================
 MOBILE
 ==============================*/
