@@ -350,7 +350,8 @@ const viewerTitle=document.getElementById("viewerTitle");
 const viewerStory=document.getElementById("viewerStory");
 
 const viewerMedium=document.getElementById("viewerMedium");
-const viewerSize=document.getElementById("viewerSize");
+
+const viewerSize = document.getElementById("viewerSize");
 
 const viewerYear=document.getElementById("viewerYear");
 
