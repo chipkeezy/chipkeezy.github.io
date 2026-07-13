@@ -319,8 +319,7 @@ AUTOMATIC FEATURED ARTWORK
 const featured=artworks.find(a=>a.featured);
 
 if(featured){
-document.getElementById("viewerSize").textContent = art.dimensions;    
-
+  
 document.querySelector("#featured h2").textContent=featured.title;
 
 document.querySelector(".featured-image img").src=featured.image;
@@ -351,8 +350,7 @@ const viewerTitle=document.getElementById("viewerTitle");
 const viewerStory=document.getElementById("viewerStory");
 
 const viewerMedium=document.getElementById("viewerMedium");
-
-const viewerSize=document.getElementById("viewerdimensions");
+const viewerSize=document.getElementById("viewerSize");
 
 const viewerYear=document.getElementById("viewerYear");
 
