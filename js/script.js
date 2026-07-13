@@ -216,99 +216,83 @@ start:"top 85%"
 AUTOMATIC GALLERY
 ==================================================*/
 
-const gallery=document.getElementById("gallery-grid");
+const gallery = document.getElementById("gallery-grid");
 
-if(gallery){
+function createGallery() {
 
-gallery.innerHTML="";
+    if (!gallery) return;
 
-artworks.forEach((art,index)=>{
+    gallery.innerHTML = "";
 
-gallery.innerHTML+=`
+    artworks.forEach((art,index)=>{
 
-<div class="art-card" data-index="${index}">
+        gallery.innerHTML += `
 
-<div class="art-image">
+<article class="art-card">
 
-<img src="${art.image}" alt="${art.title}" loading="lazy">
+    <div class="art-image">
 
-</div>
+        <img src="${art.image}" alt="${art.title}">
 
-<div class="art-content">
+        <span class="art-status ${art.status}">
+            ${art.status.toUpperCase()}
+        </span>
 
-<div class="card-head">
+    </div>
 
-<div class="badge ${art.status}">
+    <div class="art-content">
 
-${art.status.toUpperCase()}
+        <div class="card-top">
 
-</div>
+            <span>${art.year}</span>
 
-<div class="card-year">
+            <span>${art.medium}</span>
 
-${art.year}
+        </div>
 
-</div>
+        <h3>${art.title}</h3>
 
-</div>
+        <p class="art-story">
 
-<h3>${art.title}</h3>
+            ${art.story}
 
-<p class="art-story">
+        </p>
 
-${art.story}
+        <div class="art-details">
 
-</p>
+            <div>
 
-<div class="art-meta">
+                <small>Dimensions</small>
 
-<div class="meta">
+                <strong>${art.dimensions}</strong>
 
-<span>Medium</span>
+            </div>
 
-<strong>${art.medium}</strong>
+            <div>
 
-</div>
+                <small>Collection Value</small>
 
-<div class="meta">
+                <strong>${art.price}</strong>
 
-<span>Dimensions</span>
+            </div>
 
-<strong>${art.dimensions}</strong>
+        </div>
 
-</div>
+        <button
+        class="view-artwork"
+        onclick="openArtwork(${index})">
 
-<div class="meta">
+            View Artwork
 
-<span>Collection Value</span>
+        </button>
 
-<strong>${art.price}</strong>
+    </div>
 
-</div>
-
-<div class="meta">
-
-<span>Status</span>
-
-<strong>${art.status.toUpperCase()}</strong>
-
-</div>
-
-</div>
-
-<button class="view-art">
-
-View Artwork
-
-</button>
-
-</div>
-
-</div>
+</article>
 
 `;
 
-});
+    });
 
 }
 
@@ -319,7 +303,8 @@ AUTOMATIC FEATURED ARTWORK
 const featured = artworks.find(a => a.featured);
 
 if(featured){
-
+document.getElementById("viewerSize").textContent = art.dimensions;
+    
 document.querySelector("#featured h2").textContent = featured.title;
 
 document.querySelector(".featured-image img").src = featured.image;
