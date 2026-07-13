@@ -316,24 +316,24 @@ View Artwork
 AUTOMATIC FEATURED ARTWORK
 ==================================================*/
 
-const featured=artworks.find(a=>a.featured);
+const featured = artworks.find(a => a.featured);
 
 if(featured){
-  
-document.querySelector("#featured h2").textContent=featured.title;
 
-document.querySelector(".featured-image img").src=featured.image;
+document.querySelector("#featured h2").textContent = featured.title;
 
-document.querySelector(".featured-image img").alt=featured.title;
+document.querySelector(".featured-image img").src = featured.image;
 
-document.querySelector(".featured-story").textContent=featured.story;
+document.querySelector(".featured-image img").alt = featured.title;
 
-const labels=document.querySelectorAll(".museum-label .label strong");
+document.querySelector(".featured-story").textContent = featured.story;
 
-labels[0].textContent=featured.status.toUpperCase();
-labels[1].textContent=featured.medium;
-labels[2].textContent=featured.dimensions;
-labels[3].textContent=featured.price;
+const labels = document.querySelectorAll(".museum-label .label strong");
+
+labels[0].textContent = featured.status.toUpperCase();
+labels[1].textContent = featured.medium;
+labels[2].textContent = featured.dimensions;
+labels[3].textContent = featured.price;
 
 }
 
