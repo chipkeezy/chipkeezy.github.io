@@ -78,7 +78,7 @@ function openArtwork(index){
     document.getElementById("viewerMedium").textContent = art.medium;
     document.getElementById("viewerdimensions").textContent = art.dimensions;
     document.getElementById("viewerYear").textContent = art.year;
-    document.getElementById("viewerValue").textContent = art.price;
+    document.getElementById("viewerPrice").textContent = art.price;
     document.getElementById("viewerStatus").textContent = art.status;
 
     const whatsappBtn = document.getElementById("viewerWhatsapp");
