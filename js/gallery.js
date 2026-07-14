@@ -35,12 +35,12 @@ function createGallery() {
 
                    <div>
     <small>Dimensions</small>
-    <strong>${art.dimensions}</strong>
+    <strong>{art.dimensions}</strong>
 </div>
 
 <div>
     <small>Year</small>
-    <strong>${art.year}</strong>
+    <strong>{art.year}</strong>
 </div>
 
                 <button class="view-artwork" onclick="openArtwork(${index})">
@@ -58,8 +58,6 @@ function createGallery() {
     });
 
 }
-
-createGallery();
 
 
 /*=========================================
@@ -80,7 +78,7 @@ function openArtwork(index){
     document.getElementById("viewerMedium").textContent = art.medium;
     document.getElementById("viewerdimensions").textContent = art.dimensions;
     document.getElementById("viewerYear").textContent = art.year;
-    document.getElementById("viewerPrice").textContent = art.price;
+    document.getElementById("viewerValue").textContent = art.price;
     document.getElementById("viewerStatus").textContent = art.status;
 
     const whatsappBtn = document.getElementById("viewerWhatsapp");
