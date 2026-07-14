@@ -821,7 +821,10 @@ text-transform:uppercase;
 
 .art-content{
 
-padding:30px;
+padding:28px;
+display:flex;
+flex-direction:column;
+height:100%;
 
 }
 
@@ -838,18 +841,22 @@ color:#b7b7b7;
 
 .art-content h3{
 
-font-size:38px;
-margin-bottom:18px;
-line-height:1.05;
+font-size:42px;
+line-height:1.08;
+margin-bottom:14px;
+min-height:95px;
+display:flex;
+align-items:flex-end;
 
 }
 
 .art-story{
 
-font-size:15px;
+font-size:16px;
 line-height:1.8;
-margin-bottom:30px;
-min-height:95px;
+color:#bdbdbd;
+margin-bottom:26px;
+min-height:120px;
 
 }
 
@@ -857,17 +864,17 @@ min-height:95px;
 
 display:grid;
 grid-template-columns:repeat(2,1fr);
-gap:18px;
-margin-bottom:28px;
+gap:14px;
+margin-bottom:30px;
 
 }
 
 .art-details div{
 
-padding:18px;
-background:#171717;
-border-radius:16px;
-border:1px solid rgba(255,255,255,.05);
+padding:16px;
+background:#181818;
+border:1px solid rgba(200,161,90,.08);
+border-radius:14px;
 
 }
 
