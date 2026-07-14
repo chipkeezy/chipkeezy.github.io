@@ -151,89 +151,7 @@ start:"top 85%"
 });
 
 });
-/*==================================================
-AUTOMATIC GALLERY
-==================================================*/
 
-const gallery = document.getElementById("gallery-grid");
-
-function createGallery() {
-
-    if (!gallery) return;
-
-    gallery.innerHTML = "";
-
-    artworks.forEach((art,index)=>{
-
-        gallery.innerHTML += `
-
-<article class="art-card">
-
-    <div class="art-image">
-
-        <img src="${art.image}" alt="${art.title}">
-
-        <span class="art-status ${art.status}">
-            ${art.status.toUpperCase()}
-        </span>
-
-    </div>
-
-    <div class="art-content">
-
-        <div class="card-top">
-
-            <span>${art.year}</span>
-
-            <span>${art.medium}</span>
-
-        </div>
-
-        <h3>${art.title}</h3>
-
-        <p class="art-story">
-
-            ${art.story}
-
-        </p>
-
-        <div class="art-details">
-
-            <div>
-
-                <small>Dimensions</small>
-
-                <strong>{art.dimensions}</strong>
-
-            </div>
-
-            <div>
-
-                <small>Collection Value</small>
-
-                <strong>{art.price}</strong>
-
-            </div>
-
-        </div>
-
-        <button
-        class="view-artwork"
-        onclick="openArtwork(${index})">
-
-            View Artwork
-
-        </button>
-
-    </div>
-
-</article>
-
-`;
-
-    });
-
-}
 
 /*==================================================
 AUTOMATIC FEATURED ARTWORK
@@ -242,8 +160,7 @@ AUTOMATIC FEATURED ARTWORK
 const featured = artworks.find(a => a.featured);
 
 if(featured){
-document.getElementById("viewerSize").textContent = art.dimensions;
-    
+  
 document.querySelector("#featured h2").textContent = featured.title;
 
 document.querySelector(".featured-image img").src = featured.image;
