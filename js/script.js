@@ -6,67 +6,6 @@ Gallery Engine
 gsap.registerPlugin(ScrollTrigger);
 
 /*=========================================
-ARTWORK DATABASE
-Only edit this section in the future
-=========================================*/
-
-const artworks=[
-
-{
-id:1,
-featured:true,
-title:"The Last Ember II",
-image:"images/ember.jpeg",
-story:"The strongest people are often those who have weathered the hardest storms yet continue to carry warmth for others.",
-medium:"Oil on Canvas",
-dimensions:"60 × 80 cm",
-year:"2026",
-price:"$ 320",
-status:"available"
-},
-
-{
-id:2,
-featured:false,
-title:"The Feet That Carried A Continent",
-image:"images/feet.jpeg",
-story:"A tribute to endurance, sacrifice and the silent journeys that shaped generations.",
-medium:"Oil on Canvas",
-dimensions:"60 × 80 cm",
-year:"2026",
-price:"$ 300",
-status:"available"
-},
-
-{
-id:3,
-featured:false,
-title:"Last Shepherd Of The Dawn",
-image:"images/boy.jpeg",
-story:"Hope often walks quietly before the rest of the world notices the sunrise.",
-medium:"Oil on Canvas",
-dimensions:"60 × 80 cm",
-year:"2026",
-price:"$ 300",
-status:"available"
-},
-
-{
-id:4,
-featured:false,
-title:"Old Soul",
-image:"images/masai.jpeg",
-story:"A portrait exploring dignity, memory and timeless character.",
-medium:"Oil on Canvas",
-dimensions:"60 × 80 cm",
-year:"2026",
-price:"$ 300",
-status:"available"
-}
-
-];
-
-/*=========================================
 CINEMATIC INTRO V2
 =========================================*/
 
