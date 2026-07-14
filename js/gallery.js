@@ -35,12 +35,12 @@ function createGallery() {
 
                    <div>
     <small>Dimensions</small>
-    <strong>{art.dimensions}</strong>
+    <strong>${art.dimensions}</strong>
 </div>
 
 <div>
     <small>Year</small>
-    <strong>{art.year}</strong>
+    <strong>${art.year}</strong>
 </div>
 
                 <button class="view-artwork" onclick="openArtwork(${index})">
