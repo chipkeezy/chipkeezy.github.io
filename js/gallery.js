@@ -78,7 +78,7 @@ function openArtwork(index){
     document.getElementById("viewerTitle").textContent = art.title;
     document.getElementById("viewerStory").textContent = art.story;
     document.getElementById("viewerMedium").textContent = art.medium;
-    document.getElementById("viewerSize").textContent = art.size;
+    document.getElementById("viewerdimensions").textContent = art.dimensions;
     document.getElementById("viewerYear").textContent = art.year;
     document.getElementById("viewerPrice").textContent = art.price;
     document.getElementById("viewerStatus").textContent = art.status;
