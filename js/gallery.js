@@ -25,19 +25,23 @@ function createGallery() {
 
             </div>
 
-            <div class="art-info">
+           <div class="art-content">
 
                 <h3>${art.title}</h3>
 
                 <p>${art.medium}</p>
 
-                <div class="art-meta">
+                <div class="art-details">
 
-                    <span>${art.size}</span>
+                   <div>
+    <small>Dimensions</small>
+    <strong>${art.dimensions}</strong>
+</div>
 
-                    <span>${art.year}</span>
-
-                </div>
+<div>
+    <small>Year</small>
+    <strong>${art.year}</strong>
+</div>
 
                 <button class="view-artwork" onclick="openArtwork(${index})">
 
