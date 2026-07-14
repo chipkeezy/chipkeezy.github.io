@@ -264,7 +264,7 @@ function createGallery() {
 
                 <small>Dimensions</small>
 
-                <strong>${art.dimensions}</strong>
+                <strong>{art.dimensions}</strong>
 
             </div>
 
@@ -272,7 +272,7 @@ function createGallery() {
 
                 <small>Collection Value</small>
 
-                <strong>${art.price}</strong>
+                <strong>{art.price}</strong>
 
             </div>
 
