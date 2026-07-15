@@ -7,7 +7,7 @@ story:"A quiet meditation on memory and disappearing light.",
 medium:"Oil on Canvas",
 dimensions:"60 × 80 cm",
 year:"2026",
-price:"$850",
+price:"$300",
 status:"Available",
 featured:true
 },
@@ -19,7 +19,7 @@ story:"A journey of a thousand miles does not just leave footprints; it leaves a
 medium:"Oil on Canvas",
 dimensions:"60 × 80 cm",
 year:"2026",
-price:"$850",
+price:"$300",
 status:"Available",
 featured:true
 },
@@ -30,7 +30,7 @@ story:"Her unwavering gaze locks onto a point far beyond the canvas, holding a v
 medium:"Oil on Canvas",
 dimensions:"60 × 80 cm",
 year:"2026",
-price:"$850",
+price:"$300",
 status:"Available",
 featured:true
 },  
@@ -41,7 +41,7 @@ story:"He sits at the threshold of the timeless earth and an unfolding future—
 medium:"Oil on Canvas",
 dimensions:"60 × 80 cm",
 year:"2026",
-price:"$1200",
+price:"$300",
 status:"Available",
 featured:false
 }
