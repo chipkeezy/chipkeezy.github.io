@@ -8,8 +8,8 @@ medium:"Oil on Canvas",
 dimensions:"60 × 80 cm",
 year:"2026",
 price:"$300",
-status:"Available",
-featured:true
+status:"SOLD",
+featured:false
 },
   
 {
@@ -20,7 +20,7 @@ medium:"Oil on Canvas",
 dimensions:"60 × 80 cm",
 year:"2026",
 price:"$300",
-status:"Available",
+status:"SOLD",
 featured:true
 },
 {
@@ -31,7 +31,7 @@ medium:"Oil on Canvas",
 dimensions:"60 × 80 cm",
 year:"2026",
 price:"$300",
-status:"Available",
+status:"SOLD",
 featured:true
 },  
 {
@@ -42,7 +42,7 @@ medium:"Oil on Canvas",
 dimensions:"60 × 80 cm",
 year:"2026",
 price:"$300",
-status:"Available",
+status:"SOLD",
 featured:false
 }
 ];
