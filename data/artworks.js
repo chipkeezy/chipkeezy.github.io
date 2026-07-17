@@ -21,7 +21,7 @@ dimensions:"60 × 80 cm",
 year:"2026",
 price:"$300",
 status:"SOLD",
-featured:true
+featured:false
 },
 {
 title:"The Unyielding Horizon",
@@ -32,7 +32,7 @@ dimensions:"60 × 80 cm",
 year:"2026",
 price:"$300",
 status:"SOLD",
-featured:true
+featured:false
 },  
 {
 title:"Roots of the Peak",
